@@ -1,0 +1,61 @@
+Analyze this debate text:
+
+{text}
+
+Apply the provided evaluation principles to identify and classify arguments. Pay special attention to:
+- Explicitly stated terms or standards
+- Logical structure and evidence quality
+- Relevant ethical considerations
+- Practical implications
+
+You need to identify argument participants. If names are not provided, create them.
+
+Provide a structured response in this exact format:
+
+BELLIGERENTS
+<p1>{text_party_1}</p1>|<p2>{text_party_2}</p2>
+
+ARGUMENTS FOR <p1>
+Label each argument A1, A2, etc. For each argument, provide:
+1. Clear statement of the argument
+2. One of these strength annotations:
+   [CORE] - A central claim that other arguments build upon
+   [STRONG] - Could be decisive if not effectively countered
+   [SUPPORTING] - Reinforces another argument (specify which)
+   [WEAK] - Minor point that might only matter in a close case
+3. Explanation of why you chose that strength level
+
+Example:
+A1. The contract explicitly states delivery must be within 30 days
+[CORE] This is the fundamental basis of the breach of contract claim
+
+A2. The delay caused significant financial losses
+[STRONG] Demonstrates material harm from the breach
+
+IMPLICATIONS FOR <p1>
+- If A1 is true, then {{consequence}}
+- A2 depends on A1 because {{reason}}
+- A3 strengthens A2 by showing {{connection}}
+
+SUMMARY FOR <p1>
+<s1>Concise summary of their overall position and how arguments connect</s1>
+
+ARGUMENTS FOR <p2>
+(Same format as above, using B1, B2, etc.)
+
+IMPLICATIONS FOR <p2>
+(Same format as above)
+
+SUMMARY FOR <p2>
+<s2>Concise summary of their overall position and how arguments connect</s2>
+
+COMPLEXITY RATING
+<complexity>
+Rating: [1-5]
+Reasoning: Brief explanation of rating based on:
+1: Easily adjudicated by a layperson
+2: Basic domain knowledge needed
+3: Moderate expertise required
+4: Significant expertise needed
+5: Deep expertise or exceptional discernment required
+</complexity> 

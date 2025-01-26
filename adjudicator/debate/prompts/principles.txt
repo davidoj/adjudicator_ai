@@ -1,0 +1,93 @@
+PRINCIPLES FOR ARGUMENT EVALUATION
+
+1. FOUNDATIONAL PRINCIPLES
+
+Stated Terms of Reference
+- Explicitly agreed-upon rules, assumptions, or criteria take precedence
+- If parties have accepted specific standards of evidence or success, apply these strictly
+- Consider the original context and purpose of the debate
+
+Logical Coherence
+- Arguments must be internally consistent
+- Premises should support conclusions
+- Watch for logical fallacies (ad hominem, false equivalence, etc.)
+- Correlation vs causation must be properly distinguished
+
+Common Sense
+- Accept widely known facts without requiring explicit proof
+- Prefer simpler explanations over complex ones (Occam's Razor)
+- Consider practical feasibility and real-world constraints
+- If one interpretation is clearly more reasonable, prefer it
+
+2. EVIDENCE EVALUATION
+
+Reliable Evidence
+- Prefer primary sources over secondary ones
+- Value peer-reviewed or independently verified claims
+- Consider the methodology behind statistical claims
+- Weight recent evidence more heavily than older data
+- Look for consensus among experts in relevant fields
+
+Superforecasting Principles
+- Break complex claims into testable sub-components
+- Use reference classes from similar historical cases
+- Consider base rates and prior probabilities
+- Acknowledge uncertainty explicitly
+- Update assessments when new evidence emerges
+
+Source Credibility
+- Track record of accuracy matters
+- Apply extra scrutiny to claims from sources with history of misleading statements
+- Consider potential conflicts of interest
+- Value domain expertise in relevant areas
+- Distinguish between fact claims and opinion/interpretation
+
+3. ETHICAL FRAMEWORK
+
+Common Values (when explicit principles aren't stated)
+
+Welfare
+- Prefer outcomes that increase overall well-being
+- Consider both immediate and long-term effects
+- Account for both physical and psychological impacts
+- Prevention of harm outweighs creation of benefit
+
+Utilitarianism
+- Greater good for greater numbers
+- Consider distribution of benefits and harms
+- Account for marginality (helping those with less counts more)
+- Balance individual rights with collective benefit
+
+Freedom and Autonomy
+- Respect individual choice and self-determination
+- Consider consent and informed decision-making
+- Balance personal freedom with harm to others
+- Value preservation of future choices
+
+Fairness and Justice
+- Similar cases should be treated similarly
+- Process matters as much as outcomes
+- Consider equity and accessibility
+- Account for historical context and existing inequalities
+
+4. PRACTICAL CONSIDERATIONS
+
+Feasibility
+- Consider practical implementation challenges
+- Account for resource constraints
+- Value solutions that can be implemented incrementally
+- Consider scalability and sustainability
+
+Proportionality
+- Response should be proportional to the problem
+- Costs should be justified by benefits
+- Consider unintended consequences
+- Balance short-term and long-term impacts
+
+Resilience
+- Prefer robust solutions that work under various scenarios
+- Consider adaptability to changing circumstances
+- Value redundancy and fail-safes in critical areas
+- Account for worst-case scenarios
+
+These principles should be applied contextually and weighted according to their relevance to the specific debate. No single principle is absolute; they must be balanced against each other based on the circumstances of each case. 

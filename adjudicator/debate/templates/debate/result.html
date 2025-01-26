@@ -1,0 +1,199 @@
+{% extends 'base.html' %}
+{% load debate_filters %}
+
+{% block content %}
+<div class="debate-result">
+    <h1>Debate Analysis</h1>
+    
+    <div class="quick-summary">
+        <h2>Quick Summary</h2>
+        <div class="participants">
+            <div class="participant">
+                <h3>{{ debate.belligerent_1 }}</h3>
+                <p>{{ debate.summary_1 }}</p>
+            </div>
+            <div class="participant">
+                <h3>{{ debate.belligerent_2 }}</h3>
+                <p>{{ debate.summary_2 }}</p>
+            </div>
+        </div>
+        
+        <div class="winner">
+            <h3>Winner: {{ debate.winner }}</h3>
+        </div>
+    </div>
+
+    <div class="argument-analysis">
+        <h2>Argument Analysis</h2>
+        {% if parse_failed %}
+            <div class="parse-error">
+                Unable to parse argument analysis into table format. Here's the raw analysis:
+                <pre class="raw-analysis">{{ debate.evaluation }}</pre>
+            </div>
+        {% else %}
+            <div class="evaluation-tables">
+                {% for table in evaluation_tables %}
+                <table class="evaluation-table">
+                    <thead>
+                        <tr>
+                            <th>Topic</th>
+                            <th>{{ debate.belligerent_1 }}'s Argument</th>
+                            <th>{{ debate.belligerent_2 }}'s Argument</th>
+                            <th>Outcome</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ table.topic }}</td>
+                            <td>{{ table.p1_argument }}</td>
+                            <td>{{ table.p2_argument }}</td>
+                            <td>{{ table.outcome }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="strengthening-advice">
+        <h2>How to Strengthen the Arguments</h2>
+        <div class="advice-columns">
+            <div class="advice-column">
+                <h3>For {{ debate.belligerent_1 }}</h3>
+                <div class="advice-content">
+                    {% with advice=debate.judgment|split_section:"For P1:" %}
+                        {% if advice|is_list %}
+                            <ul>
+                            {% for item in advice %}
+                                <li>{{ item }}</li>
+                            {% endfor %}
+                            </ul>
+                        {% else %}
+                            {{ advice|linebreaks }}
+                        {% endif %}
+                    {% endwith %}
+                </div>
+            </div>
+            <div class="advice-column">
+                <h3>For {{ debate.belligerent_2 }}</h3>
+                <div class="advice-content">
+                    {% with advice=debate.judgment|split_section:"For P2:" %}
+                        {% if advice|is_list %}
+                            <ul>
+                            {% for item in advice %}
+                                <li>{{ item }}</li>
+                            {% endfor %}
+                            </ul>
+                        {% else %}
+                            {{ advice|linebreaks }}
+                        {% endif %}
+                    {% endwith %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .debate-result {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    
+    .participants {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin: 20px 0;
+    }
+    
+    .participant {
+        padding: 15px;
+        background: #f5f5f5;
+        border-radius: 8px;
+    }
+    
+    .winner {
+        text-align: center;
+        margin: 20px 0;
+        padding: 10px;
+        background: #e8f5e9;
+        border-radius: 8px;
+    }
+    
+    .argument-analysis {
+        margin: 20px 0;
+    }
+    
+    .evaluation-tables {
+        margin: 20px 0;
+    }
+    
+    .evaluation-table {
+        width: 100%;
+        margin: 1rem 0;
+        border-collapse: collapse;
+        background: white;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+    
+    .evaluation-table th,
+    .evaluation-table td {
+        padding: 1rem;
+        text-align: left;
+        border: 1px solid #e5e7eb;
+    }
+    
+    .evaluation-table th {
+        background: #f8f9fa;
+        font-weight: 600;
+    }
+    
+    .evaluation-table tr:hover {
+        background: #f8f9fa;
+    }
+    
+    .parse-error {
+        background: #fff3e0;
+        padding: 1rem;
+        border-radius: 8px;
+        margin: 1rem 0;
+    }
+    
+    .raw-analysis {
+        background: #f8f9fa;
+        padding: 1rem;
+        border-radius: 4px;
+        white-space: pre-wrap;
+        margin-top: 1rem;
+    }
+    
+    .strengthening-advice {
+        margin-top: 2rem;
+        padding: 1rem;
+        background: #f8f9fa;
+        border-radius: 8px;
+    }
+    
+    .advice-columns {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        margin-top: 1rem;
+    }
+    
+    .advice-column {
+        background: white;
+        padding: 1rem;
+        border-radius: 4px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+    
+    .advice-content {
+        margin-top: 0.5rem;
+        white-space: pre-wrap;
+    }
+</style>
+{% endblock %} 

@@ -1,0 +1,1 @@
+Summarize {name}'s side of this argument in about 200 words: {text} \n -------- Summary: 

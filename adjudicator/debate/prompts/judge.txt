@@ -1,0 +1,52 @@
+Based on the structured analysis and evaluations, determine the winner. Ensure that all required tags are present in the correct places.
+
+{evaluations}
+
+In making your judgment:
+- First consider any explicitly agreed standards
+- Apply logical and evidential principles rigorously
+- Consider ethical implications using common values
+- Account for practical considerations
+- When arguments reference known events, figures, or concepts, use your understanding to evaluate claims more thoroughly
+- However, the judgment should primarily rest on the arguments made, not external considerations
+- Explain which principles were most important in reaching your decision
+
+Based on historical data, your judgements tend to be most accurate for arguments rated 3 or below on the complexity scale. For arguments rated 4 or 5, exercise additional caution and clearly acknowledge areas of uncertainty in your reasoning.
+
+When evaluating arguments:
+- For complexity ratings 1-3: Proceed with normal confidence
+- For complexity ratings 4-5: Explicitly acknowledge limitations and uncertainties
+- Always explain your reasoning clearly
+
+
+Outcome classifications:
+- PREVAILS DECISIVELY: One party's argument is substantially stronger, with clear evidence/reasoning
+- PREVAILS NARROWLY: One party's argument is somewhat stronger, but with limitations
+- STALEMATE: Truly equal strength arguments OR both sides fail to make effective cases at all. Use sparingly.
+
+Note: A weak argument vs no evidence should usually result in a NARROW victory, not a stalemate. 
+
+<final_argument_map>
+    <topic>{{Core disagreement from evaluation}}</topic>
+    <p1_argument>{{First party's main argument}}</p1_argument>
+    <p2_argument>{{Second party's main argument}}</p2_argument>
+    <final_outcome>
+        <verdict>[P1 PREVAILS DECISIVELY/P1 PREVAILS NARROWLY/P2 PREVAILS DECISIVELY/P2 PREVAILS NARROWLY/STALEMATE]</verdict>
+        <reason>{{Explanation why}}</reason>
+    </final_outcome>
+</final_argument_map>
+
+<judgment>
+    <winner>{{Select one of the belligerents by name, or state "Indecisive" for stalemates}}</winner>
+    <reasoning>{{Clear explanation of the key factors that determined the outcome}}</reasoning>
+    <strength>
+        <verdict>[DECISIVE/CLEAR/NARROW/INDECISIVE]</verdict>
+        <explanation>{{Explanation of why this classification was chosen}}</explanation>
+    </strength>
+</judgment>
+
+<strengthening_advice>
+    <p1_advice>{{2-3 specific ways the first party could have strengthened their argument}}</p1_advice>
+    <p2_advice>{{2-3 specific ways the second party could have strengthened their argument}}</p2_advice>
+</strengthening_advice> 
+

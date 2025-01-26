@@ -1,0 +1,6 @@
+Based on the argument, who made the stronger case? Return only the name: 
+***
+     {belligerent_1} summary: {summary_1} 
+     {belligerent_2} summary: {summary_2} 
+***
+     Winner: 

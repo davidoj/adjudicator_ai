@@ -1,0 +1,55 @@
+Given these structured arguments, analyze their interactions:
+
+{structured_arguments}
+
+Apply the evaluation principles to assess:
+- How well arguments meet logical and evidential standards
+- Whether any agreed standards or terms of reference are satisfied
+- Relevant ethical considerations from common values
+- Practical feasibility and implications
+
+When evaluating:
+- Focus primarily on the arguments and evidence presented
+- If arguments reference broader context (events, people, concepts) that you're familiar with, incorporate that knowledge to enrich the analysis
+- However, maintain focus on the specific claims made rather than shifting to tangential debates
+- Note when your contextual knowledge significantly influences the evaluation
+- Be skeptical of unquantified tradeoff claims when responding to quantitative arguments
+- Recognize when an argument identifies a mathematical or logical problem that requires resolution
+- If resolution is beyond your expertise, refrain from making a judgment
+
+Provide analysis in this format:
+
+<argument_map>
+    <topic>{{Core disagreement}}</topic>
+    <p1_argument>{{First party's main argument}}</p1_argument>
+    <p2_argument>{{Second party's main argument}}</p2_argument>
+</argument_map>
+
+<direct_interactions>
+    <interaction>
+        <topic>{{Topic}}</topic>
+        <p1_position>{{A1's position}}</p1_position>
+        <p2_position>{{B1's position}}</p2_position>
+        <outcome>
+            <verdict>[A1 PREVAILS/B1 PREVAILS/STALEMATE]</verdict>
+            <reason>{{Analysis of relative strengths and weaknesses}}</reason>
+        </outcome>
+        <key_principles>{{List key principles invoked}}</key_principles>
+    </interaction>
+</direct_interactions>
+
+<decisive_factors>
+    <factor>{{Key argument or interaction that heavily influences the outcome}}</factor>
+    <factor>{{Secondary factor}}</factor>
+</decisive_factors>
+
+<uncertainties>
+    <uncertainty>{{Factual dispute that remains unresolved}}</uncertainty>
+    <uncertainty>{{Logical connection that isn't fully established}}</uncertainty>
+    <uncertainty>{{Crucial missing context}}</uncertainty>
+</uncertainties>
+
+<complexity_assessment>
+    <rating>{{Extract and include the complexity rating from the initial analysis}}</rating>
+    <additional_factors>{{Note any aspects of the interaction analysis that might affect complexity}}</additional_factors>
+</complexity_assessment>
