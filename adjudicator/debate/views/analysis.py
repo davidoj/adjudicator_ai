@@ -1,4 +1,4 @@
-from django.http import JsonResponse, HttpResponseForbidden, StreamingHttpResponse
+from django.http import JsonResponse, HttpResponseForbidden, StreamingHttpResponse, HttpResponse
 from django.shortcuts import redirect
 from decimal import Decimal
 import json
@@ -8,6 +8,8 @@ import logging
 from ..services.llm import make_llm_call, load_prompt
 from ..models import Debate
 from ..services.analysis import perform_analysis
+import csv
+from ..models import IPCreditUsage, CreditBalance
 
 logger = logging.getLogger('llm_calls')
 
@@ -125,6 +127,22 @@ def analyze_debate(text):
 def analyze_stream(request):
     if request.method == 'POST':
         request.session['debate_text'] = request.POST.get('debate_text')
+        
+        # Get client IP and check credits here, before starting analysis
+        ip_address = request.META.get('HTTP_X_FORWARDED_FOR', request.META.get('REMOTE_ADDR'))
+        if ip_address:
+            ip_address = ip_address.split(',')[0]
+            
+        # Check if IP has remaining credits
+        credit_cost = Decimal('1.00')
+        if not IPCreditUsage.can_use_credits(ip_address, credit_cost):
+            return JsonResponse({
+                'error': 'You have reached your credit limit of 15. Please try again later.'
+            }, status=429)
+            
+        # Record IP usage
+        IPCreditUsage.add_usage(ip_address, credit_cost)
+        
         return JsonResponse({'status': 'ok'})
     
     text = request.session.get('debate_text')
@@ -163,7 +181,10 @@ def analyze_stream(request):
                 credit_cost=Decimal('1.0'),
                 analysis=result['analysis'],
                 evaluation=result['evaluation'],
-                judgment=result['judgment']
+                judgment=result['judgment'],
+                title=result['title'],
+                evaluation_formatted=result['evaluation_formatted'],
+                judgment_formatted=result['judgment_formatted']
             )
             
             yield "data: " + json.dumps({
@@ -183,4 +204,4 @@ def analyze_stream(request):
                 'message': str(e)
             }) + "\n\n"
     
-    return StreamingHttpResponse(event_stream(), content_type='text/event-stream') 
+    return StreamingHttpResponse(event_stream(), content_type='text/event-stream')

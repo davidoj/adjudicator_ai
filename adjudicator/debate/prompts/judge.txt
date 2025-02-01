@@ -46,7 +46,15 @@ Note: A weak argument vs no evidence should usually result in a NARROW victory, 
 </judgment>
 
 <strengthening_advice>
-    <p1_advice>{{2-3 specific ways the first party could have strengthened their argument}}</p1_advice>
-    <p2_advice>{{2-3 specific ways the second party could have strengthened their argument}}</p2_advice>
+    <p1_advice>
+        <point>{{First specific suggestion for P1}}</point>
+        <point>{{Second specific suggestion for P1}}</point>
+        <point>{{Third specific suggestion for P1}}</point>
+    </p1_advice>
+    <p2_advice>
+        <point>{{First specific suggestion for P2}}</point>
+        <point>{{Second specific suggestion for P2}}</point>
+        <point>{{Third specific suggestion for P2}}</point>
+    </p2_advice>
 </strengthening_advice> 
 

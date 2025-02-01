@@ -10,12 +10,35 @@ Apply the evaluation principles to assess:
 
 When evaluating:
 - Focus primarily on the arguments and evidence presented
+- When evaluating factual claims:
+  * Consider whether a claim is challenged by the other party
+  * If an extraordinary claim goes unchallenged, this often suggests it is accepted as true
+  * Look for internal consistency - does the opposing party's argument implicitly accept the claim?
+  * Consider whether a claim matches common knowledge about scale and scope
+  * When exact numbers are disputed, look for agreement about rough magnitude
+  * Be especially careful about claims that both:
+    - Are central to the argument
+    - Are specifically disputed by the other party
+- For arguments marked with *Qant*, attempt to:
+  * Verify any explicit quantities given
+  * Make reasonable estimates where quantities are implied but not stated
+  * Consider relevant base rates and comparative statistics
+  * Note when quantitative claims lack sufficient support
+  * Always contextualize numbers:
+    - Compare to relevant baselines (e.g., total budget, GDP, population)
+    - Break down large numbers into more comprehensible units
+    - Consider the magnitude of impacts, not just the direction
+    - Considering costs alongside benefits often helps to clarify the magnitude of each number
 - If arguments reference broader context (events, people, concepts) that you're familiar with, incorporate that knowledge to enrich the analysis
 - However, maintain focus on the specific claims made rather than shifting to tangential debates
+- If an argument depends on other claims, and these claims have been convincingly refuted, then the argument itself is (probably) defeated
 - Note when your contextual knowledge significantly influences the evaluation
+- Avoid human errors from avoiding quantification. Be scope sensitive, pay attention to base rates. If you need to estimate a number, do so.
 - Be skeptical of unquantified tradeoff claims when responding to quantitative arguments
 - Recognize when an argument identifies a mathematical or logical problem that requires resolution
 - If resolution is beyond your expertise, refrain from making a judgment
+
+Remember that the participants do not necessarily have a position on every point; write "no position" if that is the case.
 
 Provide analysis in this format:
 
@@ -28,11 +51,11 @@ Provide analysis in this format:
 <direct_interactions>
     <interaction>
         <topic>{{Topic}}</topic>
-        <p1_position>{{A1's position}}</p1_position>
-        <p2_position>{{B1's position}}</p2_position>
+        <p1_position>{{P1's position, with quantities resolved where marked with *Qant*}}</p1_position>
+        <p2_position>{{P2's position, with quantities resolved where marked with *Qant*}}</p2_position>
         <outcome>
+            <reason>{{Analysis of relative strengths and weaknesses, including quantitative analysis where relevant}}</reason>
             <verdict>[A1 PREVAILS/B1 PREVAILS/STALEMATE]</verdict>
-            <reason>{{Analysis of relative strengths and weaknesses}}</reason>
         </outcome>
         <key_principles>{{List key principles invoked}}</key_principles>
     </interaction>
@@ -48,6 +71,19 @@ Provide analysis in this format:
     <uncertainty>{{Logical connection that isn't fully established}}</uncertainty>
     <uncertainty>{{Crucial missing context}}</uncertainty>
 </uncertainties>
+
+<factual_claims_assessment>
+    <unchallenged_claims>
+        {{List important factual claims that went unchallenged}}
+    </unchallenged_claims>
+    <disputed_claims>
+        {{List important factual claims that were specifically disputed}}
+        {{For each, note whether either party provided evidence}}
+    </disputed_claims>
+    <implicit_agreements>
+        {{Note any facts that both parties seem to accept in their arguments}}
+    </implicit_agreements>
+</factual_claims_assessment>
 
 <complexity_assessment>
     <rating>{{Extract and include the complexity rating from the initial analysis}}</rating>

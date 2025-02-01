@@ -57,12 +57,35 @@
             border: 1px solid #22c55e;
             color: #166534;
         }
+        
+        .nav-link {
+            background: none;
+            border: none;
+            color: white;
+            text-decoration: none;
+            margin-right: 1rem;
+            font: inherit;
+            cursor: pointer;
+            padding: 0;
+        }
+        
+        .nav-link:hover {
+            text-decoration: underline;
+        }
     </style>
+    {% csrf_token %}
 </head>
 <body>
     <nav>
         <a href="{% url 'home' %}">Adjudicator.ai</a>
         <a href="{% url 'home' %}">New Analysis</a>
+        {% if original_text %}
+            <form action="{% url 'home' %}" method="get" style="display: inline;">
+                <input type="hidden" name="prefill" value="{{ original_text|escape }}">
+                <button type="submit" class="nav-link">Modify Argument</button>
+            </form>
+        {% endif %}
+        <a href="{% url 'hall_of_fame' %}">Hall of Fame</a>
     </nav>
 
     <div class="container">

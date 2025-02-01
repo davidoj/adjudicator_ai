@@ -14,6 +14,11 @@
     <h1>Debate Analysis</h1>
     <p class="intro">Enter a debate or argument to analyze. Our AI will identify the participants, evaluate their arguments, and determine who made the stronger case.</p>
 
+    <div class="credit-info">
+        <p>Credits Remaining: {{ credits|floatformat:2 }} / 15.00</p>
+        <p>Total Credits Used: {{ total_credits_used|floatformat:2 }}</p>
+    </div>
+
     <form method="post" class="analysis-form" onsubmit="showLoading()">
         {% csrf_token %}
         <div class="form-group">
@@ -23,7 +28,7 @@
                 name="debate_text" 
                 rows="10" 
                 required
-                placeholder="Paste or type the debate here..."
+                placeholder="Paste or type the debate text here..."
             >{{ debate_text }}</textarea>
         </div>
         <button type="submit">Analyze Debate</button>
@@ -152,6 +157,13 @@
 <script>
 function showLoading() {
     event.preventDefault();
+    
+    const credits = parseFloat('{{ credits }}');
+    if (credits < 1.0) {
+        alert('You have reached your credit limit. Please try again later.');
+        return false;
+    }
+    
     document.getElementById('loading-overlay').style.display = 'flex';
     document.getElementById('analysis-results').style.display = 'block';
     
@@ -164,7 +176,15 @@ function showLoading() {
         headers: {
             'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
         }
-    }).then(response => {
+    })
+    .then(response => {
+        console.log('Response status:', response.status);
+        if (!response.ok) {
+            return response.json().then(data => {
+                console.log('Error response data:', data);
+                throw new Error(data.error || 'Network response was not ok');
+            });
+        }
         const evtSource = new EventSource('/analyze-stream/');
         
         evtSource.onmessage = function(event) {
@@ -199,6 +219,11 @@ function showLoading() {
                     break;
             }
         };
+    })
+    .catch(error => {
+        console.error('Caught error:', error);
+        document.querySelector('.loading-text').textContent = 'Error: ' + error.message;
+        document.getElementById('loading-overlay').style.display = 'none';
     });
     
     return false;

@@ -32,7 +32,7 @@ def load_prompt(filename):
     with open(prompt_path) as f:
         return f.read().strip()
 
-def make_llm_call(prompt, use_openrouter=False, role='system'):
+def make_llm_call(prompt, use_openrouter=False, role='system', debate_id=None, prompt_name=None):
     logger = setup_llm_logger()
     logger.debug("=== LLM Call ===\nPrompt:\n%s", prompt)
     
@@ -43,6 +43,9 @@ def make_llm_call(prompt, use_openrouter=False, role='system'):
             system_prompt = load_prompt('system.txt')
             principles = load_prompt('principles.txt')
             system_prompt = system_prompt.format(principles=principles)
+        
+        content = None
+        model_used = None
         
         if use_openrouter:
             response = requests.post(
@@ -61,12 +64,13 @@ def make_llm_call(prompt, use_openrouter=False, role='system'):
             logger.debug("Full Response:\n%s", response.text)
             
             if response.status_code != 200:
-                error_msg = "API returned status code {}: {}".format(response.status_code, response.text)
+                error_msg = f"API returned status code {response.status_code}: {response.text}"
                 logger.error(error_msg)
                 raise Exception(error_msg)
                 
             response_json = response.json()
             content = response_json['choices'][0]['message']['content']
+            model_used = 'deepseek/deepseek-chat'
         else:
             GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
             genai.configure(api_key=GOOGLE_API_KEY)
@@ -79,11 +83,35 @@ def make_llm_call(prompt, use_openrouter=False, role='system'):
             
             response = chat.send_message(prompt)
             content = response.text
+            model_used = 'gemini-2.0-flash-exp'
             
             logger.debug("Gemini Response:\n%s", content)
+
+        # Save the interaction if debate_id is provided
+        if debate_id and prompt_name:
+            from ..models import LLMInteraction, Debate
+            debate = Debate.objects.get(id=debate_id)
+            LLMInteraction.objects.create(
+                debate=debate,
+                prompt_name=prompt_name,
+                prompt_text=prompt,
+                response=content,
+                model_used=model_used
+            )
             
         return content
         
     except Exception as e:
         logger.error("Error making LLM call: %s", str(e))
+        if debate_id and prompt_name:
+            from ..models import LLMInteraction, Debate
+            debate = Debate.objects.get(id=debate_id)
+            LLMInteraction.objects.create(
+                debate=debate,
+                prompt_name=prompt_name,
+                prompt_text=prompt,
+                model_used=model_used if model_used else 'unknown',
+                success=False,
+                error_message=str(e)
+            )
         raise 

@@ -1,0 +1,8 @@
+Rewrite this debate evaluation to be more accessible while maintaining accuracy and structure. Keep all XML tags and their contents exactly as they are.
+
+The text should feel like high-quality journalism inspired by length limited formats like Twitter and TikTok - clear, engaging, professional and concise.
+
+Original text:
+{text}
+
+Provide your rewrite maintaining the exact same structure and XML tags. 

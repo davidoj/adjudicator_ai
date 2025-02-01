@@ -103,7 +103,7 @@ def parse_evaluation_table(evaluation_text, judgment_text=None):
                     str(e), evaluation_text, judgment_text)
         return None
 
-def perform_analysis(text):
+def perform_analysis(text, debate_id=None):
     """Core analysis logic shared between streaming and non-streaming paths"""
     logger = logging.getLogger('llm_calls')
     
@@ -115,29 +115,60 @@ def perform_analysis(text):
             text_party_1="{first party name}",
             text_party_2="{second party name}"
         ),
-        role='summarizer'
+        role='summarizer',
+        debate_id=debate_id,
+        prompt_name='analyze'
     )
     
+    # Extract real names and title before anonymizing
     belligerent_1 = extract_tag('p1', analysis)
     belligerent_2 = extract_tag('p2', analysis)
     summary_1 = extract_tag('s1', analysis)
     summary_2 = extract_tag('s2', analysis)
+    debate_title = extract_tag('debate_title', analysis)
+
+    print(f"Debate title (analysis): {debate_title}")
+
+    # Remove the name tags from analysis before passing to evaluate
+    anonymized_analysis = re.sub(r'<p1>.*?</p1>', 'P1', analysis)
+    anonymized_analysis = re.sub(r'<p2>.*?</p2>', 'P2', anonymized_analysis)
 
     time.sleep(1)
 
-    # Step 2: Evaluation
+    # Step 2: Evaluation (using anonymized analysis)
     evaluation = make_llm_call(
-        load_prompt('evaluate.txt').format(structured_arguments=analysis)
+        load_prompt('evaluate.txt').format(structured_arguments=anonymized_analysis),
+        debate_id=debate_id,
+        prompt_name='evaluate'
     )
     
     time.sleep(1)
 
-    # Step 3: Final Judgment
+    # Step 3: Final Judgment (using anonymized evaluation)
     judgment = make_llm_call(
-        load_prompt('judge.txt').format(evaluations=evaluation)
+        load_prompt('judge.txt').format(evaluations=evaluation),
+        debate_id=debate_id,
+        prompt_name='judge'
     )
     
     winner = extract_tag('winner', judgment)
+    
+    # Format the evaluation and judgment for better readability
+    evaluation_formatted = make_llm_call(
+        load_prompt('format_evaluation.txt').format(text=evaluation),
+        role='copywriter',
+        debate_id=debate_id,
+        prompt_name='format_evaluation'
+    )
+    
+    time.sleep(1)
+    
+    judgment_formatted = make_llm_call(
+        load_prompt('format_judgment.txt').format(text=judgment),
+        role='copywriter',
+        debate_id=debate_id,
+        prompt_name='format_judgment'
+    )
     
     return {
         'belligerent_1': belligerent_1,
@@ -147,5 +178,8 @@ def perform_analysis(text):
         'winner': winner,
         'analysis': analysis,
         'evaluation': evaluation,
-        'judgment': judgment
+        'evaluation_formatted': evaluation_formatted,
+        'judgment': judgment,
+        'judgment_formatted': judgment_formatted,
+        'title': debate_title
     } 
