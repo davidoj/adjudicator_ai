@@ -1,6 +1,7 @@
 from pathlib import Path
 from dotenv import load_dotenv
 import os
+import geoip2.database
 
 # Load environment variables from .env file
 load_dotenv()
@@ -14,7 +15,7 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['squabblesort-a13dccd5cc3e.herokuapp.com']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
