@@ -1,1 +1,1 @@
-web: cd adjudicator && gunicorn adjudicator.wsgi --log-file - 
+web: gunicorn --chdir adjudicator adjudicator.wsgi --log-file - 
