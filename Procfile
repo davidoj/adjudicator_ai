@@ -1,0 +1,1 @@
+web: cd adjudicator && gunicorn adjudicator.wsgi --log-file - 
