@@ -15,7 +15,7 @@ logger = logging.getLogger('llm_calls')
 
 def extract_tag(tag, content, required=True):
     # Make the regex pattern more lenient with whitespace
-    match = re.search(f'<{tag}>\s*(.*?)\s*</{tag}>', content, re.DOTALL)
+    match = re.search(fr'<{tag}>\s*(.*?)\s*</{tag}>', content, re.DOTALL)
     if match:
         return match.group(1).strip()
     if required:
