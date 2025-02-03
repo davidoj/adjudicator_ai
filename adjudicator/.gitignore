@@ -21,4 +21,8 @@ env/
 
 # Logs
 logs/
-*.log 
+*.log
+
+# Add these if not already present
+staticfiles
+*.sqlite3 

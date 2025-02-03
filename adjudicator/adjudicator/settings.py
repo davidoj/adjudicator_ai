@@ -2,6 +2,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 import os
 import geoip2.database
+import dj_database_url  # Add this import at the top
 
 # Load environment variables from .env file
 load_dotenv()
@@ -63,10 +64,10 @@ TEMPLATES = [
 WSGI_APPLICATION = 'adjudicator.wsgi.application'
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(
+        default=os.getenv('DATABASE_URL', 'sqlite:///db.sqlite3'),
+        conn_max_age=600
+    )
 }
 
 # Password validation
