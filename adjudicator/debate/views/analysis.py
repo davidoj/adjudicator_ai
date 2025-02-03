@@ -197,11 +197,23 @@ def analyze_stream(request):
             del request.session['debate_text']
             
         except Exception as e:
+            if 'Resource has been exhausted' in str(e) or '429' in str(e):
+                yield "data: " + json.dumps({
+                    'stage': 'error',
+                    'message': (
+                        "I'm currently using free-tier API access while testing. "
+                        "Please wait a minute and try again. "
+                        "Rate limits will be increased once cost controls are in place."
+                    )
+                }) + "\n\n"
+            else:
+                # Handle other errors
+                yield "data: " + json.dumps({
+                    'stage': 'error',
+                    'message': str(e)
+                }) + "\n\n"
+
             if 'debate_text' in request.session:
                 del request.session['debate_text']
-            yield "data: " + json.dumps({
-                'stage': 'error',
-                'message': str(e)
-            }) + "\n\n"
     
     return StreamingHttpResponse(event_stream(), content_type='text/event-stream')
