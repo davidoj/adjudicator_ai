@@ -8,7 +8,7 @@ Apply the provided evaluation principles to identify and classify arguments. Pay
 - Relevant ethical considerations
 - Practical implications
 
-Note: If the debate text includes more than one participant on any side, determine if they form cohesive teams based on their arguments. When teams are identified, assign a brief, recognizable team name (reflecting the contributing participants) using the tags <team1> and <team2>. Teams may vary in size.
+Note: If the debate text includes more than one participant on any side, determine if they form cohesive teams based on their arguments. When teams are identified, assign a brief, recognizable team name (reflecting the contributing participants) using the tags <p1> and <p2>. Teams may vary in size.
 
 You need to identify argument participants and group them into teams when applicable. If names are not provided, create them.
 IMPORTANT: For the overall analysis, refer to the primary sides as P1 and P2 except within the designated team assignment tags.
