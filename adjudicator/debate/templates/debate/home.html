@@ -11,8 +11,17 @@
         <div class="loading-text">Analyzing debate...</div>
     </div>
 
-    <h1>Debate Analysis</h1>
-    <p class="intro">Enter a debate or argument to analyze. Our AI will identify the participants, evaluate their arguments, and determine who made the stronger case.</p>
+    <h1>SquabbleSort</h1>
+    <div class="explanation">
+        <p><strong>What does it do?</strong></p>
+        <p>Give SquabbleSort an argument and it'll:</p>
+        <ul>
+            <li>Anonymise it and rewrite both sides to remove bias from identity or writing style</li>
+            <li>Give you a breakdown of both sides of the argument</li>
+            <li>Pick a winner</li>
+        </ul>
+        <p class="disclaimer">It's unbiased, but sometimes mistaken.</p>
+    </div>
 
     <div class="credit-info">
         <p>Credits Remaining: {{ credits|floatformat:2 }} / 15.00</p>
@@ -151,6 +160,32 @@
     @keyframes spin {
         0% { transform: rotate(0deg); }
         100% { transform: rotate(360deg); }
+    }
+
+    .explanation {
+        background: #f8f9fa;
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-bottom: 2rem;
+        border: 1px solid #e9ecef;
+    }
+
+    .explanation p {
+        margin: 0.5rem 0;
+    }
+
+    .explanation ul {
+        margin: 0.5rem 0 1rem 1.5rem;
+    }
+
+    .explanation li {
+        margin: 0.25rem 0;
+    }
+
+    .disclaimer {
+        font-style: italic;
+        color: #6c757d;
+        margin-top: 1rem;
     }
 </style>
 
