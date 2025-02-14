@@ -21,9 +21,9 @@ Create a catchy, brief, newspaper-style title that captures the essence of the d
 
 BELLIGERENTS
 If teams are identified due to multiple participants:
-<p1>{{team_name_1}}</p1>|<p2>{{team_name_2}}</p2>
+<p1>team_name_1</p1>|<p2>team_name_2</p2>
 Otherwise:
-<p1>{{text_party_1}}</p1>|<p2>{{text_party_2}}</p2>
+<p1>text_party_1</p1>|<p2>text_party_2</p2>
 
 ARGUMENTS FOR P1
 Label each argument A1, A2, etc. For each argument, provide:
