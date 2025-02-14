@@ -75,7 +75,7 @@ def make_llm_call(prompt, use_openrouter=False, role='system', debate_id=None, p
             GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
             genai.configure(api_key=GOOGLE_API_KEY)
             
-            model = genai.GenerativeModel('gemini-2.0-flash-exp')
+            model = genai.GenerativeModel('gemini-2.0-flash')
             chat = model.start_chat(history=[
                 {'role': 'user', 'parts': [system_prompt]},
                 {'role': 'model', 'parts': ['Understood. I will follow the provided instructions.']}
