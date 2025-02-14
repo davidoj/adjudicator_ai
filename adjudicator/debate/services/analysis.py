@@ -11,6 +11,7 @@ def extract_tag(tag, content, required=True):
         return match.group(1).strip()
     if required:
         logging.error(f"Failed to find required tag {tag} in response:\n{content}")
+        print(content)
         raise ValueError(f"Analysis failed: Could not identify {tag} in the debate")
     return None
 

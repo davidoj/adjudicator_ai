@@ -7,21 +7,12 @@ import time
 import logging
 from ..services.llm import make_llm_call, load_prompt
 from ..models import Debate
-from ..services.analysis import perform_analysis
+from ..services.analysis import perform_analysis, extract_tag
 import csv
 from ..models import IPCreditUsage, CreditBalance
 
 logger = logging.getLogger('llm_calls')
 
-def extract_tag(tag, content, required=True):
-    # Make the regex pattern more lenient with whitespace
-    match = re.search(fr'<{tag}>\s*(.*?)\s*</{tag}>', content, re.DOTALL)
-    if match:
-        return match.group(1).strip()
-    if required:
-        logging.error(f"Failed to find required tag {tag} in response:\n{content}")
-        raise ValueError(f"Analysis failed: Could not identify {tag} in the debate")
-    return None
 
 def parse_evaluation_table(evaluation_text, judgment_text=None):
     """Parse evaluation text into a structured table format"""
