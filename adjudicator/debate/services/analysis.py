@@ -124,11 +124,24 @@ def perform_analysis(text, debate_id=None):
     # Extract real names and title before anonymizing
     belligerent_1 = extract_tag('p1', analysis)
     belligerent_2 = extract_tag('p2', analysis)
-    summary_1 = extract_tag('s1', analysis)
-    summary_2 = extract_tag('s2', analysis)
+    
+    try:
+        summary_1 = extract_tag('s1', analysis)
+    except ValueError:
+        logger.warning("<s1> tag missing, attempting fallback extraction")
+        summary_1 = extract_summary_fallback(analysis, 1)
+        if not summary_1:
+            raise ValueError("Could not extract summary for P1")
+    
+    try:
+        summary_2 = extract_tag('s2', analysis)
+    except ValueError:
+        logger.warning("<s2> tag missing, attempting fallback extraction")
+        summary_2 = extract_summary_fallback(analysis, 2)
+        if not summary_2:
+            raise ValueError("Could not extract summary for P2")
+    
     debate_title = extract_tag('debate_title', analysis)
-
-    print(f"Debate title (analysis): {debate_title}")
 
     # Remove the name tags from analysis before passing to evaluate
     anonymized_analysis = re.sub(r'<p1>.*?</p1>', 'P1', analysis)
@@ -183,4 +196,16 @@ def perform_analysis(text, debate_id=None):
         'judgment': judgment,
         'judgment_formatted': judgment_formatted,
         'title': debate_title
-    } 
+    }
+
+def extract_summary_fallback(analysis, num):
+    try:
+        summary_start = analysis.find(f"SUMMARY FOR P{num}")
+        summary_end = analysis.find(f"</s{num}>")
+        if summary_start != -1 and summary_end != -1:
+            summary_text = analysis[summary_start:summary_end].strip()
+            return summary_text
+        return None
+    except Exception as e:
+        logger.error("Failed to extract summary using fallback method: %s", str(e))
+        return None 

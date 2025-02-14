@@ -17,7 +17,7 @@ Provide a structured response in this exact format:
 
 TITLE
 Create a catchy, brief, newspaper-style title that captures the essence of the debate:
-<debate_title>{{Create a compelling title here}}</debate_title>
+<debate_title>compelling_title_here</debate_title>
 
 BELLIGERENTS
 If teams are identified due to multiple participants:
