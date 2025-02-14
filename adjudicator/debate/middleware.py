@@ -7,7 +7,8 @@ class EUBlockerMiddleware:
     def __init__(self, get_response):
         self.get_response = get_response
         try:
-            self.reader = geoip2.database.Reader(settings.GEOIP_PATH)
+            db_path = os.path.join(settings.BASE_DIR, 'GeoLite2-Country.mmdb')
+            self.reader = geoip2.database.Reader(db_path)
         except FileNotFoundError:
             self.reader = None
 
