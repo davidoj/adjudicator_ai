@@ -1,1 +1,0 @@
-Identify the two main parties in this argument. Response format '|': {text} 

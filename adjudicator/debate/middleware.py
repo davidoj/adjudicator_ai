@@ -6,10 +6,15 @@ import os
 class EUBlockerMiddleware:
     def __init__(self, get_response):
         self.get_response = get_response
-        db_path = os.path.join(settings.BASE_DIR, 'GeoLite2-Country.mmdb')
-        self.reader = geoip2.database.Reader(db_path)
+        try:
+            self.reader = geoip2.database.Reader(settings.GEOIP_PATH)
+        except FileNotFoundError:
+            self.reader = None
 
     def __call__(self, request):
+        if self.reader is None:
+            return self.get_response(request)
+
         # Get client IP
         x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
         if x_forwarded_for:
@@ -33,4 +38,5 @@ class EUBlockerMiddleware:
         return self.get_response(request)
 
     def __del__(self):
-        self.reader.close() 
+        if self.reader:
+            self.reader.close() 
