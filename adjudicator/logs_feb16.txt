@@ -1,0 +1,1276 @@
+2025-02-15T22:21:27.872614+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_interceptor.py", line 277, in __call__
+2025-02-15T22:21:27.872614+00:00 app[web.1]: response, ignored_call = self._with_call(
+2025-02-15T22:21:27.872615+00:00 app[web.1]: ~~~~~~~~~~~~~~~^
+2025-02-15T22:21:27.872615+00:00 app[web.1]: request,
+2025-02-15T22:21:27.872615+00:00 app[web.1]: ^^^^^^^^
+2025-02-15T22:21:27.872615+00:00 app[web.1]: ...<4 lines>...
+2025-02-15T22:21:27.872615+00:00 app[web.1]: compression=compression,
+2025-02-15T22:21:27.872615+00:00 app[web.1]: ^^^^^^^^^^^^^^^^^^^^^^^^
+2025-02-15T22:21:27.872615+00:00 app[web.1]: )
+2025-02-15T22:21:27.872615+00:00 app[web.1]: ^
+2025-02-15T22:21:27.872615+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_interceptor.py", line 329, in _with_call
+2025-02-15T22:21:27.872616+00:00 app[web.1]: call = self._interceptor.intercept_unary_unary(
+2025-02-15T22:21:27.872616+00:00 app[web.1]: continuation, client_call_details, request
+2025-02-15T22:21:27.872616+00:00 app[web.1]: )
+2025-02-15T22:21:27.872616+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/transports/grpc.py", line 79, in intercept_unary_unary
+2025-02-15T22:21:27.872616+00:00 app[web.1]: response = continuation(client_call_details, request)
+2025-02-15T22:21:27.872616+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_interceptor.py", line 315, in continuation
+2025-02-15T22:21:27.872616+00:00 app[web.1]: response, call = self._thunk(new_method).with_call(
+2025-02-15T22:21:27.872617+00:00 app[web.1]: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+2025-02-15T22:21:27.872617+00:00 app[web.1]: request,
+2025-02-15T22:21:27.872617+00:00 app[web.1]: ^^^^^^^^
+2025-02-15T22:21:27.872617+00:00 app[web.1]: ...<4 lines>...
+2025-02-15T22:21:27.872617+00:00 app[web.1]: compression=new_compression,
+2025-02-15T22:21:27.872617+00:00 app[web.1]: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-02-15T22:21:27.872617+00:00 app[web.1]: )
+2025-02-15T22:21:27.872617+00:00 app[web.1]: ^
+2025-02-15T22:21:27.872617+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_channel.py", line 1195, in with_call
+2025-02-15T22:21:27.872618+00:00 app[web.1]: ) = self._blocking(
+2025-02-15T22:21:27.872618+00:00 app[web.1]: ~~~~~~~~~~~~~~^
+2025-02-15T22:21:27.872618+00:00 app[web.1]: request, timeout, metadata, credentials, wait_for_ready, compression
+2025-02-15T22:21:27.872618+00:00 app[web.1]: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-02-15T22:21:27.872618+00:00 app[web.1]: )
+2025-02-15T22:21:27.872618+00:00 app[web.1]: ^
+2025-02-15T22:21:27.872622+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_channel.py", line 1162, in _blocking
+2025-02-15T22:21:27.872622+00:00 app[web.1]: event = call.next_event()
+2025-02-15T22:21:27.872622+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/channel.pyx.pxi", line 388, in grpc._cython.cygrpc.SegregatedCall.next_event
+2025-02-15T22:21:27.872622+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/channel.pyx.pxi", line 211, in grpc._cython.cygrpc._next_call_event
+2025-02-15T22:21:27.872623+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/channel.pyx.pxi", line 205, in grpc._cython.cygrpc._next_call_event
+2025-02-15T22:21:27.872623+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/completion_queue.pyx.pxi", line 78, in grpc._cython.cygrpc._latent_event
+2025-02-15T22:21:27.872623+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/completion_queue.pyx.pxi", line 61, in grpc._cython.cygrpc._internal_latent_event
+2025-02-15T22:21:27.872623+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/completion_queue.pyx.pxi", line 42, in grpc._cython.cygrpc._next
+2025-02-15T22:21:27.872623+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/gunicorn/workers/base.py", line 204, in handle_abort
+2025-02-15T22:21:27.872624+00:00 app[web.1]: sys.exit(1)
+2025-02-15T22:21:27.872624+00:00 app[web.1]: ~~~~~~~~^^^
+2025-02-15T22:21:27.872624+00:00 app[web.1]: SystemExit: 1
+2025-02-15T22:21:27.872776+00:00 app[web.1]: 10.1.91.68 - - [15/Feb/2025:22:21:27 +0000] "GET /analyze-stream/ HTTP/1.1" 500 0 "-" "-"
+2025-02-15T22:21:27.873085+00:00 app[web.1]: [2025-02-15 22:21:27 +0000] [310] [INFO] Worker exiting (pid: 310)
+2025-02-15T22:21:27.873215+00:00 heroku[router]: http_error="Bad chunk" at=error code=H17 desc="Poorly formatted HTTP response" method=GET path="/analyze-stream/" host=squabblesort-a13dccd5cc3e.herokuapp.com request_id=23910f5c-043b-4216-8f40-f056029a135e fwd="202.138.48.197" dyno=web.1 connect=0ms service=30943ms status=503 bytes= protocol=https
+2025-02-15T22:21:28.675127+00:00 app[web.1]: [2025-02-15 22:21:28 +0000] [2] [ERROR] Worker (pid:310) was sent SIGKILL! Perhaps out of memory?
+2025-02-15T22:21:28.677013+00:00 app[web.1]: [2025-02-15 22:21:28 +0000] [361] [INFO] Booting worker with pid: 361
+2025-02-15T22:21:39.850229+00:00 app[web.1]: Debate title (analysis): Extinction Prediction Paradox: Can We Learn from Past Failures?
+2025-02-15T22:22:02.767617+00:00 app[web.1]: [2025-02-15 22:22:02 +0000] [2] [CRITICAL] WORKER TIMEOUT (pid:344)
+2025-02-15T22:22:02.767954+00:00 app[web.1]: 10.1.57.90 - - [15/Feb/2025:22:22:02 +0000] "GET /analyze-stream/ HTTP/1.1" 200 86 "https://squabblesort-a13dccd5cc3e.herokuapp.com/" "Mozilla/5.0 (iPhone; CPU iPhone OS 18_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.3 Mobile/15E148 Safari/604.1"
+2025-02-15T22:22:02.769495+00:00 app[web.1]: [2025-02-15 22:22:02 +0000] [344] [ERROR] Error handling request /analyze-stream/
+2025-02-15T22:22:02.769496+00:00 app[web.1]: Traceback (most recent call last):
+2025-02-15T22:22:02.769496+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/gunicorn/workers/sync.py", line 134, in handle
+2025-02-15T22:22:02.769497+00:00 app[web.1]: self.handle_request(listener, req, client, addr)
+2025-02-15T22:22:02.769497+00:00 app[web.1]: ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-02-15T22:22:02.769497+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/gunicorn/workers/sync.py", line 182, in handle_request
+2025-02-15T22:22:02.769498+00:00 app[web.1]: for item in respiter:
+2025-02-15T22:22:02.769498+00:00 app[web.1]: ^^^^^^^^
+2025-02-15T22:22:02.769498+00:00 app[web.1]: File "/app/adjudicator/debate/views/analysis.py", line 150, in event_stream
+2025-02-15T22:22:02.769498+00:00 app[web.1]: result = perform_analysis(text)
+2025-02-15T22:22:02.769499+00:00 app[web.1]: File "/app/adjudicator/debate/services/analysis.py", line 165, in perform_analysis
+2025-02-15T22:22:02.769499+00:00 app[web.1]: time.sleep(1)
+2025-02-15T22:22:02.769499+00:00 app[web.1]: ~~~~~~~~~~^^^
+2025-02-15T22:22:02.769499+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/gunicorn/workers/base.py", line 204, in handle_abort
+2025-02-15T22:22:02.769500+00:00 app[web.1]: sys.exit(1)
+2025-02-15T22:22:02.769500+00:00 app[web.1]: ~~~~~~~~^^^
+2025-02-15T22:22:02.769500+00:00 app[web.1]: SystemExit: 1
+2025-02-15T22:22:02.769653+00:00 app[web.1]: 10.1.57.90 - - [15/Feb/2025:22:22:02 +0000] "GET /analyze-stream/ HTTP/1.1" 500 0 "-" "-"
+2025-02-15T22:22:02.769958+00:00 app[web.1]: [2025-02-15 22:22:02 +0000] [344] [INFO] Worker exiting (pid: 344)
+2025-02-15T22:22:02.770113+00:00 heroku[router]: http_error="Bad chunk" at=error code=H17 desc="Poorly formatted HTTP response" method=GET path="/analyze-stream/" host=squabblesort-a13dccd5cc3e.herokuapp.com request_id=9359ef72-ab22-4c6a-9f14-6b07c2f35b33 fwd="202.138.48.197" dyno=web.1 connect=0ms service=30714ms status=503 bytes= protocol=https
+2025-02-15T22:22:03.776148+00:00 app[web.1]: [2025-02-15 22:22:03 +0000] [2] [ERROR] Worker (pid:344) was sent SIGKILL! Perhaps out of memory?
+2025-02-15T22:22:03.778018+00:00 app[web.1]: [2025-02-15 22:22:03 +0000] [378] [INFO] Booting worker with pid: 378
+2025-02-15T22:22:15.496319+00:00 app[web.1]: Debate title (analysis): Extinction Prediction Paradox: Can Past Failures Inform Future Risks?
+2025-02-15T22:22:37.886272+00:00 app[web.1]: [2025-02-15 22:22:37 +0000] [2] [CRITICAL] WORKER TIMEOUT (pid:361)
+2025-02-15T22:22:38.088241+00:00 app[web.1]: 10.1.28.80 - - [15/Feb/2025:22:22:38 +0000] "GET /analyze-stream/ HTTP/1.1" 200 86 "https://squabblesort-a13dccd5cc3e.herokuapp.com/" "Mozilla/5.0 (iPhone; CPU iPhone OS 18_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.3 Mobile/15E148 Safari/604.1"
+2025-02-15T22:22:38.094336+00:00 app[web.1]: [2025-02-15 22:22:38 +0000] [361] [ERROR] Error handling request /analyze-stream/
+2025-02-15T22:22:38.094337+00:00 app[web.1]: Traceback (most recent call last):
+2025-02-15T22:22:38.094338+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/gunicorn/workers/sync.py", line 134, in handle
+2025-02-15T22:22:38.094338+00:00 app[web.1]: self.handle_request(listener, req, client, addr)
+2025-02-15T22:22:38.094338+00:00 app[web.1]: ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-02-15T22:22:38.094339+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/gunicorn/workers/sync.py", line 182, in handle_request
+2025-02-15T22:22:38.094339+00:00 app[web.1]: for item in respiter:
+2025-02-15T22:22:38.094339+00:00 app[web.1]: ^^^^^^^^
+2025-02-15T22:22:38.094342+00:00 app[web.1]: File "/app/adjudicator/debate/views/analysis.py", line 150, in event_stream
+2025-02-15T22:22:38.094342+00:00 app[web.1]: result = perform_analysis(text)
+2025-02-15T22:22:38.094342+00:00 app[web.1]: File "/app/adjudicator/debate/services/analysis.py", line 158, in perform_analysis
+2025-02-15T22:22:38.094342+00:00 app[web.1]: evaluation_formatted = make_llm_call(
+2025-02-15T22:22:38.094343+00:00 app[web.1]: load_prompt('format_evaluation.txt').format(text=evaluation),
+2025-02-15T22:22:38.094343+00:00 app[web.1]: ...<2 lines>...
+2025-02-15T22:22:38.094343+00:00 app[web.1]: prompt_name='format_evaluation'
+2025-02-15T22:22:38.094344+00:00 app[web.1]: )
+2025-02-15T22:22:38.094344+00:00 app[web.1]: File "/app/adjudicator/debate/services/llm.py", line 84, in make_llm_call
+2025-02-15T22:22:38.094344+00:00 app[web.1]: response = chat.send_message(prompt)
+2025-02-15T22:22:38.094345+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/generativeai/generative_models.py", line 578, in send_message
+2025-02-15T22:22:38.094345+00:00 app[web.1]: response = self.model.generate_content(
+2025-02-15T22:22:38.094345+00:00 app[web.1]: contents=history,
+2025-02-15T22:22:38.094345+00:00 app[web.1]: ...<5 lines>...
+2025-02-15T22:22:38.094345+00:00 app[web.1]: request_options=request_options,
+2025-02-15T22:22:38.094346+00:00 app[web.1]: )
+2025-02-15T22:22:38.094348+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/generativeai/generative_models.py", line 331, in generate_content
+2025-02-15T22:22:38.094348+00:00 app[web.1]: response = self._client.generate_content(
+2025-02-15T22:22:38.094348+00:00 app[web.1]: request,
+2025-02-15T22:22:38.094349+00:00 app[web.1]: **request_options,
+2025-02-15T22:22:38.094349+00:00 app[web.1]: )
+2025-02-15T22:22:38.094349+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/client.py", line 835, in generate_content
+2025-02-15T22:22:38.094350+00:00 app[web.1]: response = rpc(
+2025-02-15T22:22:38.094350+00:00 app[web.1]: request,
+2025-02-15T22:22:38.094350+00:00 app[web.1]: ...<2 lines>...
+2025-02-15T22:22:38.094350+00:00 app[web.1]: metadata=metadata,
+2025-02-15T22:22:38.094350+00:00 app[web.1]: )
+2025-02-15T22:22:38.094362+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/gapic_v1/method.py", line 131, in __call__
+2025-02-15T22:22:38.094362+00:00 app[web.1]: return wrapped_func(*args, **kwargs)
+2025-02-15T22:22:38.094363+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/retry/retry_unary.py", line 293, in retry_wrapped_func
+2025-02-15T22:22:38.094363+00:00 app[web.1]: return retry_target(
+2025-02-15T22:22:38.094363+00:00 app[web.1]: target,
+2025-02-15T22:22:38.094363+00:00 app[web.1]: ...<3 lines>...
+2025-02-15T22:22:38.094363+00:00 app[web.1]: on_error=on_error,
+2025-02-15T22:22:38.094363+00:00 app[web.1]: )
+2025-02-15T22:22:38.094363+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/retry/retry_unary.py", line 144, in retry_target
+2025-02-15T22:22:38.094363+00:00 app[web.1]: result = target()
+2025-02-15T22:22:38.094364+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/timeout.py", line 120, in func_with_timeout
+2025-02-15T22:22:38.094364+00:00 app[web.1]: return func(*args, **kwargs)
+2025-02-15T22:22:38.094364+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/grpc_helpers.py", line 76, in error_remapped_callable
+2025-02-15T22:22:38.094364+00:00 app[web.1]: return callable_(*args, **kwargs)
+2025-02-15T22:22:38.094364+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_interceptor.py", line 277, in __call__
+2025-02-15T22:22:38.094364+00:00 app[web.1]: response, ignored_call = self._with_call(
+2025-02-15T22:22:38.094365+00:00 app[web.1]: ~~~~~~~~~~~~~~~^
+2025-02-15T22:22:38.094365+00:00 app[web.1]: request,
+2025-02-15T22:22:38.094365+00:00 app[web.1]: ^^^^^^^^
+2025-02-15T22:22:38.094365+00:00 app[web.1]: ...<4 lines>...
+2025-02-15T22:22:38.094365+00:00 app[web.1]: compression=compression,
+2025-02-15T22:22:38.094366+00:00 app[web.1]: ^^^^^^^^^^^^^^^^^^^^^^^^
+2025-02-15T22:22:38.094366+00:00 app[web.1]: )
+2025-02-15T22:22:38.094366+00:00 app[web.1]: ^
+2025-02-15T22:22:38.094366+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_interceptor.py", line 329, in _with_call
+2025-02-15T22:22:38.094366+00:00 app[web.1]: call = self._interceptor.intercept_unary_unary(
+2025-02-15T22:22:38.094366+00:00 app[web.1]: continuation, client_call_details, request
+2025-02-15T22:22:38.094367+00:00 app[web.1]: )
+2025-02-15T22:22:38.094367+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/transports/grpc.py", line 79, in intercept_unary_unary
+2025-02-15T22:22:38.094367+00:00 app[web.1]: response = continuation(client_call_details, request)
+2025-02-15T22:22:38.094367+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_interceptor.py", line 315, in continuation
+2025-02-15T22:22:38.094367+00:00 app[web.1]: response, call = self._thunk(new_method).with_call(
+2025-02-15T22:22:38.094367+00:00 app[web.1]: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+2025-02-15T22:22:38.094368+00:00 app[web.1]: request,
+2025-02-15T22:22:38.094368+00:00 app[web.1]: ^^^^^^^^
+2025-02-15T22:22:38.094368+00:00 app[web.1]: ...<4 lines>...
+2025-02-15T22:22:38.094368+00:00 app[web.1]: compression=new_compression,
+2025-02-15T22:22:38.094368+00:00 app[web.1]: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-02-15T22:22:38.094368+00:00 app[web.1]: )
+2025-02-15T22:22:38.094368+00:00 app[web.1]: ^
+2025-02-15T22:22:38.094369+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_channel.py", line 1195, in with_call
+2025-02-15T22:22:38.094369+00:00 app[web.1]: ) = self._blocking(
+2025-02-15T22:22:38.094369+00:00 app[web.1]: ~~~~~~~~~~~~~~^
+2025-02-15T22:22:38.094369+00:00 app[web.1]: request, timeout, metadata, credentials, wait_for_ready, compression
+2025-02-15T22:22:38.094369+00:00 app[web.1]: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-02-15T22:22:38.094369+00:00 app[web.1]: )
+2025-02-15T22:22:38.094369+00:00 app[web.1]: ^
+2025-02-15T22:22:38.094373+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_channel.py", line 1162, in _blocking
+2025-02-15T22:22:38.094373+00:00 app[web.1]: event = call.next_event()
+2025-02-15T22:22:38.094373+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/channel.pyx.pxi", line 388, in grpc._cython.cygrpc.SegregatedCall.next_event
+2025-02-15T22:22:38.094373+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/channel.pyx.pxi", line 211, in grpc._cython.cygrpc._next_call_event
+2025-02-15T22:22:38.094373+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/channel.pyx.pxi", line 205, in grpc._cython.cygrpc._next_call_event
+2025-02-15T22:22:38.094374+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/completion_queue.pyx.pxi", line 78, in grpc._cython.cygrpc._latent_event
+2025-02-15T22:22:38.094374+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/completion_queue.pyx.pxi", line 61, in grpc._cython.cygrpc._internal_latent_event
+2025-02-15T22:22:38.094374+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/completion_queue.pyx.pxi", line 42, in grpc._cython.cygrpc._next
+2025-02-15T22:22:38.094374+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/gunicorn/workers/base.py", line 204, in handle_abort
+2025-02-15T22:22:38.094374+00:00 app[web.1]: sys.exit(1)
+2025-02-15T22:22:38.094375+00:00 app[web.1]: ~~~~~~~~^^^
+2025-02-15T22:22:38.094375+00:00 app[web.1]: SystemExit: 1
+2025-02-15T22:22:38.094524+00:00 app[web.1]: 10.1.28.80 - - [15/Feb/2025:22:22:38 +0000] "GET /analyze-stream/ HTTP/1.1" 500 0 "-" "-"
+2025-02-15T22:22:38.094895+00:00 app[web.1]: [2025-02-15 22:22:38 +0000] [361] [INFO] Worker exiting (pid: 361)
+2025-02-15T22:22:38.095266+00:00 heroku[router]: http_error="Bad chunk" at=error code=H17 desc="Poorly formatted HTTP response" method=GET path="/analyze-stream/" host=squabblesort-a13dccd5cc3e.herokuapp.com request_id=f78bdc98-ebef-496c-9ea7-9bc25b51cebd fwd="202.138.48.197" dyno=web.1 connect=0ms service=31018ms status=503 bytes= protocol=https
+2025-02-15T22:22:38.895312+00:00 app[web.1]: [2025-02-15 22:22:38 +0000] [2] [ERROR] Worker (pid:361) was sent SIGKILL! Perhaps out of memory?
+2025-02-15T22:22:38.897146+00:00 app[web.1]: [2025-02-15 22:22:38 +0000] [395] [INFO] Booting worker with pid: 395
+2025-02-15T22:22:50.060215+00:00 app[web.1]: Debate title (analysis): Extinction Prediction Paradox: Can Past Failures Guide Future Warnings?
+2025-02-15T22:23:13.023132+00:00 app[web.1]: [2025-02-15 22:23:13 +0000] [2] [CRITICAL] WORKER TIMEOUT (pid:395)
+2025-02-15T22:23:13.224970+00:00 app[web.1]: 10.1.24.59 - - [15/Feb/2025:22:23:13 +0000] "GET /analyze-stream/ HTTP/1.1" 200 86 "https://squabblesort-a13dccd5cc3e.herokuapp.com/" "Mozilla/5.0 (iPhone; CPU iPhone OS 18_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.3 Mobile/15E148 Safari/604.1"
+2025-02-15T22:23:13.229491+00:00 app[web.1]: [2025-02-15 22:23:13 +0000] [395] [ERROR] Error handling request /analyze-stream/
+2025-02-15T22:23:13.229492+00:00 app[web.1]: Traceback (most recent call last):
+2025-02-15T22:23:13.229492+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/gunicorn/workers/sync.py", line 134, in handle
+2025-02-15T22:23:13.229494+00:00 app[web.1]: self.handle_request(listener, req, client, addr)
+2025-02-15T22:23:13.229494+00:00 app[web.1]: ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-02-15T22:23:13.229494+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/gunicorn/workers/sync.py", line 182, in handle_request
+2025-02-15T22:23:13.229495+00:00 app[web.1]: for item in respiter:
+2025-02-15T22:23:13.229495+00:00 app[web.1]: ^^^^^^^^
+2025-02-15T22:23:13.229495+00:00 app[web.1]: File "/app/adjudicator/debate/views/analysis.py", line 150, in event_stream
+2025-02-15T22:23:13.229495+00:00 app[web.1]: result = perform_analysis(text)
+2025-02-15T22:23:13.229496+00:00 app[web.1]: File "/app/adjudicator/debate/services/analysis.py", line 158, in perform_analysis
+2025-02-15T22:23:13.229496+00:00 app[web.1]: evaluation_formatted = make_llm_call(
+2025-02-15T22:23:13.229496+00:00 app[web.1]: load_prompt('format_evaluation.txt').format(text=evaluation),
+2025-02-15T22:23:13.229497+00:00 app[web.1]: ...<2 lines>...
+2025-02-15T22:23:13.229497+00:00 app[web.1]: prompt_name='format_evaluation'
+2025-02-15T22:23:13.229498+00:00 app[web.1]: )
+2025-02-15T22:23:13.229498+00:00 app[web.1]: File "/app/adjudicator/debate/services/llm.py", line 84, in make_llm_call
+2025-02-15T22:23:13.229498+00:00 app[web.1]: response = chat.send_message(prompt)
+2025-02-15T22:23:13.229500+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/generativeai/generative_models.py", line 578, in send_message
+2025-02-15T22:23:13.229500+00:00 app[web.1]: response = self.model.generate_content(
+2025-02-15T22:23:13.229500+00:00 app[web.1]: contents=history,
+2025-02-15T22:23:13.229500+00:00 app[web.1]: ...<5 lines>...
+2025-02-15T22:23:13.229500+00:00 app[web.1]: request_options=request_options,
+2025-02-15T22:23:13.229501+00:00 app[web.1]: )
+2025-02-15T22:23:13.229502+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/generativeai/generative_models.py", line 331, in generate_content
+2025-02-15T22:23:13.229503+00:00 app[web.1]: response = self._client.generate_content(
+2025-02-15T22:23:13.229503+00:00 app[web.1]: request,
+2025-02-15T22:23:13.229503+00:00 app[web.1]: **request_options,
+2025-02-15T22:23:13.229503+00:00 app[web.1]: )
+2025-02-15T22:23:13.229504+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/client.py", line 835, in generate_content
+2025-02-15T22:23:13.229504+00:00 app[web.1]: response = rpc(
+2025-02-15T22:23:13.229505+00:00 app[web.1]: request,
+2025-02-15T22:23:13.229505+00:00 app[web.1]: ...<2 lines>...
+2025-02-15T22:23:13.229505+00:00 app[web.1]: metadata=metadata,
+2025-02-15T22:23:13.229505+00:00 app[web.1]: )
+2025-02-15T22:23:13.229505+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/gapic_v1/method.py", line 131, in __call__
+2025-02-15T22:23:13.229506+00:00 app[web.1]: return wrapped_func(*args, **kwargs)
+2025-02-15T22:23:13.229506+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/retry/retry_unary.py", line 293, in retry_wrapped_func
+2025-02-15T22:23:13.229506+00:00 app[web.1]: return retry_target(
+2025-02-15T22:23:13.229506+00:00 app[web.1]: target,
+2025-02-15T22:23:13.229506+00:00 app[web.1]: ...<3 lines>...
+2025-02-15T22:23:13.229507+00:00 app[web.1]: on_error=on_error,
+2025-02-15T22:23:13.229507+00:00 app[web.1]: )
+2025-02-15T22:23:13.229507+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/retry/retry_unary.py", line 144, in retry_target
+2025-02-15T22:23:13.229507+00:00 app[web.1]: result = target()
+2025-02-15T22:23:13.229507+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/timeout.py", line 120, in func_with_timeout
+2025-02-15T22:23:13.229507+00:00 app[web.1]: return func(*args, **kwargs)
+2025-02-15T22:23:13.229508+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/grpc_helpers.py", line 76, in error_remapped_callable
+2025-02-15T22:23:13.229508+00:00 app[web.1]: return callable_(*args, **kwargs)
+2025-02-15T22:23:13.229508+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_interceptor.py", line 277, in __call__
+2025-02-15T22:23:13.229508+00:00 app[web.1]: response, ignored_call = self._with_call(
+2025-02-15T22:23:13.229508+00:00 app[web.1]: ~~~~~~~~~~~~~~~^
+2025-02-15T22:23:13.229509+00:00 app[web.1]: request,
+2025-02-15T22:23:13.229509+00:00 app[web.1]: ^^^^^^^^
+2025-02-15T22:23:13.229509+00:00 app[web.1]: ...<4 lines>...
+2025-02-15T22:23:13.229509+00:00 app[web.1]: compression=compression,
+2025-02-15T22:23:13.229509+00:00 app[web.1]: ^^^^^^^^^^^^^^^^^^^^^^^^
+2025-02-15T22:23:13.229509+00:00 app[web.1]: )
+2025-02-15T22:23:13.229509+00:00 app[web.1]: ^
+2025-02-15T22:23:13.229510+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_interceptor.py", line 329, in _with_call
+2025-02-15T22:23:13.229510+00:00 app[web.1]: call = self._interceptor.intercept_unary_unary(
+2025-02-15T22:23:13.229510+00:00 app[web.1]: continuation, client_call_details, request
+2025-02-15T22:23:13.229510+00:00 app[web.1]: )
+2025-02-15T22:23:13.229510+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/transports/grpc.py", line 79, in intercept_unary_unary
+2025-02-15T22:23:13.229511+00:00 app[web.1]: response = continuation(client_call_details, request)
+2025-02-15T22:23:13.229511+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_interceptor.py", line 315, in continuation
+2025-02-15T22:23:13.229511+00:00 app[web.1]: response, call = self._thunk(new_method).with_call(
+2025-02-15T22:23:13.229511+00:00 app[web.1]: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+2025-02-15T22:23:13.229511+00:00 app[web.1]: request,
+2025-02-15T22:23:13.229511+00:00 app[web.1]: ^^^^^^^^
+2025-02-15T22:23:13.229512+00:00 app[web.1]: ...<4 lines>...
+2025-02-15T22:23:13.229512+00:00 app[web.1]: compression=new_compression,
+2025-02-15T22:23:13.229512+00:00 app[web.1]: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-02-15T22:23:13.229512+00:00 app[web.1]: )
+2025-02-15T22:23:13.229512+00:00 app[web.1]: ^
+2025-02-15T22:23:13.229512+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_channel.py", line 1195, in with_call
+2025-02-15T22:23:13.229513+00:00 app[web.1]: ) = self._blocking(
+2025-02-15T22:23:13.229513+00:00 app[web.1]: ~~~~~~~~~~~~~~^
+2025-02-15T22:23:13.229513+00:00 app[web.1]: request, timeout, metadata, credentials, wait_for_ready, compression
+2025-02-15T22:23:13.229513+00:00 app[web.1]: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-02-15T22:23:13.229513+00:00 app[web.1]: )
+2025-02-15T22:23:13.229513+00:00 app[web.1]: ^
+2025-02-15T22:23:13.229518+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_channel.py", line 1162, in _blocking
+2025-02-15T22:23:13.229518+00:00 app[web.1]: event = call.next_event()
+2025-02-15T22:23:13.229518+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/channel.pyx.pxi", line 388, in grpc._cython.cygrpc.SegregatedCall.next_event
+2025-02-15T22:23:13.229518+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/channel.pyx.pxi", line 211, in grpc._cython.cygrpc._next_call_event
+2025-02-15T22:23:13.229519+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/channel.pyx.pxi", line 205, in grpc._cython.cygrpc._next_call_event
+2025-02-15T22:23:13.229519+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/completion_queue.pyx.pxi", line 78, in grpc._cython.cygrpc._latent_event
+2025-02-15T22:23:13.229519+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/completion_queue.pyx.pxi", line 61, in grpc._cython.cygrpc._internal_latent_event
+2025-02-15T22:23:13.229519+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/completion_queue.pyx.pxi", line 42, in grpc._cython.cygrpc._next
+2025-02-15T22:23:13.229520+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/gunicorn/workers/base.py", line 204, in handle_abort
+2025-02-15T22:23:13.229520+00:00 app[web.1]: sys.exit(1)
+2025-02-15T22:23:13.229520+00:00 app[web.1]: ~~~~~~~~^^^
+2025-02-15T22:23:13.229521+00:00 app[web.1]: SystemExit: 1
+2025-02-15T22:23:13.229662+00:00 app[web.1]: 10.1.24.59 - - [15/Feb/2025:22:23:13 +0000] "GET /analyze-stream/ HTTP/1.1" 500 0 "-" "-"
+2025-02-15T22:23:13.229978+00:00 app[web.1]: [2025-02-15 22:23:13 +0000] [395] [INFO] Worker exiting (pid: 395)
+2025-02-15T22:23:13.230077+00:00 heroku[router]: http_error="Bad chunk" at=error code=H17 desc="Poorly formatted HTTP response" method=GET path="/analyze-stream/" host=squabblesort-a13dccd5cc3e.herokuapp.com request_id=d280165c-e920-4ac4-8611-f7d839afee28 fwd="202.138.48.197" dyno=web.1 connect=0ms service=30826ms status=503 bytes= protocol=https
+2025-02-15T22:23:14.031901+00:00 app[web.1]: [2025-02-15 22:23:14 +0000] [2] [ERROR] Worker (pid:395) was sent SIGKILL! Perhaps out of memory?
+2025-02-15T22:23:14.033727+00:00 app[web.1]: [2025-02-15 22:23:14 +0000] [412] [INFO] Booting worker with pid: 412
+2025-02-15T22:23:24.752640+00:00 app[web.1]: Debate title (analysis): Extinction Prediction Debate: Past Failures vs. Future Risks
+2025-02-15T22:23:48.079727+00:00 app[web.1]: [2025-02-15 22:23:48 +0000] [2] [CRITICAL] WORKER TIMEOUT (pid:412)
+2025-02-15T22:23:48.170364+00:00 app[web.1]: 10.1.83.161 - - [15/Feb/2025:22:23:48 +0000] "GET /analyze-stream/ HTTP/1.1" 200 86 "https://squabblesort-a13dccd5cc3e.herokuapp.com/" "Mozilla/5.0 (iPhone; CPU iPhone OS 18_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.3 Mobile/15E148 Safari/604.1"
+2025-02-15T22:23:48.175085+00:00 app[web.1]: [2025-02-15 22:23:48 +0000] [412] [ERROR] Error handling request /analyze-stream/
+2025-02-15T22:23:48.175086+00:00 app[web.1]: Traceback (most recent call last):
+2025-02-15T22:23:48.175086+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/gunicorn/workers/sync.py", line 134, in handle
+2025-02-15T22:23:48.175087+00:00 app[web.1]: self.handle_request(listener, req, client, addr)
+2025-02-15T22:23:48.175088+00:00 app[web.1]: ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-02-15T22:23:48.175088+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/gunicorn/workers/sync.py", line 182, in handle_request
+2025-02-15T22:23:48.175088+00:00 app[web.1]: for item in respiter:
+2025-02-15T22:23:48.175089+00:00 app[web.1]: ^^^^^^^^
+2025-02-15T22:23:48.175089+00:00 app[web.1]: File "/app/adjudicator/debate/views/analysis.py", line 150, in event_stream
+2025-02-15T22:23:48.175090+00:00 app[web.1]: result = perform_analysis(text)
+2025-02-15T22:23:48.175090+00:00 app[web.1]: File "/app/adjudicator/debate/services/analysis.py", line 158, in perform_analysis
+2025-02-15T22:23:48.175090+00:00 app[web.1]: evaluation_formatted = make_llm_call(
+2025-02-15T22:23:48.175091+00:00 app[web.1]: load_prompt('format_evaluation.txt').format(text=evaluation),
+2025-02-15T22:23:48.175091+00:00 app[web.1]: ...<2 lines>...
+2025-02-15T22:23:48.175091+00:00 app[web.1]: prompt_name='format_evaluation'
+2025-02-15T22:23:48.175092+00:00 app[web.1]: )
+2025-02-15T22:23:48.175092+00:00 app[web.1]: File "/app/adjudicator/debate/services/llm.py", line 84, in make_llm_call
+2025-02-15T22:23:48.175093+00:00 app[web.1]: response = chat.send_message(prompt)
+2025-02-15T22:23:48.175093+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/generativeai/generative_models.py", line 578, in send_message
+2025-02-15T22:23:48.175093+00:00 app[web.1]: response = self.model.generate_content(
+2025-02-15T22:23:48.175094+00:00 app[web.1]: contents=history,
+2025-02-15T22:23:48.175094+00:00 app[web.1]: ...<5 lines>...
+2025-02-15T22:23:48.175094+00:00 app[web.1]: request_options=request_options,
+2025-02-15T22:23:48.175095+00:00 app[web.1]: )
+2025-02-15T22:23:48.175097+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/generativeai/generative_models.py", line 331, in generate_content
+2025-02-15T22:23:48.175097+00:00 app[web.1]: response = self._client.generate_content(
+2025-02-15T22:23:48.175097+00:00 app[web.1]: request,
+2025-02-15T22:23:48.175098+00:00 app[web.1]: **request_options,
+2025-02-15T22:23:48.175098+00:00 app[web.1]: )
+2025-02-15T22:23:48.175099+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/client.py", line 835, in generate_content
+2025-02-15T22:23:48.175099+00:00 app[web.1]: response = rpc(
+2025-02-15T22:23:48.175100+00:00 app[web.1]: request,
+2025-02-15T22:23:48.175100+00:00 app[web.1]: ...<2 lines>...
+2025-02-15T22:23:48.175100+00:00 app[web.1]: metadata=metadata,
+2025-02-15T22:23:48.175100+00:00 app[web.1]: )
+2025-02-15T22:23:48.175101+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/gapic_v1/method.py", line 131, in __call__
+2025-02-15T22:23:48.175101+00:00 app[web.1]: return wrapped_func(*args, **kwargs)
+2025-02-15T22:23:48.175101+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/retry/retry_unary.py", line 293, in retry_wrapped_func
+2025-02-15T22:23:48.175101+00:00 app[web.1]: return retry_target(
+2025-02-15T22:23:48.175102+00:00 app[web.1]: target,
+2025-02-15T22:23:48.175102+00:00 app[web.1]: ...<3 lines>...
+2025-02-15T22:23:48.175102+00:00 app[web.1]: on_error=on_error,
+2025-02-15T22:23:48.175102+00:00 app[web.1]: )
+2025-02-15T22:23:48.175103+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/retry/retry_unary.py", line 144, in retry_target
+2025-02-15T22:23:48.175103+00:00 app[web.1]: result = target()
+2025-02-15T22:23:48.175103+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/timeout.py", line 120, in func_with_timeout
+2025-02-15T22:23:48.175103+00:00 app[web.1]: return func(*args, **kwargs)
+2025-02-15T22:23:48.175103+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/grpc_helpers.py", line 76, in error_remapped_callable
+2025-02-15T22:23:48.175104+00:00 app[web.1]: return callable_(*args, **kwargs)
+2025-02-15T22:23:48.175104+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_interceptor.py", line 277, in __call__
+2025-02-15T22:23:48.175104+00:00 app[web.1]: response, ignored_call = self._with_call(
+2025-02-15T22:23:48.175104+00:00 app[web.1]: ~~~~~~~~~~~~~~~^
+2025-02-15T22:23:48.175105+00:00 app[web.1]: request,
+2025-02-15T22:23:48.175105+00:00 app[web.1]: ^^^^^^^^
+2025-02-15T22:23:48.175105+00:00 app[web.1]: ...<4 lines>...
+2025-02-15T22:23:48.175105+00:00 app[web.1]: compression=compression,
+2025-02-15T22:23:48.175106+00:00 app[web.1]: ^^^^^^^^^^^^^^^^^^^^^^^^
+2025-02-15T22:23:48.175106+00:00 app[web.1]: )
+2025-02-15T22:23:48.175106+00:00 app[web.1]: ^
+2025-02-15T22:23:48.175106+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_interceptor.py", line 329, in _with_call
+2025-02-15T22:23:48.175106+00:00 app[web.1]: call = self._interceptor.intercept_unary_unary(
+2025-02-15T22:23:48.175107+00:00 app[web.1]: continuation, client_call_details, request
+2025-02-15T22:23:48.175107+00:00 app[web.1]: )
+2025-02-15T22:23:48.175107+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/transports/grpc.py", line 79, in intercept_unary_unary
+2025-02-15T22:23:48.175107+00:00 app[web.1]: response = continuation(client_call_details, request)
+2025-02-15T22:23:48.175107+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_interceptor.py", line 315, in continuation
+2025-02-15T22:23:48.175108+00:00 app[web.1]: response, call = self._thunk(new_method).with_call(
+2025-02-15T22:23:48.175108+00:00 app[web.1]: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+2025-02-15T22:23:48.175108+00:00 app[web.1]: request,
+2025-02-15T22:23:48.175108+00:00 app[web.1]: ^^^^^^^^
+2025-02-15T22:23:48.175108+00:00 app[web.1]: ...<4 lines>...
+2025-02-15T22:23:48.175109+00:00 app[web.1]: compression=new_compression,
+2025-02-15T22:23:48.175109+00:00 app[web.1]: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-02-15T22:23:48.175109+00:00 app[web.1]: )
+2025-02-15T22:23:48.175109+00:00 app[web.1]: ^
+2025-02-15T22:23:48.175109+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_channel.py", line 1195, in with_call
+2025-02-15T22:23:48.175110+00:00 app[web.1]: ) = self._blocking(
+2025-02-15T22:23:48.175110+00:00 app[web.1]: ~~~~~~~~~~~~~~^
+2025-02-15T22:23:48.175110+00:00 app[web.1]: request, timeout, metadata, credentials, wait_for_ready, compression
+2025-02-15T22:23:48.175110+00:00 app[web.1]: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-02-15T22:23:48.175110+00:00 app[web.1]: )
+2025-02-15T22:23:48.175111+00:00 app[web.1]: ^
+2025-02-15T22:23:48.175115+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_channel.py", line 1162, in _blocking
+2025-02-15T22:23:48.175115+00:00 app[web.1]: event = call.next_event()
+2025-02-15T22:23:48.175116+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/channel.pyx.pxi", line 388, in grpc._cython.cygrpc.SegregatedCall.next_event
+2025-02-15T22:23:48.175116+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/channel.pyx.pxi", line 211, in grpc._cython.cygrpc._next_call_event
+2025-02-15T22:23:48.175116+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/channel.pyx.pxi", line 205, in grpc._cython.cygrpc._next_call_event
+2025-02-15T22:23:48.175116+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/completion_queue.pyx.pxi", line 78, in grpc._cython.cygrpc._latent_event
+2025-02-15T22:23:48.175117+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/completion_queue.pyx.pxi", line 62, in grpc._cython.cygrpc._internal_latent_event
+2025-02-15T22:23:48.175117+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/completion_queue.pyx.pxi", line 58, in grpc._cython.cygrpc._interpret_event
+2025-02-15T22:23:48.175117+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/tag.pyx.pxi", line 71, in grpc._cython.cygrpc._BatchOperationTag.event
+2025-02-15T22:23:48.175118+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/operation.pyx.pxi", line 138, in grpc._cython.cygrpc.ReceiveInitialMetadataOperation.un_c
+2025-02-15T22:23:48.175118+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/metadata.pyx.pxi", line 69, in grpc._cython.cygrpc._metadata
+2025-02-15T22:23:48.175118+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/metadata.pyx.pxi", line 70, in genexpr
+2025-02-15T22:23:48.175119+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/metadata.pyx.pxi", line 64, in grpc._cython.cygrpc._metadatum
+2025-02-15T22:23:48.175119+00:00 app[web.1]: File "<string>", line 1, in <lambda>
+2025-02-15T22:23:48.175120+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/gunicorn/workers/base.py", line 204, in handle_abort
+2025-02-15T22:23:48.175120+00:00 app[web.1]: sys.exit(1)
+2025-02-15T22:23:48.175120+00:00 app[web.1]: ~~~~~~~~^^^
+2025-02-15T22:23:48.175120+00:00 app[web.1]: SystemExit: 1
+2025-02-15T22:23:48.175256+00:00 app[web.1]: 10.1.83.161 - - [15/Feb/2025:22:23:48 +0000] "GET /analyze-stream/ HTTP/1.1" 500 0 "-" "-"
+2025-02-15T22:23:48.175537+00:00 heroku[router]: http_error="Bad chunk" at=error code=H17 desc="Poorly formatted HTTP response" method=GET path="/analyze-stream/" host=squabblesort-a13dccd5cc3e.herokuapp.com request_id=5639ac05-111e-4a86-bb4d-cbd23aeca5f0 fwd="202.138.48.197" dyno=web.1 connect=0ms service=30649ms status=503 bytes= protocol=https
+2025-02-15T22:23:48.175597+00:00 app[web.1]: [2025-02-15 22:23:48 +0000] [412] [INFO] Worker exiting (pid: 412)
+2025-02-15T22:23:49.090799+00:00 app[web.1]: [2025-02-15 22:23:49 +0000] [2] [ERROR] Worker (pid:412) was sent SIGKILL! Perhaps out of memory?
+2025-02-15T22:23:49.092657+00:00 app[web.1]: [2025-02-15 22:23:49 +0000] [429] [INFO] Booting worker with pid: 429
+2025-02-15T22:23:59.707389+00:00 app[web.1]: Debate title (analysis): Extinction Prediction Paradox: Past Failures Don't Guarantee Future Safety
+2025-02-15T22:24:23.184973+00:00 app[web.1]: [2025-02-15 22:24:23 +0000] [2] [CRITICAL] WORKER TIMEOUT (pid:378)
+2025-02-15T22:24:23.386772+00:00 app[web.1]: 10.1.95.243 - - [15/Feb/2025:22:24:23 +0000] "GET /analyze-stream/ HTTP/1.1" 200 86 "https://squabblesort-a13dccd5cc3e.herokuapp.com/" "Mozilla/5.0 (iPhone; CPU iPhone OS 18_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.3 Mobile/15E148 Safari/604.1"
+2025-02-15T22:24:23.391390+00:00 app[web.1]: [2025-02-15 22:24:23 +0000] [378] [ERROR] Error handling request /analyze-stream/
+2025-02-15T22:24:23.391391+00:00 app[web.1]: Traceback (most recent call last):
+2025-02-15T22:24:23.391393+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/gunicorn/workers/sync.py", line 134, in handle
+2025-02-15T22:24:23.391393+00:00 app[web.1]: self.handle_request(listener, req, client, addr)
+2025-02-15T22:24:23.391394+00:00 app[web.1]: ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-02-15T22:24:23.391394+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/gunicorn/workers/sync.py", line 182, in handle_request
+2025-02-15T22:24:23.391394+00:00 app[web.1]: for item in respiter:
+2025-02-15T22:24:23.391395+00:00 app[web.1]: ^^^^^^^^
+2025-02-15T22:24:23.391396+00:00 app[web.1]: File "/app/adjudicator/debate/views/analysis.py", line 150, in event_stream
+2025-02-15T22:24:23.391397+00:00 app[web.1]: result = perform_analysis(text)
+2025-02-15T22:24:23.391397+00:00 app[web.1]: File "/app/adjudicator/debate/services/analysis.py", line 158, in perform_analysis
+2025-02-15T22:24:23.391397+00:00 app[web.1]: evaluation_formatted = make_llm_call(
+2025-02-15T22:24:23.391398+00:00 app[web.1]: load_prompt('format_evaluation.txt').format(text=evaluation),
+2025-02-15T22:24:23.391399+00:00 app[web.1]: ...<2 lines>...
+2025-02-15T22:24:23.391399+00:00 app[web.1]: prompt_name='format_evaluation'
+2025-02-15T22:24:23.391399+00:00 app[web.1]: )
+2025-02-15T22:24:23.391400+00:00 app[web.1]: File "/app/adjudicator/debate/services/llm.py", line 84, in make_llm_call
+2025-02-15T22:24:23.391400+00:00 app[web.1]: response = chat.send_message(prompt)
+2025-02-15T22:24:23.391401+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/generativeai/generative_models.py", line 578, in send_message
+2025-02-15T22:24:23.391401+00:00 app[web.1]: response = self.model.generate_content(
+2025-02-15T22:24:23.391401+00:00 app[web.1]: contents=history,
+2025-02-15T22:24:23.391401+00:00 app[web.1]: ...<5 lines>...
+2025-02-15T22:24:23.391401+00:00 app[web.1]: request_options=request_options,
+2025-02-15T22:24:23.391402+00:00 app[web.1]: )
+2025-02-15T22:24:23.391402+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/generativeai/generative_models.py", line 331, in generate_content
+2025-02-15T22:24:23.391403+00:00 app[web.1]: response = self._client.generate_content(
+2025-02-15T22:24:23.391403+00:00 app[web.1]: request,
+2025-02-15T22:24:23.391403+00:00 app[web.1]: **request_options,
+2025-02-15T22:24:23.391403+00:00 app[web.1]: )
+2025-02-15T22:24:23.391404+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/client.py", line 835, in generate_content
+2025-02-15T22:24:23.391404+00:00 app[web.1]: response = rpc(
+2025-02-15T22:24:23.391404+00:00 app[web.1]: request,
+2025-02-15T22:24:23.391405+00:00 app[web.1]: ...<2 lines>...
+2025-02-15T22:24:23.391405+00:00 app[web.1]: metadata=metadata,
+2025-02-15T22:24:23.391405+00:00 app[web.1]: )
+2025-02-15T22:24:23.391405+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/gapic_v1/method.py", line 131, in __call__
+2025-02-15T22:24:23.391406+00:00 app[web.1]: return wrapped_func(*args, **kwargs)
+2025-02-15T22:24:23.391406+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/retry/retry_unary.py", line 293, in retry_wrapped_func
+2025-02-15T22:24:23.391406+00:00 app[web.1]: return retry_target(
+2025-02-15T22:24:23.391406+00:00 app[web.1]: target,
+2025-02-15T22:24:23.391406+00:00 app[web.1]: ...<3 lines>...
+2025-02-15T22:24:23.391406+00:00 app[web.1]: on_error=on_error,
+2025-02-15T22:24:23.391417+00:00 app[web.1]: )
+2025-02-15T22:24:23.391417+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/retry/retry_unary.py", line 144, in retry_target
+2025-02-15T22:24:23.391417+00:00 app[web.1]: result = target()
+2025-02-15T22:24:23.391417+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/timeout.py", line 120, in func_with_timeout
+2025-02-15T22:24:23.391417+00:00 app[web.1]: return func(*args, **kwargs)
+2025-02-15T22:24:23.391418+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/grpc_helpers.py", line 76, in error_remapped_callable
+2025-02-15T22:24:23.391418+00:00 app[web.1]: return callable_(*args, **kwargs)
+2025-02-15T22:24:23.391418+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_interceptor.py", line 277, in __call__
+2025-02-15T22:24:23.391418+00:00 app[web.1]: response, ignored_call = self._with_call(
+2025-02-15T22:24:23.391418+00:00 app[web.1]: ~~~~~~~~~~~~~~~^
+2025-02-15T22:24:23.391418+00:00 app[web.1]: request,
+2025-02-15T22:24:23.391419+00:00 app[web.1]: ^^^^^^^^
+2025-02-15T22:24:23.391419+00:00 app[web.1]: ...<4 lines>...
+2025-02-15T22:24:23.391419+00:00 app[web.1]: compression=compression,
+2025-02-15T22:24:23.391419+00:00 app[web.1]: ^^^^^^^^^^^^^^^^^^^^^^^^
+2025-02-15T22:24:23.391419+00:00 app[web.1]: )
+2025-02-15T22:24:23.391419+00:00 app[web.1]: ^
+2025-02-15T22:24:23.391419+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_interceptor.py", line 329, in _with_call
+2025-02-15T22:24:23.391420+00:00 app[web.1]: call = self._interceptor.intercept_unary_unary(
+2025-02-15T22:24:23.391420+00:00 app[web.1]: continuation, client_call_details, request
+2025-02-15T22:24:23.391420+00:00 app[web.1]: )
+2025-02-15T22:24:23.391420+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/transports/grpc.py", line 79, in intercept_unary_unary
+2025-02-15T22:24:23.391420+00:00 app[web.1]: response = continuation(client_call_details, request)
+2025-02-15T22:24:23.391421+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_interceptor.py", line 315, in continuation
+2025-02-15T22:24:23.391421+00:00 app[web.1]: response, call = self._thunk(new_method).with_call(
+2025-02-15T22:24:23.391421+00:00 app[web.1]: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+2025-02-15T22:24:23.391421+00:00 app[web.1]: request,
+2025-02-15T22:24:23.391421+00:00 app[web.1]: ^^^^^^^^
+2025-02-15T22:24:23.391421+00:00 app[web.1]: ...<4 lines>...
+2025-02-15T22:24:23.391422+00:00 app[web.1]: compression=new_compression,
+2025-02-15T22:24:23.391422+00:00 app[web.1]: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-02-15T22:24:23.391422+00:00 app[web.1]: )
+2025-02-15T22:24:23.391422+00:00 app[web.1]: ^
+2025-02-15T22:24:23.391422+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_channel.py", line 1195, in with_call
+2025-02-15T22:24:23.391422+00:00 app[web.1]: ) = self._blocking(
+2025-02-15T22:24:23.391423+00:00 app[web.1]: ~~~~~~~~~~~~~~^
+2025-02-15T22:24:23.391423+00:00 app[web.1]: request, timeout, metadata, credentials, wait_for_ready, compression
+2025-02-15T22:24:23.391423+00:00 app[web.1]: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-02-15T22:24:23.391423+00:00 app[web.1]: )
+2025-02-15T22:24:23.391423+00:00 app[web.1]: ^
+2025-02-15T22:24:23.391427+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_channel.py", line 1162, in _blocking
+2025-02-15T22:24:23.391427+00:00 app[web.1]: event = call.next_event()
+2025-02-15T22:24:23.391428+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/channel.pyx.pxi", line 388, in grpc._cython.cygrpc.SegregatedCall.next_event
+2025-02-15T22:24:23.391428+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/channel.pyx.pxi", line 211, in grpc._cython.cygrpc._next_call_event
+2025-02-15T22:24:23.391428+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/channel.pyx.pxi", line 205, in grpc._cython.cygrpc._next_call_event
+2025-02-15T22:24:23.391428+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/completion_queue.pyx.pxi", line 78, in grpc._cython.cygrpc._latent_event
+2025-02-15T22:24:23.391428+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/completion_queue.pyx.pxi", line 61, in grpc._cython.cygrpc._internal_latent_event
+2025-02-15T22:24:23.391429+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/completion_queue.pyx.pxi", line 42, in grpc._cython.cygrpc._next
+2025-02-15T22:24:23.391429+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/gunicorn/workers/base.py", line 204, in handle_abort
+2025-02-15T22:24:23.391429+00:00 app[web.1]: sys.exit(1)
+2025-02-15T22:24:23.391429+00:00 app[web.1]: ~~~~~~~~^^^
+2025-02-15T22:24:23.391429+00:00 app[web.1]: SystemExit: 1
+2025-02-15T22:24:23.391548+00:00 app[web.1]: 10.1.95.243 - - [15/Feb/2025:22:24:23 +0000] "GET /analyze-stream/ HTTP/1.1" 500 0 "-" "-"
+2025-02-15T22:24:23.391880+00:00 heroku[router]: http_error="Bad chunk" at=error code=H17 desc="Poorly formatted HTTP response" method=GET path="/analyze-stream/" host=squabblesort-a13dccd5cc3e.herokuapp.com request_id=0e1292c1-bd2a-49f6-bbd2-1a48813d97f8 fwd="202.138.48.197" dyno=web.1 connect=0ms service=30946ms status=503 bytes= protocol=https
+2025-02-15T22:24:23.391917+00:00 app[web.1]: [2025-02-15 22:24:23 +0000] [378] [INFO] Worker exiting (pid: 378)
+2025-02-15T22:24:24.193419+00:00 app[web.1]: [2025-02-15 22:24:24 +0000] [2] [ERROR] Worker (pid:378) was sent SIGKILL! Perhaps out of memory?
+2025-02-15T22:24:24.195248+00:00 app[web.1]: [2025-02-15 22:24:24 +0000] [456] [INFO] Booting worker with pid: 456
+2025-02-15T22:24:36.067382+00:00 app[web.1]: Debate title (analysis): Extinction Prediction Paradox: Can Past Failures Inform Future Risk?
+2025-02-15T22:24:58.248432+00:00 app[web.1]: [2025-02-15 22:24:58 +0000] [2] [CRITICAL] WORKER TIMEOUT (pid:429)
+2025-02-15T22:24:58.450242+00:00 app[web.1]: 10.1.55.32 - - [15/Feb/2025:22:24:58 +0000] "GET /analyze-stream/ HTTP/1.1" 200 86 "https://squabblesort-a13dccd5cc3e.herokuapp.com/" "Mozilla/5.0 (iPhone; CPU iPhone OS 18_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.3 Mobile/15E148 Safari/604.1"
+2025-02-15T22:24:58.454763+00:00 app[web.1]: [2025-02-15 22:24:58 +0000] [429] [ERROR] Error handling request /analyze-stream/
+2025-02-15T22:24:58.454764+00:00 app[web.1]: Traceback (most recent call last):
+2025-02-15T22:24:58.454764+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/gunicorn/workers/sync.py", line 134, in handle
+2025-02-15T22:24:58.454765+00:00 app[web.1]: self.handle_request(listener, req, client, addr)
+2025-02-15T22:24:58.454765+00:00 app[web.1]: ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-02-15T22:24:58.454766+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/gunicorn/workers/sync.py", line 182, in handle_request
+2025-02-15T22:24:58.454766+00:00 app[web.1]: for item in respiter:
+2025-02-15T22:24:58.454767+00:00 app[web.1]: ^^^^^^^^
+2025-02-15T22:24:58.454767+00:00 app[web.1]: File "/app/adjudicator/debate/views/analysis.py", line 150, in event_stream
+2025-02-15T22:24:58.454767+00:00 app[web.1]: result = perform_analysis(text)
+2025-02-15T22:24:58.454768+00:00 app[web.1]: File "/app/adjudicator/debate/services/analysis.py", line 158, in perform_analysis
+2025-02-15T22:24:58.454768+00:00 app[web.1]: evaluation_formatted = make_llm_call(
+2025-02-15T22:24:58.454768+00:00 app[web.1]: load_prompt('format_evaluation.txt').format(text=evaluation),
+2025-02-15T22:24:58.454769+00:00 app[web.1]: ...<2 lines>...
+2025-02-15T22:24:58.454769+00:00 app[web.1]: prompt_name='format_evaluation'
+2025-02-15T22:24:58.454769+00:00 app[web.1]: )
+2025-02-15T22:24:58.454769+00:00 app[web.1]: File "/app/adjudicator/debate/services/llm.py", line 84, in make_llm_call
+2025-02-15T22:24:58.454770+00:00 app[web.1]: response = chat.send_message(prompt)
+2025-02-15T22:24:58.454770+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/generativeai/generative_models.py", line 578, in send_message
+2025-02-15T22:24:58.454771+00:00 app[web.1]: response = self.model.generate_content(
+2025-02-15T22:24:58.454771+00:00 app[web.1]: contents=history,
+2025-02-15T22:24:58.454771+00:00 app[web.1]: ...<5 lines>...
+2025-02-15T22:24:58.454771+00:00 app[web.1]: request_options=request_options,
+2025-02-15T22:24:58.454771+00:00 app[web.1]: )
+2025-02-15T22:24:58.454772+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/generativeai/generative_models.py", line 331, in generate_content
+2025-02-15T22:24:58.454772+00:00 app[web.1]: response = self._client.generate_content(
+2025-02-15T22:24:58.454772+00:00 app[web.1]: request,
+2025-02-15T22:24:58.454773+00:00 app[web.1]: **request_options,
+2025-02-15T22:24:58.454773+00:00 app[web.1]: )
+2025-02-15T22:24:58.454775+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/client.py", line 835, in generate_content
+2025-02-15T22:24:58.454775+00:00 app[web.1]: response = rpc(
+2025-02-15T22:24:58.454775+00:00 app[web.1]: request,
+2025-02-15T22:24:58.454775+00:00 app[web.1]: ...<2 lines>...
+2025-02-15T22:24:58.454775+00:00 app[web.1]: metadata=metadata,
+2025-02-15T22:24:58.454775+00:00 app[web.1]: )
+2025-02-15T22:24:58.454776+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/gapic_v1/method.py", line 131, in __call__
+2025-02-15T22:24:58.454776+00:00 app[web.1]: return wrapped_func(*args, **kwargs)
+2025-02-15T22:24:58.454776+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/retry/retry_unary.py", line 293, in retry_wrapped_func
+2025-02-15T22:24:58.454777+00:00 app[web.1]: return retry_target(
+2025-02-15T22:24:58.454777+00:00 app[web.1]: target,
+2025-02-15T22:24:58.454777+00:00 app[web.1]: ...<3 lines>...
+2025-02-15T22:24:58.454777+00:00 app[web.1]: on_error=on_error,
+2025-02-15T22:24:58.454777+00:00 app[web.1]: )
+2025-02-15T22:24:58.454777+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/retry/retry_unary.py", line 144, in retry_target
+2025-02-15T22:24:58.454777+00:00 app[web.1]: result = target()
+2025-02-15T22:24:58.454778+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/timeout.py", line 120, in func_with_timeout
+2025-02-15T22:24:58.454778+00:00 app[web.1]: return func(*args, **kwargs)
+2025-02-15T22:24:58.454778+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/grpc_helpers.py", line 76, in error_remapped_callable
+2025-02-15T22:24:58.454778+00:00 app[web.1]: return callable_(*args, **kwargs)
+2025-02-15T22:24:58.454779+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_interceptor.py", line 277, in __call__
+2025-02-15T22:24:58.454779+00:00 app[web.1]: response, ignored_call = self._with_call(
+2025-02-15T22:24:58.454779+00:00 app[web.1]: ~~~~~~~~~~~~~~~^
+2025-02-15T22:24:58.454779+00:00 app[web.1]: request,
+2025-02-15T22:24:58.454779+00:00 app[web.1]: ^^^^^^^^
+2025-02-15T22:24:58.454779+00:00 app[web.1]: ...<4 lines>...
+2025-02-15T22:24:58.454780+00:00 app[web.1]: compression=compression,
+2025-02-15T22:24:58.454780+00:00 app[web.1]: ^^^^^^^^^^^^^^^^^^^^^^^^
+2025-02-15T22:24:58.454780+00:00 app[web.1]: )
+2025-02-15T22:24:58.454780+00:00 app[web.1]: ^
+2025-02-15T22:24:58.454780+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_interceptor.py", line 329, in _with_call
+2025-02-15T22:24:58.454780+00:00 app[web.1]: call = self._interceptor.intercept_unary_unary(
+2025-02-15T22:24:58.454780+00:00 app[web.1]: continuation, client_call_details, request
+2025-02-15T22:24:58.454781+00:00 app[web.1]: )
+2025-02-15T22:24:58.454781+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/transports/grpc.py", line 79, in intercept_unary_unary
+2025-02-15T22:24:58.454781+00:00 app[web.1]: response = continuation(client_call_details, request)
+2025-02-15T22:24:58.454781+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_interceptor.py", line 315, in continuation
+2025-02-15T22:24:58.454781+00:00 app[web.1]: response, call = self._thunk(new_method).with_call(
+2025-02-15T22:24:58.454781+00:00 app[web.1]: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+2025-02-15T22:24:58.454782+00:00 app[web.1]: request,
+2025-02-15T22:24:58.454782+00:00 app[web.1]: ^^^^^^^^
+2025-02-15T22:24:58.454782+00:00 app[web.1]: ...<4 lines>...
+2025-02-15T22:24:58.454782+00:00 app[web.1]: compression=new_compression,
+2025-02-15T22:24:58.454782+00:00 app[web.1]: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-02-15T22:24:58.454782+00:00 app[web.1]: )
+2025-02-15T22:24:58.454782+00:00 app[web.1]: ^
+2025-02-15T22:24:58.454783+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_channel.py", line 1195, in with_call
+2025-02-15T22:24:58.454783+00:00 app[web.1]: ) = self._blocking(
+2025-02-15T22:24:58.454783+00:00 app[web.1]: ~~~~~~~~~~~~~~^
+2025-02-15T22:24:58.454783+00:00 app[web.1]: request, timeout, metadata, credentials, wait_for_ready, compression
+2025-02-15T22:24:58.454783+00:00 app[web.1]: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-02-15T22:24:58.454783+00:00 app[web.1]: )
+2025-02-15T22:24:58.454783+00:00 app[web.1]: ^
+2025-02-15T22:24:58.454794+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_channel.py", line 1162, in _blocking
+2025-02-15T22:24:58.454794+00:00 app[web.1]: event = call.next_event()
+2025-02-15T22:24:58.454795+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/channel.pyx.pxi", line 388, in grpc._cython.cygrpc.SegregatedCall.next_event
+2025-02-15T22:24:58.454795+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/channel.pyx.pxi", line 211, in grpc._cython.cygrpc._next_call_event
+2025-02-15T22:24:58.454795+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/channel.pyx.pxi", line 205, in grpc._cython.cygrpc._next_call_event
+2025-02-15T22:24:58.454795+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/completion_queue.pyx.pxi", line 78, in grpc._cython.cygrpc._latent_event
+2025-02-15T22:24:58.454795+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/completion_queue.pyx.pxi", line 61, in grpc._cython.cygrpc._internal_latent_event
+2025-02-15T22:24:58.454796+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/completion_queue.pyx.pxi", line 42, in grpc._cython.cygrpc._next
+2025-02-15T22:24:58.454796+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/gunicorn/workers/base.py", line 204, in handle_abort
+2025-02-15T22:24:58.454796+00:00 app[web.1]: sys.exit(1)
+2025-02-15T22:24:58.454796+00:00 app[web.1]: ~~~~~~~~^^^
+2025-02-15T22:24:58.454797+00:00 app[web.1]: SystemExit: 1
+2025-02-15T22:24:58.454924+00:00 app[web.1]: 10.1.55.32 - - [15/Feb/2025:22:24:58 +0000] "GET /analyze-stream/ HTTP/1.1" 500 0 "-" "-"
+2025-02-15T22:24:58.455219+00:00 app[web.1]: [2025-02-15 22:24:58 +0000] [429] [INFO] Worker exiting (pid: 429)
+2025-02-15T22:24:58.455255+00:00 heroku[router]: http_error="Bad chunk" at=error code=H17 desc="Poorly formatted HTTP response" method=GET path="/analyze-stream/" host=squabblesort-a13dccd5cc3e.herokuapp.com request_id=0b5595f2-9543-4a1b-a8d3-3d92a0985fb5 fwd="202.138.48.197" dyno=web.1 connect=0ms service=30885ms status=503 bytes= protocol=https
+2025-02-15T22:24:59.256214+00:00 app[web.1]: [2025-02-15 22:24:59 +0000] [2] [ERROR] Worker (pid:429) was sent SIGKILL! Perhaps out of memory?
+2025-02-15T22:24:59.258039+00:00 app[web.1]: [2025-02-15 22:24:59 +0000] [473] [INFO] Booting worker with pid: 473
+2025-02-15T22:25:10.565280+00:00 app[web.1]: Debate title (analysis): Extinction Prediction Debate: Past Failures vs. Future Risks
+2025-02-15T22:25:33.322068+00:00 app[web.1]: [2025-02-15 22:25:33 +0000] [2] [CRITICAL] WORKER TIMEOUT (pid:456)
+2025-02-15T22:25:33.523905+00:00 app[web.1]: 10.1.62.156 - - [15/Feb/2025:22:25:33 +0000] "GET /analyze-stream/ HTTP/1.1" 200 86 "https://squabblesort-a13dccd5cc3e.herokuapp.com/" "Mozilla/5.0 (iPhone; CPU iPhone OS 18_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.3 Mobile/15E148 Safari/604.1"
+2025-02-15T22:25:33.528489+00:00 app[web.1]: [2025-02-15 22:25:33 +0000] [456] [ERROR] Error handling request /analyze-stream/
+2025-02-15T22:25:33.528490+00:00 app[web.1]: Traceback (most recent call last):
+2025-02-15T22:25:33.528492+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/gunicorn/workers/sync.py", line 134, in handle
+2025-02-15T22:25:33.528493+00:00 app[web.1]: self.handle_request(listener, req, client, addr)
+2025-02-15T22:25:33.528493+00:00 app[web.1]: ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-02-15T22:25:33.528494+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/gunicorn/workers/sync.py", line 182, in handle_request
+2025-02-15T22:25:33.528494+00:00 app[web.1]: for item in respiter:
+2025-02-15T22:25:33.528494+00:00 app[web.1]: ^^^^^^^^
+2025-02-15T22:25:33.528495+00:00 app[web.1]: File "/app/adjudicator/debate/views/analysis.py", line 150, in event_stream
+2025-02-15T22:25:33.528495+00:00 app[web.1]: result = perform_analysis(text)
+2025-02-15T22:25:33.528495+00:00 app[web.1]: File "/app/adjudicator/debate/services/analysis.py", line 158, in perform_analysis
+2025-02-15T22:25:33.528496+00:00 app[web.1]: evaluation_formatted = make_llm_call(
+2025-02-15T22:25:33.528496+00:00 app[web.1]: load_prompt('format_evaluation.txt').format(text=evaluation),
+2025-02-15T22:25:33.528497+00:00 app[web.1]: ...<2 lines>...
+2025-02-15T22:25:33.528497+00:00 app[web.1]: prompt_name='format_evaluation'
+2025-02-15T22:25:33.528497+00:00 app[web.1]: )
+2025-02-15T22:25:33.528497+00:00 app[web.1]: File "/app/adjudicator/debate/services/llm.py", line 84, in make_llm_call
+2025-02-15T22:25:33.528497+00:00 app[web.1]: response = chat.send_message(prompt)
+2025-02-15T22:25:33.528498+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/generativeai/generative_models.py", line 578, in send_message
+2025-02-15T22:25:33.528499+00:00 app[web.1]: response = self.model.generate_content(
+2025-02-15T22:25:33.528499+00:00 app[web.1]: contents=history,
+2025-02-15T22:25:33.528499+00:00 app[web.1]: ...<5 lines>...
+2025-02-15T22:25:33.528499+00:00 app[web.1]: request_options=request_options,
+2025-02-15T22:25:33.528499+00:00 app[web.1]: )
+2025-02-15T22:25:33.528501+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/generativeai/generative_models.py", line 331, in generate_content
+2025-02-15T22:25:33.528501+00:00 app[web.1]: response = self._client.generate_content(
+2025-02-15T22:25:33.528501+00:00 app[web.1]: request,
+2025-02-15T22:25:33.528501+00:00 app[web.1]: **request_options,
+2025-02-15T22:25:33.528502+00:00 app[web.1]: )
+2025-02-15T22:25:33.528502+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/client.py", line 835, in generate_content
+2025-02-15T22:25:33.528503+00:00 app[web.1]: response = rpc(
+2025-02-15T22:25:33.528503+00:00 app[web.1]: request,
+2025-02-15T22:25:33.528503+00:00 app[web.1]: ...<2 lines>...
+2025-02-15T22:25:33.528503+00:00 app[web.1]: metadata=metadata,
+2025-02-15T22:25:33.528503+00:00 app[web.1]: )
+2025-02-15T22:25:33.528503+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/gapic_v1/method.py", line 131, in __call__
+2025-02-15T22:25:33.528504+00:00 app[web.1]: return wrapped_func(*args, **kwargs)
+2025-02-15T22:25:33.528504+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/retry/retry_unary.py", line 293, in retry_wrapped_func
+2025-02-15T22:25:33.528504+00:00 app[web.1]: return retry_target(
+2025-02-15T22:25:33.528504+00:00 app[web.1]: target,
+2025-02-15T22:25:33.528504+00:00 app[web.1]: ...<3 lines>...
+2025-02-15T22:25:33.528505+00:00 app[web.1]: on_error=on_error,
+2025-02-15T22:25:33.528505+00:00 app[web.1]: )
+2025-02-15T22:25:33.528505+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/retry/retry_unary.py", line 144, in retry_target
+2025-02-15T22:25:33.528505+00:00 app[web.1]: result = target()
+2025-02-15T22:25:33.528505+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/timeout.py", line 120, in func_with_timeout
+2025-02-15T22:25:33.528505+00:00 app[web.1]: return func(*args, **kwargs)
+2025-02-15T22:25:33.528506+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/grpc_helpers.py", line 76, in error_remapped_callable
+2025-02-15T22:25:33.528506+00:00 app[web.1]: return callable_(*args, **kwargs)
+2025-02-15T22:25:33.528506+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_interceptor.py", line 277, in __call__
+2025-02-15T22:25:33.528506+00:00 app[web.1]: response, ignored_call = self._with_call(
+2025-02-15T22:25:33.528506+00:00 app[web.1]: ~~~~~~~~~~~~~~~^
+2025-02-15T22:25:33.528506+00:00 app[web.1]: request,
+2025-02-15T22:25:33.528506+00:00 app[web.1]: ^^^^^^^^
+2025-02-15T22:25:33.528506+00:00 app[web.1]: ...<4 lines>...
+2025-02-15T22:25:33.528507+00:00 app[web.1]: compression=compression,
+2025-02-15T22:25:33.528507+00:00 app[web.1]: ^^^^^^^^^^^^^^^^^^^^^^^^
+2025-02-15T22:25:33.528507+00:00 app[web.1]: )
+2025-02-15T22:25:33.528507+00:00 app[web.1]: ^
+2025-02-15T22:25:33.528507+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_interceptor.py", line 329, in _with_call
+2025-02-15T22:25:33.528507+00:00 app[web.1]: call = self._interceptor.intercept_unary_unary(
+2025-02-15T22:25:33.528508+00:00 app[web.1]: continuation, client_call_details, request
+2025-02-15T22:25:33.528508+00:00 app[web.1]: )
+2025-02-15T22:25:33.528508+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/transports/grpc.py", line 79, in intercept_unary_unary
+2025-02-15T22:25:33.528508+00:00 app[web.1]: response = continuation(client_call_details, request)
+2025-02-15T22:25:33.528508+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_interceptor.py", line 315, in continuation
+2025-02-15T22:25:33.528509+00:00 app[web.1]: response, call = self._thunk(new_method).with_call(
+2025-02-15T22:25:33.528509+00:00 app[web.1]: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+2025-02-15T22:25:33.528509+00:00 app[web.1]: request,
+2025-02-15T22:25:33.528509+00:00 app[web.1]: ^^^^^^^^
+2025-02-15T22:25:33.528509+00:00 app[web.1]: ...<4 lines>...
+2025-02-15T22:25:33.528509+00:00 app[web.1]: compression=new_compression,
+2025-02-15T22:25:33.528509+00:00 app[web.1]: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-02-15T22:25:33.528510+00:00 app[web.1]: )
+2025-02-15T22:25:33.528510+00:00 app[web.1]: ^
+2025-02-15T22:25:33.528510+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_channel.py", line 1195, in with_call
+2025-02-15T22:25:33.528510+00:00 app[web.1]: ) = self._blocking(
+2025-02-15T22:25:33.528510+00:00 app[web.1]: ~~~~~~~~~~~~~~^
+2025-02-15T22:25:33.528510+00:00 app[web.1]: request, timeout, metadata, credentials, wait_for_ready, compression
+2025-02-15T22:25:33.528510+00:00 app[web.1]: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-02-15T22:25:33.528511+00:00 app[web.1]: )
+2025-02-15T22:25:33.528511+00:00 app[web.1]: ^
+2025-02-15T22:25:33.528514+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_channel.py", line 1162, in _blocking
+2025-02-15T22:25:33.528514+00:00 app[web.1]: event = call.next_event()
+2025-02-15T22:25:33.528514+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/channel.pyx.pxi", line 388, in grpc._cython.cygrpc.SegregatedCall.next_event
+2025-02-15T22:25:33.528515+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/channel.pyx.pxi", line 211, in grpc._cython.cygrpc._next_call_event
+2025-02-15T22:25:33.528515+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/channel.pyx.pxi", line 205, in grpc._cython.cygrpc._next_call_event
+2025-02-15T22:25:33.528515+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/completion_queue.pyx.pxi", line 78, in grpc._cython.cygrpc._latent_event
+2025-02-15T22:25:33.528515+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/completion_queue.pyx.pxi", line 61, in grpc._cython.cygrpc._internal_latent_event
+2025-02-15T22:25:33.528515+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/completion_queue.pyx.pxi", line 42, in grpc._cython.cygrpc._next
+2025-02-15T22:25:33.528515+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/gunicorn/workers/base.py", line 204, in handle_abort
+2025-02-15T22:25:33.528516+00:00 app[web.1]: sys.exit(1)
+2025-02-15T22:25:33.528516+00:00 app[web.1]: ~~~~~~~~^^^
+2025-02-15T22:25:33.528516+00:00 app[web.1]: SystemExit: 1
+2025-02-15T22:25:33.528657+00:00 app[web.1]: 10.1.62.156 - - [15/Feb/2025:22:25:33 +0000] "GET /analyze-stream/ HTTP/1.1" 500 0 "-" "-"
+2025-02-15T22:25:33.528986+00:00 app[web.1]: [2025-02-15 22:25:33 +0000] [456] [INFO] Worker exiting (pid: 456)
+2025-02-15T22:25:33.529073+00:00 heroku[router]: http_error="Bad chunk" at=error code=H17 desc="Poorly formatted HTTP response" method=GET path="/analyze-stream/" host=squabblesort-a13dccd5cc3e.herokuapp.com request_id=1b903af4-7c02-4b79-80b3-731c4ee3512e fwd="202.138.48.197" dyno=web.1 connect=0ms service=30833ms status=503 bytes= protocol=https
+2025-02-15T22:25:34.330700+00:00 app[web.1]: [2025-02-15 22:25:34 +0000] [2] [ERROR] Worker (pid:456) was sent SIGKILL! Perhaps out of memory?
+2025-02-15T22:25:34.332651+00:00 app[web.1]: [2025-02-15 22:25:34 +0000] [490] [INFO] Booting worker with pid: 490
+2025-02-15T22:25:45.464408+00:00 app[web.1]: Debate title (analysis): Extinction Prediction Paradox: Can Past Failures Guide Future Risk Assessments?
+2025-02-15T22:26:08.423777+00:00 app[web.1]: [2025-02-15 22:26:08 +0000] [2] [CRITICAL] WORKER TIMEOUT (pid:473)
+2025-02-15T22:26:08.625662+00:00 app[web.1]: 10.1.56.8 - - [15/Feb/2025:22:26:08 +0000] "GET /analyze-stream/ HTTP/1.1" 200 86 "https://squabblesort-a13dccd5cc3e.herokuapp.com/" "Mozilla/5.0 (iPhone; CPU iPhone OS 18_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.3 Mobile/15E148 Safari/604.1"
+2025-02-15T22:26:08.630369+00:00 app[web.1]: [2025-02-15 22:26:08 +0000] [473] [ERROR] Error handling request /analyze-stream/
+2025-02-15T22:26:08.630370+00:00 app[web.1]: Traceback (most recent call last):
+2025-02-15T22:26:08.630370+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/gunicorn/workers/sync.py", line 134, in handle
+2025-02-15T22:26:08.630371+00:00 app[web.1]: self.handle_request(listener, req, client, addr)
+2025-02-15T22:26:08.630371+00:00 app[web.1]: ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-02-15T22:26:08.630371+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/gunicorn/workers/sync.py", line 182, in handle_request
+2025-02-15T22:26:08.630372+00:00 app[web.1]: for item in respiter:
+2025-02-15T22:26:08.630372+00:00 app[web.1]: ^^^^^^^^
+2025-02-15T22:26:08.630372+00:00 app[web.1]: File "/app/adjudicator/debate/views/analysis.py", line 150, in event_stream
+2025-02-15T22:26:08.630373+00:00 app[web.1]: result = perform_analysis(text)
+2025-02-15T22:26:08.630373+00:00 app[web.1]: File "/app/adjudicator/debate/services/analysis.py", line 158, in perform_analysis
+2025-02-15T22:26:08.630373+00:00 app[web.1]: evaluation_formatted = make_llm_call(
+2025-02-15T22:26:08.630373+00:00 app[web.1]: load_prompt('format_evaluation.txt').format(text=evaluation),
+2025-02-15T22:26:08.630374+00:00 app[web.1]: ...<2 lines>...
+2025-02-15T22:26:08.630374+00:00 app[web.1]: prompt_name='format_evaluation'
+2025-02-15T22:26:08.630374+00:00 app[web.1]: )
+2025-02-15T22:26:08.630374+00:00 app[web.1]: File "/app/adjudicator/debate/services/llm.py", line 84, in make_llm_call
+2025-02-15T22:26:08.630375+00:00 app[web.1]: response = chat.send_message(prompt)
+2025-02-15T22:26:08.630377+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/generativeai/generative_models.py", line 578, in send_message
+2025-02-15T22:26:08.630377+00:00 app[web.1]: response = self.model.generate_content(
+2025-02-15T22:26:08.630377+00:00 app[web.1]: contents=history,
+2025-02-15T22:26:08.630377+00:00 app[web.1]: ...<5 lines>...
+2025-02-15T22:26:08.630377+00:00 app[web.1]: request_options=request_options,
+2025-02-15T22:26:08.630378+00:00 app[web.1]: )
+2025-02-15T22:26:08.630380+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/generativeai/generative_models.py", line 331, in generate_content
+2025-02-15T22:26:08.630380+00:00 app[web.1]: response = self._client.generate_content(
+2025-02-15T22:26:08.630381+00:00 app[web.1]: request,
+2025-02-15T22:26:08.630381+00:00 app[web.1]: **request_options,
+2025-02-15T22:26:08.630381+00:00 app[web.1]: )
+2025-02-15T22:26:08.630381+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/client.py", line 835, in generate_content
+2025-02-15T22:26:08.630381+00:00 app[web.1]: response = rpc(
+2025-02-15T22:26:08.630382+00:00 app[web.1]: request,
+2025-02-15T22:26:08.630382+00:00 app[web.1]: ...<2 lines>...
+2025-02-15T22:26:08.630382+00:00 app[web.1]: metadata=metadata,
+2025-02-15T22:26:08.630382+00:00 app[web.1]: )
+2025-02-15T22:26:08.630383+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/gapic_v1/method.py", line 131, in __call__
+2025-02-15T22:26:08.630383+00:00 app[web.1]: return wrapped_func(*args, **kwargs)
+2025-02-15T22:26:08.630383+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/retry/retry_unary.py", line 293, in retry_wrapped_func
+2025-02-15T22:26:08.630383+00:00 app[web.1]: return retry_target(
+2025-02-15T22:26:08.630383+00:00 app[web.1]: target,
+2025-02-15T22:26:08.630383+00:00 app[web.1]: ...<3 lines>...
+2025-02-15T22:26:08.630383+00:00 app[web.1]: on_error=on_error,
+2025-02-15T22:26:08.630384+00:00 app[web.1]: )
+2025-02-15T22:26:08.630384+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/retry/retry_unary.py", line 144, in retry_target
+2025-02-15T22:26:08.630384+00:00 app[web.1]: result = target()
+2025-02-15T22:26:08.630384+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/timeout.py", line 120, in func_with_timeout
+2025-02-15T22:26:08.630384+00:00 app[web.1]: return func(*args, **kwargs)
+2025-02-15T22:26:08.630385+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/grpc_helpers.py", line 76, in error_remapped_callable
+2025-02-15T22:26:08.630385+00:00 app[web.1]: return callable_(*args, **kwargs)
+2025-02-15T22:26:08.630385+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_interceptor.py", line 277, in __call__
+2025-02-15T22:26:08.630385+00:00 app[web.1]: response, ignored_call = self._with_call(
+2025-02-15T22:26:08.630385+00:00 app[web.1]: ~~~~~~~~~~~~~~~^
+2025-02-15T22:26:08.630385+00:00 app[web.1]: request,
+2025-02-15T22:26:08.630385+00:00 app[web.1]: ^^^^^^^^
+2025-02-15T22:26:08.630386+00:00 app[web.1]: ...<4 lines>...
+2025-02-15T22:26:08.630386+00:00 app[web.1]: compression=compression,
+2025-02-15T22:26:08.630386+00:00 app[web.1]: ^^^^^^^^^^^^^^^^^^^^^^^^
+2025-02-15T22:26:08.630386+00:00 app[web.1]: )
+2025-02-15T22:26:08.630395+00:00 app[web.1]: ^
+2025-02-15T22:26:08.630395+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_interceptor.py", line 329, in _with_call
+2025-02-15T22:26:08.630395+00:00 app[web.1]: call = self._interceptor.intercept_unary_unary(
+2025-02-15T22:26:08.630395+00:00 app[web.1]: continuation, client_call_details, request
+2025-02-15T22:26:08.630395+00:00 app[web.1]: )
+2025-02-15T22:26:08.630396+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/transports/grpc.py", line 79, in intercept_unary_unary
+2025-02-15T22:26:08.630396+00:00 app[web.1]: response = continuation(client_call_details, request)
+2025-02-15T22:26:08.630396+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_interceptor.py", line 315, in continuation
+2025-02-15T22:26:08.630396+00:00 app[web.1]: response, call = self._thunk(new_method).with_call(
+2025-02-15T22:26:08.630396+00:00 app[web.1]: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+2025-02-15T22:26:08.630396+00:00 app[web.1]: request,
+2025-02-15T22:26:08.630397+00:00 app[web.1]: ^^^^^^^^
+2025-02-15T22:26:08.630397+00:00 app[web.1]: ...<4 lines>...
+2025-02-15T22:26:08.630397+00:00 app[web.1]: compression=new_compression,
+2025-02-15T22:26:08.630397+00:00 app[web.1]: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-02-15T22:26:08.630397+00:00 app[web.1]: )
+2025-02-15T22:26:08.630397+00:00 app[web.1]: ^
+2025-02-15T22:26:08.630397+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_channel.py", line 1195, in with_call
+2025-02-15T22:26:08.630398+00:00 app[web.1]: ) = self._blocking(
+2025-02-15T22:26:08.630398+00:00 app[web.1]: ~~~~~~~~~~~~~~^
+2025-02-15T22:26:08.630398+00:00 app[web.1]: request, timeout, metadata, credentials, wait_for_ready, compression
+2025-02-15T22:26:08.630398+00:00 app[web.1]: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-02-15T22:26:08.630398+00:00 app[web.1]: )
+2025-02-15T22:26:08.630398+00:00 app[web.1]: ^
+2025-02-15T22:26:08.630401+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_channel.py", line 1162, in _blocking
+2025-02-15T22:26:08.630401+00:00 app[web.1]: event = call.next_event()
+2025-02-15T22:26:08.630403+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/channel.pyx.pxi", line 388, in grpc._cython.cygrpc.SegregatedCall.next_event
+2025-02-15T22:26:08.630404+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/channel.pyx.pxi", line 211, in grpc._cython.cygrpc._next_call_event
+2025-02-15T22:26:08.630404+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/channel.pyx.pxi", line 205, in grpc._cython.cygrpc._next_call_event
+2025-02-15T22:26:08.630404+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/completion_queue.pyx.pxi", line 78, in grpc._cython.cygrpc._latent_event
+2025-02-15T22:26:08.630404+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/completion_queue.pyx.pxi", line 61, in grpc._cython.cygrpc._internal_latent_event
+2025-02-15T22:26:08.630405+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/completion_queue.pyx.pxi", line 42, in grpc._cython.cygrpc._next
+2025-02-15T22:26:08.630405+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/gunicorn/workers/base.py", line 204, in handle_abort
+2025-02-15T22:26:08.630405+00:00 app[web.1]: sys.exit(1)
+2025-02-15T22:26:08.630405+00:00 app[web.1]: ~~~~~~~~^^^
+2025-02-15T22:26:08.630406+00:00 app[web.1]: SystemExit: 1
+2025-02-15T22:26:08.630535+00:00 app[web.1]: 10.1.56.8 - - [15/Feb/2025:22:26:08 +0000] "GET /analyze-stream/ HTTP/1.1" 500 0 "-" "-"
+2025-02-15T22:26:08.630917+00:00 app[web.1]: [2025-02-15 22:26:08 +0000] [473] [INFO] Worker exiting (pid: 473)
+2025-02-15T22:26:08.630945+00:00 heroku[router]: http_error="Bad chunk" at=error code=H17 desc="Poorly formatted HTTP response" method=GET path="/analyze-stream/" host=squabblesort-a13dccd5cc3e.herokuapp.com request_id=adc1df28-585c-4bcf-8f1b-6ff3ac9e228e fwd="202.138.48.197" dyno=web.1 connect=1ms service=30813ms status=503 bytes= protocol=https
+2025-02-15T22:26:09.432557+00:00 app[web.1]: [2025-02-15 22:26:09 +0000] [2] [ERROR] Worker (pid:473) was sent SIGKILL! Perhaps out of memory?
+2025-02-15T22:26:09.434407+00:00 app[web.1]: [2025-02-15 22:26:09 +0000] [507] [INFO] Booting worker with pid: 507
+2025-02-15T22:26:19.589228+00:00 app[web.1]: Debate title (analysis): Extinction Prediction Paradox: Can Past Failures Guide Future Risk Assessments?
+2025-02-15T22:26:43.564814+00:00 app[web.1]: [2025-02-15 22:26:43 +0000] [2] [CRITICAL] WORKER TIMEOUT (pid:490)
+2025-02-15T22:26:43.766700+00:00 app[web.1]: 10.1.95.243 - - [15/Feb/2025:22:26:43 +0000] "GET /analyze-stream/ HTTP/1.1" 200 86 "https://squabblesort-a13dccd5cc3e.herokuapp.com/" "Mozilla/5.0 (iPhone; CPU iPhone OS 18_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.3 Mobile/15E148 Safari/604.1"
+2025-02-15T22:26:43.771449+00:00 app[web.1]: [2025-02-15 22:26:43 +0000] [490] [ERROR] Error handling request /analyze-stream/
+2025-02-15T22:26:43.771451+00:00 app[web.1]: Traceback (most recent call last):
+2025-02-15T22:26:43.771451+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/gunicorn/workers/sync.py", line 134, in handle
+2025-02-15T22:26:43.771452+00:00 app[web.1]: self.handle_request(listener, req, client, addr)
+2025-02-15T22:26:43.771452+00:00 app[web.1]: ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-02-15T22:26:43.771452+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/gunicorn/workers/sync.py", line 182, in handle_request
+2025-02-15T22:26:43.771453+00:00 app[web.1]: for item in respiter:
+2025-02-15T22:26:43.771453+00:00 app[web.1]: ^^^^^^^^
+2025-02-15T22:26:43.771453+00:00 app[web.1]: File "/app/adjudicator/debate/views/analysis.py", line 150, in event_stream
+2025-02-15T22:26:43.771453+00:00 app[web.1]: result = perform_analysis(text)
+2025-02-15T22:26:43.771453+00:00 app[web.1]: File "/app/adjudicator/debate/services/analysis.py", line 158, in perform_analysis
+2025-02-15T22:26:43.771454+00:00 app[web.1]: evaluation_formatted = make_llm_call(
+2025-02-15T22:26:43.771454+00:00 app[web.1]: load_prompt('format_evaluation.txt').format(text=evaluation),
+2025-02-15T22:26:43.771456+00:00 app[web.1]: ...<2 lines>...
+2025-02-15T22:26:43.771456+00:00 app[web.1]: prompt_name='format_evaluation'
+2025-02-15T22:26:43.771456+00:00 app[web.1]: )
+2025-02-15T22:26:43.771457+00:00 app[web.1]: File "/app/adjudicator/debate/services/llm.py", line 84, in make_llm_call
+2025-02-15T22:26:43.771457+00:00 app[web.1]: response = chat.send_message(prompt)
+2025-02-15T22:26:43.771457+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/generativeai/generative_models.py", line 578, in send_message
+2025-02-15T22:26:43.771457+00:00 app[web.1]: response = self.model.generate_content(
+2025-02-15T22:26:43.771458+00:00 app[web.1]: contents=history,
+2025-02-15T22:26:43.771458+00:00 app[web.1]: ...<5 lines>...
+2025-02-15T22:26:43.771458+00:00 app[web.1]: request_options=request_options,
+2025-02-15T22:26:43.771458+00:00 app[web.1]: )
+2025-02-15T22:26:43.771459+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/generativeai/generative_models.py", line 331, in generate_content
+2025-02-15T22:26:43.771459+00:00 app[web.1]: response = self._client.generate_content(
+2025-02-15T22:26:43.771459+00:00 app[web.1]: request,
+2025-02-15T22:26:43.771459+00:00 app[web.1]: **request_options,
+2025-02-15T22:26:43.771459+00:00 app[web.1]: )
+2025-02-15T22:26:43.771460+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/client.py", line 835, in generate_content
+2025-02-15T22:26:43.771460+00:00 app[web.1]: response = rpc(
+2025-02-15T22:26:43.771460+00:00 app[web.1]: request,
+2025-02-15T22:26:43.771460+00:00 app[web.1]: ...<2 lines>...
+2025-02-15T22:26:43.771460+00:00 app[web.1]: metadata=metadata,
+2025-02-15T22:26:43.771460+00:00 app[web.1]: )
+2025-02-15T22:26:43.771460+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/gapic_v1/method.py", line 131, in __call__
+2025-02-15T22:26:43.771461+00:00 app[web.1]: return wrapped_func(*args, **kwargs)
+2025-02-15T22:26:43.771461+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/retry/retry_unary.py", line 293, in retry_wrapped_func
+2025-02-15T22:26:43.771461+00:00 app[web.1]: return retry_target(
+2025-02-15T22:26:43.771461+00:00 app[web.1]: target,
+2025-02-15T22:26:43.771461+00:00 app[web.1]: ...<3 lines>...
+2025-02-15T22:26:43.771461+00:00 app[web.1]: on_error=on_error,
+2025-02-15T22:26:43.771461+00:00 app[web.1]: )
+2025-02-15T22:26:43.771461+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/retry/retry_unary.py", line 144, in retry_target
+2025-02-15T22:26:43.771462+00:00 app[web.1]: result = target()
+2025-02-15T22:26:43.771462+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/timeout.py", line 120, in func_with_timeout
+2025-02-15T22:26:43.771462+00:00 app[web.1]: return func(*args, **kwargs)
+2025-02-15T22:26:43.771462+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/grpc_helpers.py", line 76, in error_remapped_callable
+2025-02-15T22:26:43.771462+00:00 app[web.1]: return callable_(*args, **kwargs)
+2025-02-15T22:26:43.771462+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_interceptor.py", line 277, in __call__
+2025-02-15T22:26:43.771463+00:00 app[web.1]: response, ignored_call = self._with_call(
+2025-02-15T22:26:43.771463+00:00 app[web.1]: ~~~~~~~~~~~~~~~^
+2025-02-15T22:26:43.771463+00:00 app[web.1]: request,
+2025-02-15T22:26:43.771463+00:00 app[web.1]: ^^^^^^^^
+2025-02-15T22:26:43.771463+00:00 app[web.1]: ...<4 lines>...
+2025-02-15T22:26:43.771463+00:00 app[web.1]: compression=compression,
+2025-02-15T22:26:43.771464+00:00 app[web.1]: ^^^^^^^^^^^^^^^^^^^^^^^^
+2025-02-15T22:26:43.771464+00:00 app[web.1]: )
+2025-02-15T22:26:43.771464+00:00 app[web.1]: ^
+2025-02-15T22:26:43.771464+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_interceptor.py", line 329, in _with_call
+2025-02-15T22:26:43.771464+00:00 app[web.1]: call = self._interceptor.intercept_unary_unary(
+2025-02-15T22:26:43.771464+00:00 app[web.1]: continuation, client_call_details, request
+2025-02-15T22:26:43.771464+00:00 app[web.1]: )
+2025-02-15T22:26:43.771465+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/transports/grpc.py", line 79, in intercept_unary_unary
+2025-02-15T22:26:43.771465+00:00 app[web.1]: response = continuation(client_call_details, request)
+2025-02-15T22:26:43.771465+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_interceptor.py", line 315, in continuation
+2025-02-15T22:26:43.771465+00:00 app[web.1]: response, call = self._thunk(new_method).with_call(
+2025-02-15T22:26:43.771465+00:00 app[web.1]: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+2025-02-15T22:26:43.771465+00:00 app[web.1]: request,
+2025-02-15T22:26:43.771466+00:00 app[web.1]: ^^^^^^^^
+2025-02-15T22:26:43.771474+00:00 app[web.1]: ...<4 lines>...
+2025-02-15T22:26:43.771474+00:00 app[web.1]: compression=new_compression,
+2025-02-15T22:26:43.771474+00:00 app[web.1]: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-02-15T22:26:43.771474+00:00 app[web.1]: )
+2025-02-15T22:26:43.771475+00:00 app[web.1]: ^
+2025-02-15T22:26:43.771475+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_channel.py", line 1195, in with_call
+2025-02-15T22:26:43.771475+00:00 app[web.1]: ) = self._blocking(
+2025-02-15T22:26:43.771475+00:00 app[web.1]: ~~~~~~~~~~~~~~^
+2025-02-15T22:26:43.771475+00:00 app[web.1]: request, timeout, metadata, credentials, wait_for_ready, compression
+2025-02-15T22:26:43.771475+00:00 app[web.1]: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-02-15T22:26:43.771475+00:00 app[web.1]: )
+2025-02-15T22:26:43.771476+00:00 app[web.1]: ^
+2025-02-15T22:26:43.771480+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_channel.py", line 1162, in _blocking
+2025-02-15T22:26:43.771480+00:00 app[web.1]: event = call.next_event()
+2025-02-15T22:26:43.771480+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/channel.pyx.pxi", line 388, in grpc._cython.cygrpc.SegregatedCall.next_event
+2025-02-15T22:26:43.771480+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/channel.pyx.pxi", line 211, in grpc._cython.cygrpc._next_call_event
+2025-02-15T22:26:43.771481+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/channel.pyx.pxi", line 205, in grpc._cython.cygrpc._next_call_event
+2025-02-15T22:26:43.771481+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/completion_queue.pyx.pxi", line 78, in grpc._cython.cygrpc._latent_event
+2025-02-15T22:26:43.771481+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/completion_queue.pyx.pxi", line 61, in grpc._cython.cygrpc._internal_latent_event
+2025-02-15T22:26:43.771481+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/completion_queue.pyx.pxi", line 42, in grpc._cython.cygrpc._next
+2025-02-15T22:26:43.771481+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/gunicorn/workers/base.py", line 204, in handle_abort
+2025-02-15T22:26:43.771482+00:00 app[web.1]: sys.exit(1)
+2025-02-15T22:26:43.771482+00:00 app[web.1]: ~~~~~~~~^^^
+2025-02-15T22:26:43.771483+00:00 app[web.1]: SystemExit: 1
+2025-02-15T22:26:43.771647+00:00 app[web.1]: 10.1.95.243 - - [15/Feb/2025:22:26:43 +0000] "GET /analyze-stream/ HTTP/1.1" 500 0 "-" "-"
+2025-02-15T22:26:43.771982+00:00 heroku[router]: http_error="Bad chunk" at=error code=H17 desc="Poorly formatted HTTP response" method=GET path="/analyze-stream/" host=squabblesort-a13dccd5cc3e.herokuapp.com request_id=af67e02c-465c-4d82-862b-837ea1d9dd16 fwd="202.138.48.197" dyno=web.1 connect=0ms service=30932ms status=503 bytes= protocol=https
+2025-02-15T22:26:43.772012+00:00 app[web.1]: [2025-02-15 22:26:43 +0000] [490] [INFO] Worker exiting (pid: 490)
+2025-02-15T22:26:44.573593+00:00 app[web.1]: [2025-02-15 22:26:44 +0000] [2] [ERROR] Worker (pid:490) was sent SIGKILL! Perhaps out of memory?
+2025-02-15T22:26:44.575400+00:00 app[web.1]: [2025-02-15 22:26:44 +0000] [524] [INFO] Booting worker with pid: 524
+2025-02-15T22:26:55.324100+00:00 app[web.1]: Debate title (analysis): Extinction Prediction Paradox: Are Failed Forecasts Meaningless?
+2025-02-15T22:27:18.688215+00:00 app[web.1]: [2025-02-15 22:27:18 +0000] [2] [CRITICAL] WORKER TIMEOUT (pid:507)
+2025-02-15T22:27:18.890055+00:00 app[web.1]: 10.1.30.198 - - [15/Feb/2025:22:27:18 +0000] "GET /analyze-stream/ HTTP/1.1" 200 86 "https://squabblesort-a13dccd5cc3e.herokuapp.com/" "Mozilla/5.0 (iPhone; CPU iPhone OS 18_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.3 Mobile/15E148 Safari/604.1"
+2025-02-15T22:27:18.894644+00:00 app[web.1]: [2025-02-15 22:27:18 +0000] [507] [ERROR] Error handling request /analyze-stream/
+2025-02-15T22:27:18.894645+00:00 app[web.1]: Traceback (most recent call last):
+2025-02-15T22:27:18.894646+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/gunicorn/workers/sync.py", line 134, in handle
+2025-02-15T22:27:18.894647+00:00 app[web.1]: self.handle_request(listener, req, client, addr)
+2025-02-15T22:27:18.894648+00:00 app[web.1]: ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-02-15T22:27:18.894648+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/gunicorn/workers/sync.py", line 182, in handle_request
+2025-02-15T22:27:18.894649+00:00 app[web.1]: for item in respiter:
+2025-02-15T22:27:18.894650+00:00 app[web.1]: ^^^^^^^^
+2025-02-15T22:27:18.894650+00:00 app[web.1]: File "/app/adjudicator/debate/views/analysis.py", line 150, in event_stream
+2025-02-15T22:27:18.894651+00:00 app[web.1]: result = perform_analysis(text)
+2025-02-15T22:27:18.894651+00:00 app[web.1]: File "/app/adjudicator/debate/services/analysis.py", line 158, in perform_analysis
+2025-02-15T22:27:18.894651+00:00 app[web.1]: evaluation_formatted = make_llm_call(
+2025-02-15T22:27:18.894651+00:00 app[web.1]: load_prompt('format_evaluation.txt').format(text=evaluation),
+2025-02-15T22:27:18.894652+00:00 app[web.1]: ...<2 lines>...
+2025-02-15T22:27:18.894652+00:00 app[web.1]: prompt_name='format_evaluation'
+2025-02-15T22:27:18.894654+00:00 app[web.1]: )
+2025-02-15T22:27:18.894654+00:00 app[web.1]: File "/app/adjudicator/debate/services/llm.py", line 84, in make_llm_call
+2025-02-15T22:27:18.894654+00:00 app[web.1]: response = chat.send_message(prompt)
+2025-02-15T22:27:18.894655+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/generativeai/generative_models.py", line 578, in send_message
+2025-02-15T22:27:18.894655+00:00 app[web.1]: response = self.model.generate_content(
+2025-02-15T22:27:18.894655+00:00 app[web.1]: contents=history,
+2025-02-15T22:27:18.894656+00:00 app[web.1]: ...<5 lines>...
+2025-02-15T22:27:18.894656+00:00 app[web.1]: request_options=request_options,
+2025-02-15T22:27:18.894656+00:00 app[web.1]: )
+2025-02-15T22:27:18.894657+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/generativeai/generative_models.py", line 331, in generate_content
+2025-02-15T22:27:18.894657+00:00 app[web.1]: response = self._client.generate_content(
+2025-02-15T22:27:18.894657+00:00 app[web.1]: request,
+2025-02-15T22:27:18.894657+00:00 app[web.1]: **request_options,
+2025-02-15T22:27:18.894657+00:00 app[web.1]: )
+2025-02-15T22:27:18.894658+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/client.py", line 835, in generate_content
+2025-02-15T22:27:18.894659+00:00 app[web.1]: response = rpc(
+2025-02-15T22:27:18.894659+00:00 app[web.1]: request,
+2025-02-15T22:27:18.894659+00:00 app[web.1]: ...<2 lines>...
+2025-02-15T22:27:18.894659+00:00 app[web.1]: metadata=metadata,
+2025-02-15T22:27:18.894659+00:00 app[web.1]: )
+2025-02-15T22:27:18.894659+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/gapic_v1/method.py", line 131, in __call__
+2025-02-15T22:27:18.894659+00:00 app[web.1]: return wrapped_func(*args, **kwargs)
+2025-02-15T22:27:18.894659+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/retry/retry_unary.py", line 293, in retry_wrapped_func
+2025-02-15T22:27:18.894660+00:00 app[web.1]: return retry_target(
+2025-02-15T22:27:18.894660+00:00 app[web.1]: target,
+2025-02-15T22:27:18.894660+00:00 app[web.1]: ...<3 lines>...
+2025-02-15T22:27:18.894660+00:00 app[web.1]: on_error=on_error,
+2025-02-15T22:27:18.894660+00:00 app[web.1]: )
+2025-02-15T22:27:18.894660+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/retry/retry_unary.py", line 144, in retry_target
+2025-02-15T22:27:18.894660+00:00 app[web.1]: result = target()
+2025-02-15T22:27:18.894660+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/timeout.py", line 120, in func_with_timeout
+2025-02-15T22:27:18.894661+00:00 app[web.1]: return func(*args, **kwargs)
+2025-02-15T22:27:18.894661+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/grpc_helpers.py", line 76, in error_remapped_callable
+2025-02-15T22:27:18.894661+00:00 app[web.1]: return callable_(*args, **kwargs)
+2025-02-15T22:27:18.894661+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_interceptor.py", line 277, in __call__
+2025-02-15T22:27:18.894661+00:00 app[web.1]: response, ignored_call = self._with_call(
+2025-02-15T22:27:18.894661+00:00 app[web.1]: ~~~~~~~~~~~~~~~^
+2025-02-15T22:27:18.894661+00:00 app[web.1]: request,
+2025-02-15T22:27:18.894662+00:00 app[web.1]: ^^^^^^^^
+2025-02-15T22:27:18.894662+00:00 app[web.1]: ...<4 lines>...
+2025-02-15T22:27:18.894662+00:00 app[web.1]: compression=compression,
+2025-02-15T22:27:18.894662+00:00 app[web.1]: ^^^^^^^^^^^^^^^^^^^^^^^^
+2025-02-15T22:27:18.894662+00:00 app[web.1]: )
+2025-02-15T22:27:18.894662+00:00 app[web.1]: ^
+2025-02-15T22:27:18.894662+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_interceptor.py", line 329, in _with_call
+2025-02-15T22:27:18.894662+00:00 app[web.1]: call = self._interceptor.intercept_unary_unary(
+2025-02-15T22:27:18.894663+00:00 app[web.1]: continuation, client_call_details, request
+2025-02-15T22:27:18.894663+00:00 app[web.1]: )
+2025-02-15T22:27:18.894663+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/transports/grpc.py", line 79, in intercept_unary_unary
+2025-02-15T22:27:18.894663+00:00 app[web.1]: response = continuation(client_call_details, request)
+2025-02-15T22:27:18.894663+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_interceptor.py", line 315, in continuation
+2025-02-15T22:27:18.894663+00:00 app[web.1]: response, call = self._thunk(new_method).with_call(
+2025-02-15T22:27:18.894664+00:00 app[web.1]: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+2025-02-15T22:27:18.894664+00:00 app[web.1]: request,
+2025-02-15T22:27:18.894664+00:00 app[web.1]: ^^^^^^^^
+2025-02-15T22:27:18.894664+00:00 app[web.1]: ...<4 lines>...
+2025-02-15T22:27:18.894664+00:00 app[web.1]: compression=new_compression,
+2025-02-15T22:27:18.894664+00:00 app[web.1]: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-02-15T22:27:18.894664+00:00 app[web.1]: )
+2025-02-15T22:27:18.894664+00:00 app[web.1]: ^
+2025-02-15T22:27:18.894665+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_channel.py", line 1195, in with_call
+2025-02-15T22:27:18.894665+00:00 app[web.1]: ) = self._blocking(
+2025-02-15T22:27:18.894665+00:00 app[web.1]: ~~~~~~~~~~~~~~^
+2025-02-15T22:27:18.894665+00:00 app[web.1]: request, timeout, metadata, credentials, wait_for_ready, compression
+2025-02-15T22:27:18.894665+00:00 app[web.1]: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-02-15T22:27:18.894665+00:00 app[web.1]: )
+2025-02-15T22:27:18.894665+00:00 app[web.1]: ^
+2025-02-15T22:27:18.894669+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_channel.py", line 1162, in _blocking
+2025-02-15T22:27:18.894669+00:00 app[web.1]: event = call.next_event()
+2025-02-15T22:27:18.894670+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/channel.pyx.pxi", line 388, in grpc._cython.cygrpc.SegregatedCall.next_event
+2025-02-15T22:27:18.894670+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/channel.pyx.pxi", line 211, in grpc._cython.cygrpc._next_call_event
+2025-02-15T22:27:18.894670+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/channel.pyx.pxi", line 205, in grpc._cython.cygrpc._next_call_event
+2025-02-15T22:27:18.894670+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/completion_queue.pyx.pxi", line 78, in grpc._cython.cygrpc._latent_event
+2025-02-15T22:27:18.894670+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/completion_queue.pyx.pxi", line 61, in grpc._cython.cygrpc._internal_latent_event
+2025-02-15T22:27:18.894671+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/completion_queue.pyx.pxi", line 42, in grpc._cython.cygrpc._next
+2025-02-15T22:27:18.894671+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/gunicorn/workers/base.py", line 204, in handle_abort
+2025-02-15T22:27:18.894671+00:00 app[web.1]: sys.exit(1)
+2025-02-15T22:27:18.894671+00:00 app[web.1]: ~~~~~~~~^^^
+2025-02-15T22:27:18.894671+00:00 app[web.1]: SystemExit: 1
+2025-02-15T22:27:18.894800+00:00 app[web.1]: 10.1.30.198 - - [15/Feb/2025:22:27:18 +0000] "GET /analyze-stream/ HTTP/1.1" 500 0 "-" "-"
+2025-02-15T22:27:18.895127+00:00 app[web.1]: [2025-02-15 22:27:18 +0000] [507] [INFO] Worker exiting (pid: 507)
+2025-02-15T22:27:18.895253+00:00 heroku[router]: http_error="Bad chunk" at=error code=H17 desc="Poorly formatted HTTP response" method=GET path="/analyze-stream/" host=squabblesort-a13dccd5cc3e.herokuapp.com request_id=c6248030-479f-4220-a3b8-006200264975 fwd="202.138.48.197" dyno=web.1 connect=0ms service=30830ms status=503 bytes= protocol=https
+2025-02-15T22:27:19.696881+00:00 app[web.1]: [2025-02-15 22:27:19 +0000] [2] [ERROR] Worker (pid:507) was sent SIGKILL! Perhaps out of memory?
+2025-02-15T22:27:19.698757+00:00 app[web.1]: [2025-02-15 22:27:19 +0000] [541] [INFO] Booting worker with pid: 541
+2025-02-15T22:27:30.151409+00:00 app[web.1]: Debate title (analysis): Extinction Prediction Paradox: Can Past Failures Inform Future Risks?
+2025-02-15T22:27:53.827140+00:00 app[web.1]: [2025-02-15 22:27:53 +0000] [2] [CRITICAL] WORKER TIMEOUT (pid:524)
+2025-02-15T22:27:54.028987+00:00 app[web.1]: 10.1.95.243 - - [15/Feb/2025:22:27:54 +0000] "GET /analyze-stream/ HTTP/1.1" 200 86 "https://squabblesort-a13dccd5cc3e.herokuapp.com/" "Mozilla/5.0 (iPhone; CPU iPhone OS 18_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.3 Mobile/15E148 Safari/604.1"
+2025-02-15T22:27:54.033587+00:00 app[web.1]: [2025-02-15 22:27:54 +0000] [524] [ERROR] Error handling request /analyze-stream/
+2025-02-15T22:27:54.033588+00:00 app[web.1]: Traceback (most recent call last):
+2025-02-15T22:27:54.033589+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/gunicorn/workers/sync.py", line 134, in handle
+2025-02-15T22:27:54.033590+00:00 app[web.1]: self.handle_request(listener, req, client, addr)
+2025-02-15T22:27:54.033590+00:00 app[web.1]: ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-02-15T22:27:54.033590+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/gunicorn/workers/sync.py", line 182, in handle_request
+2025-02-15T22:27:54.033591+00:00 app[web.1]: for item in respiter:
+2025-02-15T22:27:54.033591+00:00 app[web.1]: ^^^^^^^^
+2025-02-15T22:27:54.033591+00:00 app[web.1]: File "/app/adjudicator/debate/views/analysis.py", line 150, in event_stream
+2025-02-15T22:27:54.033592+00:00 app[web.1]: result = perform_analysis(text)
+2025-02-15T22:27:54.033592+00:00 app[web.1]: File "/app/adjudicator/debate/services/analysis.py", line 158, in perform_analysis
+2025-02-15T22:27:54.033592+00:00 app[web.1]: evaluation_formatted = make_llm_call(
+2025-02-15T22:27:54.033593+00:00 app[web.1]: load_prompt('format_evaluation.txt').format(text=evaluation),
+2025-02-15T22:27:54.033593+00:00 app[web.1]: ...<2 lines>...
+2025-02-15T22:27:54.033593+00:00 app[web.1]: prompt_name='format_evaluation'
+2025-02-15T22:27:54.033593+00:00 app[web.1]: )
+2025-02-15T22:27:54.033593+00:00 app[web.1]: File "/app/adjudicator/debate/services/llm.py", line 84, in make_llm_call
+2025-02-15T22:27:54.033594+00:00 app[web.1]: response = chat.send_message(prompt)
+2025-02-15T22:27:54.033595+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/generativeai/generative_models.py", line 578, in send_message
+2025-02-15T22:27:54.033596+00:00 app[web.1]: response = self.model.generate_content(
+2025-02-15T22:27:54.033596+00:00 app[web.1]: contents=history,
+2025-02-15T22:27:54.033596+00:00 app[web.1]: ...<5 lines>...
+2025-02-15T22:27:54.033596+00:00 app[web.1]: request_options=request_options,
+2025-02-15T22:27:54.033596+00:00 app[web.1]: )
+2025-02-15T22:27:54.033598+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/generativeai/generative_models.py", line 331, in generate_content
+2025-02-15T22:27:54.033598+00:00 app[web.1]: response = self._client.generate_content(
+2025-02-15T22:27:54.033598+00:00 app[web.1]: request,
+2025-02-15T22:27:54.033598+00:00 app[web.1]: **request_options,
+2025-02-15T22:27:54.033598+00:00 app[web.1]: )
+2025-02-15T22:27:54.033599+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/client.py", line 835, in generate_content
+2025-02-15T22:27:54.033599+00:00 app[web.1]: response = rpc(
+2025-02-15T22:27:54.033600+00:00 app[web.1]: request,
+2025-02-15T22:27:54.033600+00:00 app[web.1]: ...<2 lines>...
+2025-02-15T22:27:54.033600+00:00 app[web.1]: metadata=metadata,
+2025-02-15T22:27:54.033600+00:00 app[web.1]: )
+2025-02-15T22:27:54.033600+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/gapic_v1/method.py", line 131, in __call__
+2025-02-15T22:27:54.033600+00:00 app[web.1]: return wrapped_func(*args, **kwargs)
+2025-02-15T22:27:54.033601+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/retry/retry_unary.py", line 293, in retry_wrapped_func
+2025-02-15T22:27:54.033601+00:00 app[web.1]: return retry_target(
+2025-02-15T22:27:54.033601+00:00 app[web.1]: target,
+2025-02-15T22:27:54.033601+00:00 app[web.1]: ...<3 lines>...
+2025-02-15T22:27:54.033601+00:00 app[web.1]: on_error=on_error,
+2025-02-15T22:27:54.033602+00:00 app[web.1]: )
+2025-02-15T22:27:54.033602+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/retry/retry_unary.py", line 144, in retry_target
+2025-02-15T22:27:54.033602+00:00 app[web.1]: result = target()
+2025-02-15T22:27:54.033602+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/timeout.py", line 120, in func_with_timeout
+2025-02-15T22:27:54.033602+00:00 app[web.1]: return func(*args, **kwargs)
+2025-02-15T22:27:54.033602+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/grpc_helpers.py", line 76, in error_remapped_callable
+2025-02-15T22:27:54.033603+00:00 app[web.1]: return callable_(*args, **kwargs)
+2025-02-15T22:27:54.033603+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_interceptor.py", line 277, in __call__
+2025-02-15T22:27:54.033603+00:00 app[web.1]: response, ignored_call = self._with_call(
+2025-02-15T22:27:54.033603+00:00 app[web.1]: ~~~~~~~~~~~~~~~^
+2025-02-15T22:27:54.033603+00:00 app[web.1]: request,
+2025-02-15T22:27:54.033603+00:00 app[web.1]: ^^^^^^^^
+2025-02-15T22:27:54.033604+00:00 app[web.1]: ...<4 lines>...
+2025-02-15T22:27:54.033604+00:00 app[web.1]: compression=compression,
+2025-02-15T22:27:54.033604+00:00 app[web.1]: ^^^^^^^^^^^^^^^^^^^^^^^^
+2025-02-15T22:27:54.033604+00:00 app[web.1]: )
+2025-02-15T22:27:54.033604+00:00 app[web.1]: ^
+2025-02-15T22:27:54.033604+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_interceptor.py", line 329, in _with_call
+2025-02-15T22:27:54.033604+00:00 app[web.1]: call = self._interceptor.intercept_unary_unary(
+2025-02-15T22:27:54.033605+00:00 app[web.1]: continuation, client_call_details, request
+2025-02-15T22:27:54.033605+00:00 app[web.1]: )
+2025-02-15T22:27:54.033605+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/transports/grpc.py", line 79, in intercept_unary_unary
+2025-02-15T22:27:54.033605+00:00 app[web.1]: response = continuation(client_call_details, request)
+2025-02-15T22:27:54.033605+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_interceptor.py", line 315, in continuation
+2025-02-15T22:27:54.033606+00:00 app[web.1]: response, call = self._thunk(new_method).with_call(
+2025-02-15T22:27:54.033606+00:00 app[web.1]: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+2025-02-15T22:27:54.033606+00:00 app[web.1]: request,
+2025-02-15T22:27:54.033606+00:00 app[web.1]: ^^^^^^^^
+2025-02-15T22:27:54.033606+00:00 app[web.1]: ...<4 lines>...
+2025-02-15T22:27:54.033606+00:00 app[web.1]: compression=new_compression,
+2025-02-15T22:27:54.033606+00:00 app[web.1]: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-02-15T22:27:54.033607+00:00 app[web.1]: )
+2025-02-15T22:27:54.033607+00:00 app[web.1]: ^
+2025-02-15T22:27:54.033607+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_channel.py", line 1195, in with_call
+2025-02-15T22:27:54.033607+00:00 app[web.1]: ) = self._blocking(
+2025-02-15T22:27:54.033607+00:00 app[web.1]: ~~~~~~~~~~~~~~^
+2025-02-15T22:27:54.033607+00:00 app[web.1]: request, timeout, metadata, credentials, wait_for_ready, compression
+2025-02-15T22:27:54.033607+00:00 app[web.1]: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-02-15T22:27:54.033608+00:00 app[web.1]: )
+2025-02-15T22:27:54.033608+00:00 app[web.1]: ^
+2025-02-15T22:27:54.033610+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_channel.py", line 1162, in _blocking
+2025-02-15T22:27:54.033610+00:00 app[web.1]: event = call.next_event()
+2025-02-15T22:27:54.033611+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/channel.pyx.pxi", line 388, in grpc._cython.cygrpc.SegregatedCall.next_event
+2025-02-15T22:27:54.033611+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/channel.pyx.pxi", line 211, in grpc._cython.cygrpc._next_call_event
+2025-02-15T22:27:54.033611+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/channel.pyx.pxi", line 205, in grpc._cython.cygrpc._next_call_event
+2025-02-15T22:27:54.033611+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/completion_queue.pyx.pxi", line 78, in grpc._cython.cygrpc._latent_event
+2025-02-15T22:27:54.033611+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/completion_queue.pyx.pxi", line 61, in grpc._cython.cygrpc._internal_latent_event
+2025-02-15T22:27:54.033612+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/completion_queue.pyx.pxi", line 42, in grpc._cython.cygrpc._next
+2025-02-15T22:27:54.033612+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/gunicorn/workers/base.py", line 204, in handle_abort
+2025-02-15T22:27:54.033612+00:00 app[web.1]: sys.exit(1)
+2025-02-15T22:27:54.033612+00:00 app[web.1]: ~~~~~~~~^^^
+2025-02-15T22:27:54.033613+00:00 app[web.1]: SystemExit: 1
+2025-02-15T22:27:54.033754+00:00 app[web.1]: 10.1.95.243 - - [15/Feb/2025:22:27:54 +0000] "GET /analyze-stream/ HTTP/1.1" 500 0 "-" "-"
+2025-02-15T22:27:54.034127+00:00 app[web.1]: [2025-02-15 22:27:54 +0000] [524] [INFO] Worker exiting (pid: 524)
+2025-02-15T22:27:54.034096+00:00 heroku[router]: http_error="Bad chunk" at=error code=H17 desc="Poorly formatted HTTP response" method=GET path="/analyze-stream/" host=squabblesort-a13dccd5cc3e.herokuapp.com request_id=1373bcfe-cefa-4463-a5d3-38c269b446d5 fwd="202.138.48.197" dyno=web.1 connect=0ms service=30844ms status=503 bytes= protocol=https
+2025-02-15T22:27:54.838919+00:00 app[web.1]: [2025-02-15 22:27:54 +0000] [2] [ERROR] Worker (pid:524) was sent SIGKILL! Perhaps out of memory?
+2025-02-15T22:27:54.840821+00:00 app[web.1]: [2025-02-15 22:27:54 +0000] [558] [INFO] Booting worker with pid: 558
+2025-02-15T22:27:59.022479+00:00 heroku[router]: at=info method=GET path="/" host=squabblesort-a13dccd5cc3e.herokuapp.com request_id=354c2d73-b51c-410b-9291-4cf3ec697304 fwd="202.138.48.197" dyno=web.1 connect=0ms service=526ms status=200 bytes=9791 protocol=https
+2025-02-15T22:27:59.002554+00:00 app[web.1]: Loading context processors module!
+2025-02-15T22:27:59.002566+00:00 app[web.1]: Context processor called!
+2025-02-15T22:27:59.002567+00:00 app[web.1]: URL name: home
+2025-02-15T22:27:59.002568+00:00 app[web.1]: Context returned: {}
+2025-02-15T22:27:59.022378+00:00 app[web.1]: 10.1.55.32 - - [15/Feb/2025:22:27:59 +0000] "GET / HTTP/1.1" 200 9360 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko)"
+2025-02-15T22:28:00.138244+00:00 heroku[router]: at=info method=GET path="/apple-touch-icon-precomposed.png" host=squabblesort-a13dccd5cc3e.herokuapp.com request_id=37d36b1a-ee26-4963-a15e-f592827a4073 fwd="202.138.48.197" dyno=web.1 connect=0ms service=6ms status=404 bytes=3946 protocol=https
+2025-02-15T22:28:00.137597+00:00 app[web.1]: Not Found: /apple-touch-icon-precomposed.png
+2025-02-15T22:28:00.137900+00:00 app[web.1]: 10.1.10.30 - - [15/Feb/2025:22:28:00 +0000] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 3657 "-" "Safari/19618.2.12.11.6 CFNetwork/1496.0.7 Darwin/23.5.0"
+2025-02-15T22:28:00.392872+00:00 heroku[router]: at=info method=GET path="/apple-touch-icon.png" host=squabblesort-a13dccd5cc3e.herokuapp.com request_id=f5812e1e-5686-404d-8e3e-129dfd7e8619 fwd="202.138.48.197" dyno=web.1 connect=0ms service=6ms status=404 bytes=3910 protocol=https
+2025-02-15T22:28:00.392195+00:00 app[web.1]: Not Found: /apple-touch-icon.png
+2025-02-15T22:28:00.392533+00:00 app[web.1]: 10.1.10.30 - - [15/Feb/2025:22:28:00 +0000] "GET /apple-touch-icon.png HTTP/1.1" 404 3621 "-" "Safari/19618.2.12.11.6 CFNetwork/1496.0.7 Darwin/23.5.0"
+2025-02-15T22:28:00.645603+00:00 heroku[router]: at=info method=GET path="/favicon.ico" host=squabblesort-a13dccd5cc3e.herokuapp.com request_id=54458cd0-ff47-422c-80c0-77ca205e29ee fwd="202.138.48.197" dyno=web.1 connect=0ms service=4ms status=404 bytes=3883 protocol=https
+2025-02-15T22:28:00.644752+00:00 app[web.1]: Not Found: /favicon.ico
+2025-02-15T22:28:00.644984+00:00 app[web.1]: 10.1.10.30 - - [15/Feb/2025:22:28:00 +0000] "GET /favicon.ico HTTP/1.1" 404 3594 "-" "Safari/19618.2.12.11.6 CFNetwork/1496.0.7 Darwin/23.5.0"
+2025-02-15T22:28:00.893114+00:00 app[web.1]: Not Found: /apple-touch-icon-precomposed.png
+2025-02-15T22:28:00.893354+00:00 app[web.1]: 10.1.10.30 - - [15/Feb/2025:22:28:00 +0000] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 3657 "-" "Safari/19618.2.12.11.6 CFNetwork/1496.0.7 Darwin/23.5.0"
+2025-02-15T22:28:00.893922+00:00 heroku[router]: at=info method=GET path="/apple-touch-icon-precomposed.png" host=squabblesort-a13dccd5cc3e.herokuapp.com request_id=d6166193-1323-4797-a0dc-9aa102cafe79 fwd="202.138.48.197" dyno=web.1 connect=0ms service=4ms status=404 bytes=3946 protocol=https
+2025-02-15T22:28:01.146960+00:00 heroku[router]: at=info method=GET path="/apple-touch-icon.png" host=squabblesort-a13dccd5cc3e.herokuapp.com request_id=29d16725-e25a-4868-b90e-6e9d66770b50 fwd="202.138.48.197" dyno=web.1 connect=0ms service=6ms status=404 bytes=3910 protocol=https
+2025-02-15T22:28:01.146276+00:00 app[web.1]: Not Found: /apple-touch-icon.png
+2025-02-15T22:28:01.146588+00:00 app[web.1]: 10.1.10.30 - - [15/Feb/2025:22:28:01 +0000] "GET /apple-touch-icon.png HTTP/1.1" 404 3621 "-" "Safari/19618.2.12.11.6 CFNetwork/1496.0.7 Darwin/23.5.0"
+2025-02-15T22:28:01.401433+00:00 heroku[router]: at=info method=GET path="/favicon.ico" host=squabblesort-a13dccd5cc3e.herokuapp.com request_id=df9369c1-9bf2-453e-9ddb-d0970920ce56 fwd="202.138.48.197" dyno=web.1 connect=0ms service=4ms status=404 bytes=3883 protocol=https
+2025-02-15T22:28:01.400773+00:00 app[web.1]: Not Found: /favicon.ico
+2025-02-15T22:28:01.401006+00:00 app[web.1]: 10.1.10.30 - - [15/Feb/2025:22:28:01 +0000] "GET /favicon.ico HTTP/1.1" 404 3594 "-" "Safari/19618.2.12.11.6 CFNetwork/1496.0.7 Darwin/23.5.0"
+2025-02-15T22:28:01.682468+00:00 heroku[router]: at=info method=GET path="/" host=squabblesort-a13dccd5cc3e.herokuapp.com request_id=6ad444b7-6472-4bf6-8ce8-8a9888dbd3e2 fwd="202.138.48.197" dyno=web.1 connect=0ms service=3ms status=200 bytes=9791 protocol=https
+2025-02-15T22:28:01.681114+00:00 app[web.1]: Context processor called!
+2025-02-15T22:28:01.681129+00:00 app[web.1]: URL name: home
+2025-02-15T22:28:01.681145+00:00 app[web.1]: Context returned: {}
+2025-02-15T22:28:01.682116+00:00 app[web.1]: 10.1.55.32 - - [15/Feb/2025:22:28:01 +0000] "GET / HTTP/1.1" 200 9360 "-" "Mozilla/5.0 (iPhone; CPU iPhone OS 17_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Mobile/15E148 Safari/604.1"
+2025-02-15T22:28:02.030083+00:00 heroku[router]: at=info method=GET path="/apple-touch-icon-precomposed.png" host=squabblesort-a13dccd5cc3e.herokuapp.com request_id=b42fd5d3-258b-44f0-8c63-15e2e6d14f15 fwd="202.138.48.197" dyno=web.1 connect=0ms service=6ms status=404 bytes=3946 protocol=https
+2025-02-15T22:28:02.027014+00:00 app[web.1]: Not Found: /apple-touch-icon-precomposed.png
+2025-02-15T22:28:02.027265+00:00 app[web.1]: 10.1.10.30 - - [15/Feb/2025:22:28:02 +0000] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 3657 "-" "Safari/19618.2.12.11.6 CFNetwork/1496.0.7 Darwin/23.5.0"
+2025-02-15T22:28:02.310761+00:00 app[web.1]: Not Found: /apple-touch-icon.png
+2025-02-15T22:28:02.311009+00:00 app[web.1]: 10.1.10.30 - - [15/Feb/2025:22:28:02 +0000] "GET /apple-touch-icon.png HTTP/1.1" 404 3621 "-" "Safari/19618.2.12.11.6 CFNetwork/1496.0.7 Darwin/23.5.0"
+2025-02-15T22:28:02.311483+00:00 heroku[router]: at=info method=GET path="/apple-touch-icon.png" host=squabblesort-a13dccd5cc3e.herokuapp.com request_id=2df30bab-0acd-4837-9799-5238f1a6fcf0 fwd="202.138.48.197" dyno=web.1 connect=0ms service=4ms status=404 bytes=3910 protocol=https
+2025-02-15T22:28:02.564833+00:00 heroku[router]: at=info method=GET path="/favicon.ico" host=squabblesort-a13dccd5cc3e.herokuapp.com request_id=a89e7f50-2f5a-4e00-acc8-2b86af53ea87 fwd="202.138.48.197" dyno=web.1 connect=0ms service=4ms status=404 bytes=3883 protocol=https
+2025-02-15T22:28:02.564074+00:00 app[web.1]: Not Found: /favicon.ico
+2025-02-15T22:28:02.564302+00:00 app[web.1]: 10.1.10.30 - - [15/Feb/2025:22:28:02 +0000] "GET /favicon.ico HTTP/1.1" 404 3594 "-" "Safari/19618.2.12.11.6 CFNetwork/1496.0.7 Darwin/23.5.0"
+2025-02-15T22:28:02.827730+00:00 app[web.1]: Not Found: /apple-touch-icon-precomposed.png
+2025-02-15T22:28:02.827978+00:00 app[web.1]: 10.1.10.30 - - [15/Feb/2025:22:28:02 +0000] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 3657 "-" "Safari/19618.2.12.11.6 CFNetwork/1496.0.7 Darwin/23.5.0"
+2025-02-15T22:28:02.828458+00:00 heroku[router]: at=info method=GET path="/apple-touch-icon-precomposed.png" host=squabblesort-a13dccd5cc3e.herokuapp.com request_id=c47c56f1-d7ee-41ba-8362-3011374043a7 fwd="202.138.48.197" dyno=web.1 connect=0ms service=9ms status=404 bytes=3946 protocol=https
+2025-02-15T22:28:03.088642+00:00 heroku[router]: at=info method=GET path="/apple-touch-icon.png" host=squabblesort-a13dccd5cc3e.herokuapp.com request_id=ce2ceccd-f40f-4223-a20b-abb9b589eaa0 fwd="202.138.48.197" dyno=web.1 connect=0ms service=6ms status=404 bytes=3910 protocol=https
+2025-02-15T22:28:03.087987+00:00 app[web.1]: Not Found: /apple-touch-icon.png
+2025-02-15T22:28:03.088307+00:00 app[web.1]: 10.1.10.30 - - [15/Feb/2025:22:28:03 +0000] "GET /apple-touch-icon.png HTTP/1.1" 404 3621 "-" "Safari/19618.2.12.11.6 CFNetwork/1496.0.7 Darwin/23.5.0"
+2025-02-15T22:28:03.340047+00:00 heroku[router]: at=info method=GET path="/favicon.ico" host=squabblesort-a13dccd5cc3e.herokuapp.com request_id=353f3245-b918-4953-89f5-4fa0579375de fwd="202.138.48.197" dyno=web.1 connect=0ms service=4ms status=404 bytes=3883 protocol=https
+2025-02-15T22:28:03.339329+00:00 app[web.1]: Not Found: /favicon.ico
+2025-02-15T22:28:03.339574+00:00 app[web.1]: 10.1.10.30 - - [15/Feb/2025:22:28:03 +0000] "GET /favicon.ico HTTP/1.1" 404 3594 "-" "Safari/19618.2.12.11.6 CFNetwork/1496.0.7 Darwin/23.5.0"
+2025-02-15T22:28:05.898593+00:00 app[web.1]: Debate title (analysis): Extinction Predictions: Past Failures Don't Guarantee Future Safety
+2025-02-15T22:28:28.907953+00:00 heroku[router]: http_error="Bad chunk" at=error code=H17 desc="Poorly formatted HTTP response" method=GET path="/analyze-stream/" host=squabblesort-a13dccd5cc3e.herokuapp.com request_id=5c579d62-5ba7-4be5-af60-cd097c4abd3d fwd="202.138.48.197" dyno=web.1 connect=0ms service=30798ms status=503 bytes= protocol=https
+2025-02-15T22:28:28.904976+00:00 app[web.1]: [2025-02-15 22:28:28 +0000] [2] [CRITICAL] WORKER TIMEOUT (pid:541)
+2025-02-15T22:28:28.905403+00:00 app[web.1]: 10.1.23.19 - - [15/Feb/2025:22:28:28 +0000] "GET /analyze-stream/ HTTP/1.1" 200 86 "https://squabblesort-a13dccd5cc3e.herokuapp.com/" "Mozilla/5.0 (iPhone; CPU iPhone OS 18_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.3 Mobile/15E148 Safari/604.1"
+2025-02-15T22:28:28.907207+00:00 app[web.1]: [2025-02-15 22:28:28 +0000] [541] [ERROR] Error handling request /analyze-stream/
+2025-02-15T22:28:28.907208+00:00 app[web.1]: Traceback (most recent call last):
+2025-02-15T22:28:28.907208+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/gunicorn/workers/sync.py", line 134, in handle
+2025-02-15T22:28:28.907209+00:00 app[web.1]: self.handle_request(listener, req, client, addr)
+2025-02-15T22:28:28.907209+00:00 app[web.1]: ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-02-15T22:28:28.907209+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/gunicorn/workers/sync.py", line 182, in handle_request
+2025-02-15T22:28:28.907210+00:00 app[web.1]: for item in respiter:
+2025-02-15T22:28:28.907210+00:00 app[web.1]: ^^^^^^^^
+2025-02-15T22:28:28.907210+00:00 app[web.1]: File "/app/adjudicator/debate/views/analysis.py", line 150, in event_stream
+2025-02-15T22:28:28.907210+00:00 app[web.1]: result = perform_analysis(text)
+2025-02-15T22:28:28.907211+00:00 app[web.1]: File "/app/adjudicator/debate/services/analysis.py", line 165, in perform_analysis
+2025-02-15T22:28:28.907211+00:00 app[web.1]: time.sleep(1)
+2025-02-15T22:28:28.907211+00:00 app[web.1]: ~~~~~~~~~~^^^
+2025-02-15T22:28:28.907212+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/gunicorn/workers/base.py", line 204, in handle_abort
+2025-02-15T22:28:28.907212+00:00 app[web.1]: sys.exit(1)
+2025-02-15T22:28:28.907212+00:00 app[web.1]: ~~~~~~~~^^^
+2025-02-15T22:28:28.907212+00:00 app[web.1]: SystemExit: 1
+2025-02-15T22:28:28.907391+00:00 app[web.1]: 10.1.23.19 - - [15/Feb/2025:22:28:28 +0000] "GET /analyze-stream/ HTTP/1.1" 500 0 "-" "-"
+2025-02-15T22:28:28.907717+00:00 app[web.1]: [2025-02-15 22:28:28 +0000] [541] [INFO] Worker exiting (pid: 541)
+2025-02-15T22:28:29.912764+00:00 app[web.1]: [2025-02-15 22:28:29 +0000] [2] [ERROR] Worker (pid:541) was sent SIGKILL! Perhaps out of memory?
+2025-02-15T22:28:29.914554+00:00 app[web.1]: [2025-02-15 22:28:29 +0000] [575] [INFO] Booting worker with pid: 575
+2025-02-15T22:28:40.748086+00:00 app[web.1]: Debate title (analysis): Extinction Prediction Paradox: Can Past Failures Dismiss Future Risks?
+2025-02-15T22:29:04.036977+00:00 app[web.1]: [2025-02-15 22:29:04 +0000] [2] [CRITICAL] WORKER TIMEOUT (pid:575)
+2025-02-15T22:29:04.238794+00:00 app[web.1]: 10.1.12.238 - - [15/Feb/2025:22:29:04 +0000] "GET /analyze-stream/ HTTP/1.1" 200 86 "https://squabblesort-a13dccd5cc3e.herokuapp.com/" "Mozilla/5.0 (iPhone; CPU iPhone OS 18_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.3 Mobile/15E148 Safari/604.1"
+2025-02-15T22:29:04.243383+00:00 app[web.1]: [2025-02-15 22:29:04 +0000] [575] [ERROR] Error handling request /analyze-stream/
+2025-02-15T22:29:04.243384+00:00 app[web.1]: Traceback (most recent call last):
+2025-02-15T22:29:04.243385+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/gunicorn/workers/sync.py", line 134, in handle
+2025-02-15T22:29:04.243385+00:00 app[web.1]: self.handle_request(listener, req, client, addr)
+2025-02-15T22:29:04.243386+00:00 app[web.1]: ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-02-15T22:29:04.243386+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/gunicorn/workers/sync.py", line 182, in handle_request
+2025-02-15T22:29:04.243386+00:00 app[web.1]: for item in respiter:
+2025-02-15T22:29:04.243387+00:00 app[web.1]: ^^^^^^^^
+2025-02-15T22:29:04.243388+00:00 app[web.1]: File "/app/adjudicator/debate/views/analysis.py", line 150, in event_stream
+2025-02-15T22:29:04.243390+00:00 app[web.1]: result = perform_analysis(text)
+2025-02-15T22:29:04.243390+00:00 app[web.1]: File "/app/adjudicator/debate/services/analysis.py", line 158, in perform_analysis
+2025-02-15T22:29:04.243390+00:00 app[web.1]: evaluation_formatted = make_llm_call(
+2025-02-15T22:29:04.243391+00:00 app[web.1]: load_prompt('format_evaluation.txt').format(text=evaluation),
+2025-02-15T22:29:04.243391+00:00 app[web.1]: ...<2 lines>...
+2025-02-15T22:29:04.243392+00:00 app[web.1]: prompt_name='format_evaluation'
+2025-02-15T22:29:04.243392+00:00 app[web.1]: )
+2025-02-15T22:29:04.243392+00:00 app[web.1]: File "/app/adjudicator/debate/services/llm.py", line 84, in make_llm_call
+2025-02-15T22:29:04.243393+00:00 app[web.1]: response = chat.send_message(prompt)
+2025-02-15T22:29:04.243393+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/generativeai/generative_models.py", line 578, in send_message
+2025-02-15T22:29:04.243394+00:00 app[web.1]: response = self.model.generate_content(
+2025-02-15T22:29:04.243394+00:00 app[web.1]: contents=history,
+2025-02-15T22:29:04.243394+00:00 app[web.1]: ...<5 lines>...
+2025-02-15T22:29:04.243394+00:00 app[web.1]: request_options=request_options,
+2025-02-15T22:29:04.243394+00:00 app[web.1]: )
+2025-02-15T22:29:04.243395+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/generativeai/generative_models.py", line 331, in generate_content
+2025-02-15T22:29:04.243395+00:00 app[web.1]: response = self._client.generate_content(
+2025-02-15T22:29:04.243395+00:00 app[web.1]: request,
+2025-02-15T22:29:04.243395+00:00 app[web.1]: **request_options,
+2025-02-15T22:29:04.243396+00:00 app[web.1]: )
+2025-02-15T22:29:04.243396+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/client.py", line 835, in generate_content
+2025-02-15T22:29:04.243396+00:00 app[web.1]: response = rpc(
+2025-02-15T22:29:04.243397+00:00 app[web.1]: request,
+2025-02-15T22:29:04.243397+00:00 app[web.1]: ...<2 lines>...
+2025-02-15T22:29:04.243397+00:00 app[web.1]: metadata=metadata,
+2025-02-15T22:29:04.243397+00:00 app[web.1]: )
+2025-02-15T22:29:04.243397+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/gapic_v1/method.py", line 131, in __call__
+2025-02-15T22:29:04.243398+00:00 app[web.1]: return wrapped_func(*args, **kwargs)
+2025-02-15T22:29:04.243398+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/retry/retry_unary.py", line 293, in retry_wrapped_func
+2025-02-15T22:29:04.243398+00:00 app[web.1]: return retry_target(
+2025-02-15T22:29:04.243398+00:00 app[web.1]: target,
+2025-02-15T22:29:04.243398+00:00 app[web.1]: ...<3 lines>...
+2025-02-15T22:29:04.243409+00:00 app[web.1]: on_error=on_error,
+2025-02-15T22:29:04.243409+00:00 app[web.1]: )
+2025-02-15T22:29:04.243409+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/retry/retry_unary.py", line 144, in retry_target
+2025-02-15T22:29:04.243410+00:00 app[web.1]: result = target()
+2025-02-15T22:29:04.243410+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/timeout.py", line 120, in func_with_timeout
+2025-02-15T22:29:04.243410+00:00 app[web.1]: return func(*args, **kwargs)
+2025-02-15T22:29:04.243410+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/api_core/grpc_helpers.py", line 76, in error_remapped_callable
+2025-02-15T22:29:04.243411+00:00 app[web.1]: return callable_(*args, **kwargs)
+2025-02-15T22:29:04.243411+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_interceptor.py", line 277, in __call__
+2025-02-15T22:29:04.243411+00:00 app[web.1]: response, ignored_call = self._with_call(
+2025-02-15T22:29:04.243411+00:00 app[web.1]: ~~~~~~~~~~~~~~~^
+2025-02-15T22:29:04.243411+00:00 app[web.1]: request,
+2025-02-15T22:29:04.243412+00:00 app[web.1]: ^^^^^^^^
+2025-02-15T22:29:04.243412+00:00 app[web.1]: ...<4 lines>...
+2025-02-15T22:29:04.243412+00:00 app[web.1]: compression=compression,
+2025-02-15T22:29:04.243412+00:00 app[web.1]: ^^^^^^^^^^^^^^^^^^^^^^^^
+2025-02-15T22:29:04.243412+00:00 app[web.1]: )
+2025-02-15T22:29:04.243413+00:00 app[web.1]: ^
+2025-02-15T22:29:04.243413+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_interceptor.py", line 329, in _with_call
+2025-02-15T22:29:04.243413+00:00 app[web.1]: call = self._interceptor.intercept_unary_unary(
+2025-02-15T22:29:04.243413+00:00 app[web.1]: continuation, client_call_details, request
+2025-02-15T22:29:04.243414+00:00 app[web.1]: )
+2025-02-15T22:29:04.243414+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/google/ai/generativelanguage_v1beta/services/generative_service/transports/grpc.py", line 79, in intercept_unary_unary
+2025-02-15T22:29:04.243414+00:00 app[web.1]: response = continuation(client_call_details, request)
+2025-02-15T22:29:04.243414+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_interceptor.py", line 315, in continuation
+2025-02-15T22:29:04.243415+00:00 app[web.1]: response, call = self._thunk(new_method).with_call(
+2025-02-15T22:29:04.243415+00:00 app[web.1]: ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+2025-02-15T22:29:04.243415+00:00 app[web.1]: request,
+2025-02-15T22:29:04.243416+00:00 app[web.1]: ^^^^^^^^
+2025-02-15T22:29:04.243416+00:00 app[web.1]: ...<4 lines>...
+2025-02-15T22:29:04.243416+00:00 app[web.1]: compression=new_compression,
+2025-02-15T22:29:04.243416+00:00 app[web.1]: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-02-15T22:29:04.243417+00:00 app[web.1]: )
+2025-02-15T22:29:04.243417+00:00 app[web.1]: ^
+2025-02-15T22:29:04.243417+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_channel.py", line 1195, in with_call
+2025-02-15T22:29:04.243417+00:00 app[web.1]: ) = self._blocking(
+2025-02-15T22:29:04.243418+00:00 app[web.1]: ~~~~~~~~~~~~~~^
+2025-02-15T22:29:04.243418+00:00 app[web.1]: request, timeout, metadata, credentials, wait_for_ready, compression
+2025-02-15T22:29:04.243418+00:00 app[web.1]: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-02-15T22:29:04.243419+00:00 app[web.1]: )
+2025-02-15T22:29:04.243419+00:00 app[web.1]: ^
+2025-02-15T22:29:04.243423+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/grpc/_channel.py", line 1162, in _blocking
+2025-02-15T22:29:04.243424+00:00 app[web.1]: event = call.next_event()
+2025-02-15T22:29:04.243424+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/channel.pyx.pxi", line 388, in grpc._cython.cygrpc.SegregatedCall.next_event
+2025-02-15T22:29:04.243424+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/channel.pyx.pxi", line 211, in grpc._cython.cygrpc._next_call_event
+2025-02-15T22:29:04.243425+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/channel.pyx.pxi", line 205, in grpc._cython.cygrpc._next_call_event
+2025-02-15T22:29:04.243425+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/completion_queue.pyx.pxi", line 78, in grpc._cython.cygrpc._latent_event
+2025-02-15T22:29:04.243425+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/completion_queue.pyx.pxi", line 61, in grpc._cython.cygrpc._internal_latent_event
+2025-02-15T22:29:04.243426+00:00 app[web.1]: File "src/python/grpcio/grpc/_cython/_cygrpc/completion_queue.pyx.pxi", line 42, in grpc._cython.cygrpc._next
+2025-02-15T22:29:04.243426+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.13/site-packages/gunicorn/workers/base.py", line 204, in handle_abort
+2025-02-15T22:29:04.243426+00:00 app[web.1]: sys.exit(1)
+2025-02-15T22:29:04.243427+00:00 app[web.1]: ~~~~~~~~^^^
+2025-02-15T22:29:04.243427+00:00 app[web.1]: SystemExit: 1
+2025-02-15T22:29:04.243541+00:00 app[web.1]: 10.1.12.238 - - [15/Feb/2025:22:29:04 +0000] "GET /analyze-stream/ HTTP/1.1" 500 0 "-" "-"
+2025-02-15T22:29:04.243859+00:00 app[web.1]: [2025-02-15 22:29:04 +0000] [575] [INFO] Worker exiting (pid: 575)
+2025-02-15T22:29:04.244134+00:00 heroku[router]: http_error="Bad chunk" at=error code=H17 desc="Poorly formatted HTTP response" method=GET path="/analyze-stream/" host=squabblesort-a13dccd5cc3e.herokuapp.com request_id=55947f85-0162-414d-be44-6522202fca47 fwd="202.138.48.197" dyno=web.1 connect=0ms service=31012ms status=503 bytes= protocol=https
+2025-02-15T22:29:05.045510+00:00 app[web.1]: [2025-02-15 22:29:05 +0000] [2] [ERROR] Worker (pid:575) was sent SIGKILL! Perhaps out of memory?
+2025-02-15T22:29:05.047345+00:00 app[web.1]: [2025-02-15 22:29:05 +0000] [592] [INFO] Booting worker with pid: 592
+2025-02-15T22:29:15.826522+00:00 app[web.1]: Debate title (analysis): Extinction Prediction Paradox: Can We Learn From Past Failures?
