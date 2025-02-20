@@ -81,7 +81,7 @@ def make_llm_call(prompt, use_openrouter=False, role='system', debate_id=None, p
                 {'role': 'model', 'parts': ['Understood. I will follow the provided instructions.']}
             ])
             
-            response = chat.send_message(prompt)
+            response = chat.send_message(prompt, timeout=60)
             content = response.text
             model_used = 'gemini-2.0-flash-exp'
             

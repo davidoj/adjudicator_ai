@@ -1,1 +1,1 @@
-web: gunicorn --chdir adjudicator adjudicator.wsgi --log-file - 
+web: gunicorn --chdir adjudicator adjudicator.wsgi --log-file - --timeout 120 --keep-alive 5 --workers 3
