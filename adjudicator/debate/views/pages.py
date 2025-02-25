@@ -21,16 +21,29 @@ def home(request):
     usage, created = IPCreditUsage.objects.get_or_create(ip_address=ip_address)
     credits_remaining = max(15 - usage.credits_used, 0)
     
-    prefill_text = request.GET.get('prefill', '').strip()
+    # Check if there's original text in the session
+    debate_text = ""
+    if 'original_text' in request.session:
+        debate_text = request.session.pop('original_text')  # Get and remove from session
+    
+    # If this is a result page, store the original text in the session
+    original_text = request.GET.get('original_text')
+    if original_text:
+        request.session['original_text'] = original_text
+    
     return render(request, 'debate/home.html', {
         'credits': credits_remaining,
-        'debate_text': prefill_text,
+        'debate_text': debate_text,
         'total_credits_used': usage.credits_used
     })
 
 def result(request, debate_id):
     debate = Debate.objects.get(id=debate_id)
     evaluation_tables = parse_evaluation_table(debate.evaluation_formatted, debate.judgment_formatted)
+    
+    # Store the original text in the session for the "Modify Argument" feature
+    request.session['original_text'] = debate.original_text
+    
     return render(request, 'debate/result.html', {
         'debate': debate,
         'evaluation_tables': evaluation_tables,
@@ -136,4 +149,11 @@ def hall_of_fame(request):
     
     return render(request, 'debate/hall_of_fame.html', {
         'top_debates': top_debates
-    }) 
+    })
+
+def modify_argument(request):
+    """
+    Redirects to the home page with the original text stored in session
+    """
+    # The original text should already be in the session from the previous analysis
+    return redirect('home') 

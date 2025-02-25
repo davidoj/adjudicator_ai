@@ -201,10 +201,7 @@
             <div class="nav-links">
                 <a href="{% url 'home' %}" class="nav-link">New Analysis</a>
                 {% if original_text %}
-                    <form action="{% url 'home' %}" method="get" style="display: inline;">
-                        <input type="hidden" name="prefill" value="{{ original_text|escape }}">
-                        <button type="submit" class="nav-link" style="background: none; border: none; cursor: pointer; color: white; font-weight: 500;">Modify Argument</button>
-                    </form>
+                    <a href="{% url 'modify_argument' %}" class="nav-link">Modify Argument</a>
                 {% endif %}
                 <a href="{% url 'hall_of_fame' %}" class="nav-link">Hall of Fame</a>
             </div>
