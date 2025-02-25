@@ -42,50 +42,63 @@ Remember that the participants do not necessarily have a position on every point
 
 Provide analysis in this format:
 
-<argument_map>
+<evaluation>
+  <argument_map>
     <topic>{{Core disagreement}}</topic>
     <p1_argument>{{First party's main argument}}</p1_argument>
     <p2_argument>{{Second party's main argument}}</p2_argument>
-</argument_map>
+  </argument_map>
 
-<direct_interactions>
+  <direct_interactions>
     <interaction>
-        <topic>{{Topic}}</topic>
-        <p1_position>{{P1's position, with quantities resolved where marked with *Qant*}}</p1_position>
-        <p2_position>{{P2's position, with quantities resolved where marked with *Qant*}}</p2_position>
-        <outcome>
-            <reason>{{Analysis of relative strengths and weaknesses, including quantitative analysis where relevant}}</reason>
-            <verdict>[A1 PREVAILS/B1 PREVAILS/STALEMATE]</verdict>
-        </outcome>
-        <key_principles>{{List key principles invoked}}</key_principles>
+      <topic>{{Topic}}</topic>
+      <p1_position>{{P1's position, with quantities resolved where marked with *Qant*}}</p1_position>
+      <p2_position>{{P2's position, with quantities resolved where marked with *Qant*}}</p2_position>
+      <outcome>
+        <verdict>[A1 PREVAILS/B1 PREVAILS/STALEMATE]</verdict>
+        <reason>{{Analysis of relative strengths and weaknesses, including quantitative analysis where relevant}}</reason>
+      </outcome>
+      <key_principles>
+        <principle>{{Key principle invoked}}</principle>
+        <principle>{{Another key principle}}</principle>
+      </key_principles>
     </interaction>
-</direct_interactions>
+    <!-- Additional interactions as needed -->
+  </direct_interactions>
 
-<decisive_factors>
+  <decisive_factors>
     <factor>{{Key argument or interaction that heavily influences the outcome}}</factor>
     <factor>{{Secondary factor}}</factor>
-</decisive_factors>
+  </decisive_factors>
 
-<uncertainties>
+  <uncertainties>
     <uncertainty>{{Factual dispute that remains unresolved}}</uncertainty>
     <uncertainty>{{Logical connection that isn't fully established}}</uncertainty>
     <uncertainty>{{Crucial missing context}}</uncertainty>
-</uncertainties>
+  </uncertainties>
 
-<factual_claims_assessment>
+  <factual_claims_assessment>
     <unchallenged_claims>
-        {{List important factual claims that went unchallenged}}
+      <claim>{{Important factual claim that went unchallenged}}</claim>
+      <claim>{{Another unchallenged claim}}</claim>
     </unchallenged_claims>
     <disputed_claims>
-        {{List important factual claims that were specifically disputed}}
-        {{For each, note whether either party provided evidence}}
+      <claim>
+        <statement>{{Important factual claim that was specifically disputed}}</statement>
+        <evidence_provided>[YES/NO/PARTIAL]</evidence_provided>
+      </claim>
+      <claim>
+        <statement>{{Another disputed claim}}</statement>
+        <evidence_provided>[YES/NO/PARTIAL]</evidence_provided>
+      </claim>
     </disputed_claims>
     <implicit_agreements>
         {{Note any facts that both parties seem to accept in their arguments}}
     </implicit_agreements>
-</factual_claims_assessment>
+  </factual_claims_assessment>
 
-<complexity_assessment>
+  <complexity_assessment>
     <rating>{{Extract and include the complexity rating from the initial analysis}}</rating>
     <additional_factors>{{Note any aspects of the interaction analysis that might affect complexity}}</additional_factors>
-</complexity_assessment>
+  </complexity_assessment>
+</evaluation>

@@ -9,6 +9,38 @@
     <div id="loading-overlay" style="display: none;">
         <div class="loading-spinner"></div>
         <div class="loading-text">Analyzing debate...</div>
+        <div class="progress-container">
+            <div class="progress">
+                <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div id="progress-status">Starting analysis...</div>
+        </div>
+        
+        <div id="analysis-preview" class="analysis-preview">
+            <div id="title-preview" class="preview-section" style="display: none;">
+                <h3>Debate Title:</h3>
+                <div id="title-content" class="preview-content"></div>
+            </div>
+            
+            <div id="participants-preview" class="preview-section" style="display: none;">
+                <h3>Participants:</h3>
+                <div id="participants-content" class="preview-content"></div>
+            </div>
+            
+            <div id="evaluation-preview" class="preview-section" style="display: none;">
+                <h3>Evaluation Progress:</h3>
+                <div id="evaluation-content" class="preview-content"></div>
+            </div>
+            
+            <div id="judgment-preview" class="preview-section" style="display: none;">
+                <h3>Judgment Progress:</h3>
+                <div id="judgment-content" class="preview-content"></div>
+            </div>
+        </div>
+        
+        <div id="retry-notice" style="display: none;" class="retry-notice">
+            <p>Improving response format... <span id="retry-count"></span></p>
+        </div>
     </div>
 
     <h1>SquabbleSort</h1>
@@ -187,6 +219,76 @@
         color: #6c757d;
         margin-top: 1rem;
     }
+
+    .progress-container {
+        width: 100%;
+        max-width: 400px;
+        margin-top: 20px;
+    }
+    
+    .progress {
+        height: 10px;
+        background-color: #e9ecef;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+    
+    .progress-bar {
+        height: 100%;
+        background-color: #2c3e50;
+        transition: width 0.3s ease;
+    }
+    
+    #progress-status {
+        font-size: 14px;
+        color: #6c757d;
+        text-align: center;
+        margin-top: 8px;
+    }
+    
+    .retry-notice {
+        margin-top: 15px;
+        padding: 8px 12px;
+        background-color: #fff3cd;
+        border: 1px solid #ffeeba;
+        border-radius: 4px;
+        color: #856404;
+        font-size: 14px;
+    }
+
+    .analysis-preview {
+        max-width: 600px;
+        margin: 20px auto 0;
+        text-align: left;
+        background: rgba(255, 255, 255, 0.9);
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .preview-section {
+        margin-bottom: 15px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 15px;
+    }
+    
+    .preview-section:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+    }
+    
+    .preview-section h3 {
+        margin: 0 0 8px 0;
+        font-size: 16px;
+        color: #2c3e50;
+    }
+    
+    .preview-content {
+        font-size: 14px;
+        color: #4a5568;
+        line-height: 1.5;
+        white-space: pre-line;
+    }
 </style>
 
 <script>
@@ -201,6 +303,10 @@ function showLoading() {
     
     document.getElementById('loading-overlay').style.display = 'flex';
     document.getElementById('analysis-results').style.display = 'block';
+    document.getElementById('progress-bar').style.width = '5%';
+    document.getElementById('progress-bar').setAttribute('aria-valuenow', 5);
+    document.getElementById('progress-status').textContent = 'Starting analysis...';
+    document.getElementById('retry-notice').style.display = 'none';
     
     const form = document.querySelector('form');
     const formData = new FormData(form);
@@ -224,41 +330,133 @@ function showLoading() {
         
         evtSource.onmessage = function(event) {
             const data = JSON.parse(event.data);
+            console.log('Event data:', data);
+            
+            if (data.heartbeat) return;
+            
+            if (data.percent !== undefined) {
+                document.getElementById('progress-bar').style.width = `${data.percent}%`;
+                document.getElementById('progress-bar').setAttribute('aria-valuenow', data.percent);
+            }
+            
+            if (data.message) {
+                document.getElementById('progress-status').textContent = data.message;
+            }
+            
+            if (data.snippets) {
+                if (data.snippets.title) {
+                    document.getElementById('title-preview').style.display = 'block';
+                    document.getElementById('title-content').textContent = data.snippets.title;
+                }
+                
+                if (data.snippets.participants) {
+                    document.getElementById('participants-preview').style.display = 'block';
+                    document.getElementById('participants-content').textContent = data.snippets.participants;
+                }
+                
+                if (data.snippets.evaluation) {
+                    document.getElementById('evaluation-preview').style.display = 'block';
+                    document.getElementById('evaluation-content').textContent = data.snippets.evaluation;
+                }
+                
+                if (data.snippets.judgment) {
+                    document.getElementById('judgment-preview').style.display = 'block';
+                    document.getElementById('judgment-content').textContent = data.snippets.judgment;
+                }
+            }
             
             switch(data.stage) {
-                case 'analyzing':
-                case 'evaluating':
-                case 'judging':
-                    document.querySelector('.loading-text').textContent = data.message;
+                case 'title_extracted':
+                    document.getElementById('title-preview').style.display = 'block';
+                    document.getElementById('title-content').textContent = data.title;
+                    
+                    document.getElementById('participants-preview').style.display = 'block';
+                    document.getElementById('participants-content').textContent = 
+                        `${data.belligerent_1}: ${data.summary_1}\n\n${data.belligerent_2}: ${data.summary_2}`;
                     break;
                     
+                case 'processing':
+                    document.querySelector('.loading-text').textContent = 'Processing...';
+                    break;
+                    
+                case 'retrying':
+                    document.getElementById('retry-notice').style.display = 'block';
+                    document.getElementById('retry-count').textContent = 
+                        `Attempt ${data.attempt} of ${data.attempt + 1}`;
+                    break;
+                    
+                case 'analysis':
+                case 'evaluation':
+                case 'judgment':
+                case 'formatting':
+                    document.querySelector('.loading-text').textContent = `${data.stage.charAt(0).toUpperCase() + data.stage.slice(1)}...`;
+                    break;
+                
                 case 'initial_analysis':
                     document.getElementById('belligerent-1').textContent = data.belligerent_1;
                     document.getElementById('belligerent-2').textContent = data.belligerent_2;
                     document.getElementById('summary-1').textContent = data.summary_1;
                     document.getElementById('summary-2').textContent = data.summary_2;
                     break;
-                    
-                case 'evaluation':
-                    document.getElementById('evaluation').innerHTML = data.evaluation.replace(/\n/g, '<br>');
+                
+                case 'saving':
+                    document.querySelector('.loading-text').textContent = 'Saving results...';
                     break;
                     
                 case 'complete':
-                    evtSource.close();
-                    window.location.href = data.redirect;
+                    console.log('Complete event received with full data:', data);
+                    
+                    try {
+                        // Store the redirect URL and debate ID
+                        if (data.redirect) {
+                            localStorage.setItem('last_redirect_url', data.redirect);
+                            console.log('Saved redirect URL:', data.redirect);
+                        }
+                        
+                        if (data.debate_id) {
+                            localStorage.setItem('last_debate_id', String(data.debate_id));
+                            console.log('Saved debate ID:', data.debate_id);
+                        }
+                        
+                        // Update UI
+                        document.querySelector('.loading-text').textContent = 'Analysis complete!';
+                        
+                        // Redirect after a short delay
+                        setTimeout(function() {
+                            if (data.redirect) {
+                                window.location.href = data.redirect;
+                            }
+                        }, 1000);
+                    } catch (error) {
+                        console.error('Error in complete handler:', error);
+                    } finally {
+                        // Always close the connection
+                        evtSource.close();
+                    }
                     break;
                     
                 case 'error':
                     evtSource.close();
-                    document.querySelector('.loading-text').textContent = 'Error: ' + data.message;
+                    document.querySelector('.loading-text').textContent = 'Error';
+                    document.getElementById('progress-status').textContent = data.message;
+                    document.getElementById('progress-bar').style.backgroundColor = '#dc3545';
                     break;
             }
+        };
+        
+        evtSource.onerror = function() {
+            evtSource.close();
+            document.querySelector('.loading-text').textContent = 'Connection Error';
+            document.getElementById('progress-status').textContent = 
+                'Lost connection to server. Please try again.';
+            document.getElementById('progress-bar').style.backgroundColor = '#dc3545';
         };
     })
     .catch(error => {
         console.error('Caught error:', error);
-        document.querySelector('.loading-text').textContent = 'Error: ' + error.message;
-        document.getElementById('loading-overlay').style.display = 'none';
+        document.querySelector('.loading-text').textContent = 'Error';
+        document.getElementById('progress-status').textContent = error.message;
+        document.getElementById('progress-bar').style.backgroundColor = '#dc3545';
     });
     
     return false;

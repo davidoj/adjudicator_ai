@@ -1,7 +1,7 @@
 import re
 import time
 import logging
-from .llm import make_llm_call, load_prompt
+from .llm import make_llm_call, load_prompt, validate_xml_response
 
 logger = logging.getLogger('llm_calls')
 
@@ -104,11 +104,36 @@ def parse_evaluation_table(evaluation_text, judgment_text=None):
                     str(e), evaluation_text, judgment_text)
         return None
 
-def perform_analysis(text, debate_id=None):
-    """Core analysis logic shared between streaming and non-streaming paths"""
+def perform_analysis(text, debate_id=None, progress_callback=None):
+    """
+    Core analysis logic with progress tracking
+    
+    Args:
+        text (str): The debate text to analyze
+        debate_id (int): Optional debate ID for logging
+        progress_callback (callable): Function to call with progress updates
+        
+    Returns:
+        dict: The analysis results
+    """
     logger = logging.getLogger('llm_calls')
     
+    # Set of expected tags for each stage
+    analysis_expected_tags = ['debate_title', 'p1', 'p2', 's1', 's2', 'complexity']
+    evaluation_expected_tags = ['argument_map', 'direct_interactions', 'decisive_factors', 'uncertainties']
+    judgment_expected_tags = ['winner', 'reasoning', 'strength', 'strengthening_advice']
+    
+    # Update progress
+    def update_progress(status):
+        if progress_callback:
+            # Make sure we don't use 'complete' in progress updates
+            if status.get('stage') == 'complete':
+                status['stage'] = 'processing_complete'
+            progress_callback(status)
+    
     # Step 1: Initial Analysis
+    update_progress({'stage': 'analysis', 'percent': 10, 'message': 'Identifying participants and arguments...'})
+    
     analysis_prompt = load_prompt('analyze.txt')
     analysis = make_llm_call(
         analysis_prompt.format(
@@ -118,7 +143,9 @@ def perform_analysis(text, debate_id=None):
         ),
         role='summarizer',
         debate_id=debate_id,
-        prompt_name='analyze'
+        prompt_name='analyze',
+        expected_tags=analysis_expected_tags,
+        user_update_callback=update_progress
     )
     
     # Extract real names and title before anonymizing
@@ -128,38 +155,93 @@ def perform_analysis(text, debate_id=None):
     summary_2 = extract_tag('s2', analysis)
     debate_title = extract_tag('debate_title', analysis)
 
-    print(f"Debate title (analysis): {debate_title}")
+    # Send a progress update with the title
+    if progress_callback:
+        progress_callback({
+            'stage': 'title_extracted',
+            'percent': 25,
+            'message': f'Identified debate: {debate_title}',
+            'title': debate_title,
+            'belligerent_1': belligerent_1,
+            'belligerent_2': belligerent_2,
+            'summary_1': summary_1[:100] + "...",
+            'summary_2': summary_2[:100] + "..."
+        })
+    
+    # Send participant summaries as snippets
+    update_progress({
+        'stage': 'participants', 
+        'percent': 30, 
+        'message': f'Identified participants: {belligerent_1} vs {belligerent_2}',
+        'content_type': 'participants',
+        'content_snippet': f"{belligerent_1}: {summary_1[:100]}...\n\n{belligerent_2}: {summary_2[:100]}..."
+    })
 
     # Remove the name tags from analysis before passing to evaluate
     anonymized_analysis = re.sub(r'<p1>.*?</p1>', 'P1', analysis)
     anonymized_analysis = re.sub(r'<p2>.*?</p2>', 'P2', anonymized_analysis)
 
+    update_progress({'stage': 'evaluation', 'percent': 40, 'message': 'Evaluating arguments...'})
     time.sleep(1)
 
     # Step 2: Evaluation (using anonymized analysis)
     evaluation = make_llm_call(
         load_prompt('evaluate.txt').format(structured_arguments=anonymized_analysis),
         debate_id=debate_id,
-        prompt_name='evaluate'
+        prompt_name='evaluate',
+        expected_tags=evaluation_expected_tags,
+        user_update_callback=update_progress
     )
     
+    # Extract a snippet of the evaluation and send it
+    try:
+        eval_snippet = extract_tag('argument_map', evaluation)
+        update_progress({
+            'stage': 'evaluation_progress', 
+            'percent': 60, 
+            'message': 'Arguments evaluated',
+            'content_type': 'evaluation',
+            'content_snippet': eval_snippet[:200] + "..."
+        })
+    except:
+        pass
+    
+    update_progress({'stage': 'judgment', 'percent': 70, 'message': 'Determining final judgment...'})
     time.sleep(1)
 
     # Step 3: Final Judgment (using anonymized evaluation)
     judgment = make_llm_call(
         load_prompt('judge.txt').format(evaluations=evaluation),
         debate_id=debate_id,
-        prompt_name='judge'
+        prompt_name='judge',
+        expected_tags=judgment_expected_tags,
+        user_update_callback=update_progress
     )
     
     winner = extract_tag('winner', judgment)
+    
+    # Send the winner as a snippet
+    try:
+        reasoning = extract_tag('reasoning', judgment)
+        update_progress({
+            'stage': 'judgment_progress', 
+            'percent': 80, 
+            'message': f'Judgment: {winner} wins',
+            'content_type': 'judgment',
+            'content_snippet': f"Winner: {winner}\n\nReasoning: {reasoning[:150]}..."
+        })
+    except:
+        pass
+    
+    update_progress({'stage': 'formatting', 'percent': 85, 'message': 'Formatting results...'})
     
     # Format the evaluation and judgment for better readability
     evaluation_formatted = make_llm_call(
         load_prompt('format_evaluation.txt').format(text=evaluation),
         role='copywriter',
         debate_id=debate_id,
-        prompt_name='format_evaluation'
+        prompt_name='format_evaluation',
+        user_update_callback=update_progress
     )
     
     time.sleep(1)
@@ -168,8 +250,11 @@ def perform_analysis(text, debate_id=None):
         load_prompt('format_judgment.txt').format(text=judgment),
         role='copywriter',
         debate_id=debate_id,
-        prompt_name='format_judgment'
+        prompt_name='format_judgment',
+        user_update_callback=update_progress
     )
+    
+    update_progress({'stage': 'processing_complete', 'percent': 100, 'message': 'Analysis complete!'})
     
     return {
         'belligerent_1': belligerent_1,

@@ -12,18 +12,6 @@ from ..models import IPCreditUsage
 
 logger = logging.getLogger('llm_calls')
 
-def analyze_debate(text, debate_id=None):
-    try:
-        print("\nStarting debate analysis...")
-        result = perform_analysis(text, debate_id)
-        return result
-    except ValueError as e:
-        logger.error("Analysis failed: %s", str(e))
-        raise
-    except Exception as e:
-        logger.error("Error in analyze_debate: %s", str(e))
-        raise
-
 def home(request):
     ip_address = request.META.get('HTTP_X_FORWARDED_FOR', request.META.get('REMOTE_ADDR'))
     if ip_address:

@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="debug-info">
+    <h1>Debug Information</h1>
+    
+    <h2>Recent Debates</h2>
+    <table class="debug-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Created At</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for debate in recent_debates %}
+            <tr>
+                <td>{{ debate.id }}</td>
+                <td>{{ debate.title }}</td>
+                <td>{{ debate.created_at }}</td>
+                <td>
+                    <a href="{% url 'result' debate.id %}" class="debug-link">View Result</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<style>
+    .debug-info {
+        padding: 20px;
+    }
+    
+    .debug-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+    
+    .debug-table th, .debug-table td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+    
+    .debug-table th {
+        background-color: #f2f2f2;
+    }
+    
+    .debug-link {
+        display: inline-block;
+        padding: 5px 10px;
+        background: #2c3e50;
+        color: white;
+        text-decoration: none;
+        border-radius: 3px;
+    }
+</style>
+{% endblock %} 

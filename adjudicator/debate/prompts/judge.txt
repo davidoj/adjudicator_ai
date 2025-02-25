@@ -18,7 +18,6 @@ When evaluating arguments:
 - For complexity ratings 4-5: Explicitly acknowledge limitations and uncertainties
 - Always explain your reasoning clearly
 
-
 Outcome classifications:
 - PREVAILS DECISIVELY: One party's argument is substantially stronger, with clear evidence/reasoning
 - PREVAILS NARROWLY: One party's argument is somewhat stronger, but with limitations
@@ -26,7 +25,8 @@ Outcome classifications:
 
 Note: A weak argument vs no evidence should usually result in a NARROW victory, not a stalemate. 
 
-<final_argument_map>
+<judgment_analysis>
+  <final_argument_map>
     <topic>{{Core disagreement from evaluation}}</topic>
     <p1_argument>{{First party's main argument}}</p1_argument>
     <p2_argument>{{Second party's main argument}}</p2_argument>
@@ -36,25 +36,26 @@ Note: A weak argument vs no evidence should usually result in a NARROW victory, 
     </final_outcome>
 </final_argument_map>
 
-<judgment>
+  <judgment>
     <winner>{{Select one of the belligerents by name, or state "Indecisive" for stalemates}}</winner>
     <reasoning>{{Clear explanation of the key factors that determined the outcome}}</reasoning>
     <strength>
-        <verdict>[DECISIVE/CLEAR/NARROW/INDECISIVE]</verdict>
-        <explanation>{{Explanation of why this classification was chosen}}</explanation>
+      <verdict>[DECISIVE/CLEAR/NARROW/INDECISIVE]</verdict>
+      <explanation>{{Explanation of why this classification was chosen}}</explanation>
     </strength>
-</judgment>
+  </judgment>
 
-<strengthening_advice>
+  <strengthening_advice>
     <p1_advice>
-        <point>{{First specific suggestion for P1}}</point>
-        <point>{{Second specific suggestion for P1}}</point>
-        <point>{{Third specific suggestion for P1}}</point>
+      <point>{{First specific suggestion for P1}}</point>
+      <point>{{Second specific suggestion for P1}}</point>
+      <point>{{Third specific suggestion for P1}}</point>
     </p1_advice>
     <p2_advice>
-        <point>{{First specific suggestion for P2}}</point>
-        <point>{{Second specific suggestion for P2}}</point>
-        <point>{{Third specific suggestion for P2}}</point>
+      <point>{{First specific suggestion for P2}}</point>
+      <point>{{Second specific suggestion for P2}}</point>
+      <point>{{Third specific suggestion for P2}}</point>
     </p2_advice>
-</strengthening_advice> 
+  </strengthening_advice>
+</judgment_analysis> 
 

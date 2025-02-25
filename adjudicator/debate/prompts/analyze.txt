@@ -15,58 +15,58 @@ IMPORTANT: For the overall analysis, refer to the primary sides as P1 and P2 exc
 
 Provide a structured response in this exact format:
 
-TITLE
-Create a catchy, brief, newspaper-style title that captures the essence of the debate:
-<debate_title>compelling_title_here</debate_title>
+<analysis>
+  <debate_title>compelling_title_here</debate_title>
 
-BELLIGERENTS
-If teams are identified due to multiple participants:
-<p1>team_name_1</p1>|<p2>team_name_2</p2>
-Otherwise:
-<p1>text_party_1</p1>|<p2>text_party_2</p2>
+  <belligerents>
+    <p1>team_name_1</p1>
+    <p2>team_name_2</p2>
+  </belligerents>
 
-ARGUMENTS FOR P1
-Label each argument A1, A2, etc. For each argument, provide:
-1. Clear statement of the argument
-2. One of these strength annotations:
-   [CORE] - A central claim that other arguments build upon
-   [STRONG] - Could be decisive if not effectively countered
-   [SUPPORTING] - Reinforces another argument (specify which)
-   [WEAK] - Minor point that might only matter in a close case
-3. Add *Qant* before any claim that depends on quantities or measurements
-4. Explanation of why you chose that strength level
+  <arguments_p1>
+    <argument>
+      <id>A1</id>
+      <statement>Clear statement of the argument</statement>
+      <strength>[CORE/STRONG/SUPPORTING/WEAK]</strength>
+      <explanation>Explanation of why you chose that strength level</explanation>
+    </argument>
+    <argument>
+      <id>A2</id>
+      <statement>*Qant* Building more highways would significantly reduce traffic congestion</statement>
+      <strength>[STRONG]</strength>
+      <explanation>Makes a testable claim about infrastructure impact that requires quantitative analysis</explanation>
+    </argument>
+  </arguments_p1>
 
-Example:
-A1. P1's contract explicitly states delivery must be within 30 days
-[CORE] This is the fundamental basis of the breach of contract claim
+  <implications_p1>
+    <implication>If A1 is true, then {{consequence}}</implication>
+    <implication>A2 depends on A1 because {{reason}}</implication>
+    <implication>A3 strengthens A2 by showing {{connection}}</implication>
+  </implications_p1>
 
-A2. *Qant* Building more highways would significantly reduce traffic congestion in urban areas
-[STRONG] Makes a testable claim about infrastructure impact that requires quantitative analysis
+  <summary_p1>
+    <s1>Concise summary of their overall position and how arguments connect</s1>
+  </summary_p1>
 
-IMPLICATIONS FOR P1
-- If A1 is true, then {{consequence}}
-- A2 depends on A1 because {{reason}}
-- A3 strengthens A2 by showing {{connection}}
+  <arguments_p2>
+    <!-- Same format as arguments_p1 using B1, B2, etc. -->
+  </arguments_p2>
 
-SUMMARY FOR P1
-<s1>Concise summary of their overall position and how arguments connect</s1>
+  <implications_p2>
+    <!-- Same format as implications_p1 -->
+  </implications_p2>
 
-ARGUMENTS FOR P2
-(Same format as above, using B1, B2, etc.)
+  <summary_p2>
+    <s2>Concise summary of their overall position and how arguments connect</s2>
+  </summary_p2>
 
-IMPLICATIONS FOR P2
-(Same format as above)
-
-SUMMARY FOR P2
-<s2>Concise summary of their overall position and how arguments connect</s2>
-
-COMPLEXITY RATING
-<complexity>
-Rating: [1-5]
-Reasoning: Brief explanation of rating based on:
+  <complexity>
+    <rating>[1-5]</rating>
+    <reasoning>Brief explanation of rating based on:
 1: Easily adjudicated by a layperson
 2: Basic domain knowledge needed
 3: Moderate expertise required
 4: Significant expertise needed
-5: Deep expertise or exceptional discernment required
-</complexity> 
+5: Deep expertise or exceptional discernment required</reasoning>
+  </complexity>
+</analysis> 
