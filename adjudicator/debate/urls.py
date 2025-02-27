@@ -1,5 +1,5 @@
 from django.urls import path
-from .views.pages import home, result, update_approval, hall_of_fame
+from .views.pages import home, result, update_approval, hall_of_fame, modify_argument
 from .views.analysis import analyze_stream
 from .views.debug import debug_info
 
@@ -10,4 +10,5 @@ urlpatterns = [
     path('debate/<int:debate_id>/approve/', update_approval, name='update_approval'),
     path('hall-of-fame/', hall_of_fame, name='hall_of_fame'),
     path('debug/', debug_info, name='debug'),
+    path('modify-argument/', modify_argument, name='modify_argument'),
 ] 
