@@ -166,17 +166,49 @@ class EvaluationStage(PipelineStage):
         
         # Extract a snippet of the evaluation and send it
         try:
-            from .analysis import extract_tag
+            from .analysis import extract_tag, parse_evaluation_table
             eval_snippet = extract_tag('argument_map', evaluation)
-            self.update_progress(context, {
-                'stage': 'evaluation_progress', 
-                'percent': 60, 
-                'message': 'Arguments evaluated',
-                'content_type': 'evaluation',
-                'content_snippet': eval_snippet[:200] + "..."
-            })
-        except:
-            pass
+            
+            # Parse the argument map into a more readable format
+            parsed_tables = parse_evaluation_table(evaluation)
+            if parsed_tables and len(parsed_tables) > 0:
+                # Format the first table in a more readable way
+                table = parsed_tables[0]
+                readable_snippet = f"Topic: {table['topic']}\n\n"
+                readable_snippet += f"P1's Argument: {table['p1_argument'][:100]}...\n\n"
+                readable_snippet += f"P2's Argument: {table['p2_argument'][:100]}...\n\n"
+                readable_snippet += f"Outcome: {table['outcome']}"
+                
+                self.update_progress(context, {
+                    'stage': 'evaluation_progress', 
+                    'percent': 60, 
+                    'message': 'Arguments evaluated',
+                    'content_type': 'evaluation',
+                    'content_snippet': readable_snippet
+                })
+            else:
+                # Fall back to the raw XML if parsing fails
+                self.update_progress(context, {
+                    'stage': 'evaluation_progress', 
+                    'percent': 60, 
+                    'message': 'Arguments evaluated',
+                    'content_type': 'evaluation',
+                    'content_snippet': eval_snippet[:200] + "..."
+                })
+        except Exception as e:
+            logger.error(f"Error formatting evaluation snippet: {str(e)}")
+            # Still try to send a basic update if formatting fails
+            try:
+                eval_snippet = extract_tag('argument_map', evaluation)
+                self.update_progress(context, {
+                    'stage': 'evaluation_progress', 
+                    'percent': 60, 
+                    'message': 'Arguments evaluated',
+                    'content_type': 'evaluation',
+                    'content_snippet': eval_snippet[:200] + "..."
+                })
+            except:
+                pass
         
         # Update context with results
         context['evaluation'] = evaluation
@@ -210,17 +242,18 @@ class JudgmentStage(PipelineStage):
             user_update_callback=lambda data: self.update_progress(context, data)
         )
         
-        # Extract winner and send as a snippet
+        # Extract winner but don't send it as a snippet
         try:
             from .analysis import extract_tag
             winner = extract_tag('winner', judgment)
-            reasoning = extract_tag('reasoning', judgment)
+            
+            # Update progress without revealing the winner
             self.update_progress(context, {
                 'stage': 'judgment_progress', 
                 'percent': 80, 
-                'message': f'Judgment: {winner} wins',
+                'message': 'Judgment complete',
                 'content_type': 'judgment',
-                'content_snippet': f"Winner: {winner}\n\nReasoning: {reasoning[:150]}..."
+                'content_snippet': 'The final judgment has been determined. You will see the results on the next page.'
             })
             
             # Update context with results
